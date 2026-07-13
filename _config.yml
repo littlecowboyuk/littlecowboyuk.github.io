@@ -1,12 +1,12 @@
 # Site
-name: 'Mundana'
-description: 'Mundana is a free Jekyll theme for awesome people like you, Medium like.'
+name: '小牛仔的飛行時光'
+description: '紀錄小牛仔家的旅遊、飛行與生活點滴'
 logo: 'assets/images/logo.png'
 favicon: 'assets/images/favicon.ico'
-baseurl: '/mundana-theme-jekyll'
-disqus: 'demowebsite'
-email: 'wowthemesnet@gmail.com'
-mailchimp-list: 'https://wowthemes.us11.list-manage.com/subscribe/post?u=8aeb20a530e124561927d3bd8&amp;id=8c3d2d214b'
+baseurl: '' 
+disqus: ''
+email: 'littlecowboyuk@gmail.com'
+mailchimp-list: ''
 
 include: ["_pages"]
 permalink: /:title/
@@ -20,21 +20,13 @@ plugins:
   
 authors:
     sal:
-      name:           Sal
-      site:           https://www.wowthemes.net
-      avatar:         /assets/images/avatar1.jpg
-      bio:            "Hi, I am Sal, the author of Mundana, the theme you're currently previewing. I hope you like it!"
-      email:          wowthemesnet@gmail.com
-      twitter:        https://twitter.com/wowthemesnet
+      name:            小牛仔
+      site:            
+      avatar:          /assets/images/avatar1.jpg
+      bio:             "分享旅遊與飛行體驗，在這裡紀錄小牛仔家的生活，歡迎來到我們的新家。"
+      email:           littlecowboyuk@gmail.com
+      twitter:         
 
-    jane:
-      name:           Jane
-      site:           https://www.wowthemes.net
-      avatar:         /assets/images/avatar2.jpg
-      bio:            "Blogger, fashionista, love to explore new ideas and write on my morning coffee!"
-      email:          fakemail@gmail.com
-      twitter:        https://twitter.com/wowthemesnet
- 
 # Defaults
 defaults:
 
@@ -58,8 +50,6 @@ highlighter: rouge
 
 # Paginate
 paginate: 10
-
-
 
 # Exclude metadata and development time dependencies (like Grunt plugins)
 exclude: [README.markdown, package.json, grunt.js, Gruntfile.js, Gruntfile.coffee, node_modules]
