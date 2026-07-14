@@ -31,38 +31,41 @@ categories: [機場攻略, 貴賓室優惠]
   * 06:00 - 23:30 (第二航廈-3F)
   * 05:00 - 23:30 (第二航廈-4F)
 * **使用資格：** 主要是華航自營的貴賓室，只開放給中華航空會員和搭乘華航航班的人。需「航空會員資格」才能使用。
-* **空間與氛圍：** 裝潢簡潔而專業，氛圍較為安靜穩重。**沙發區比較豪華，類似小包廂，還可以半斜躺。**
-* **餐飲體驗：** 熱食／冷食基本自助餐與飲料選項，有部分酒精飲料供應。
+* **空間與氛圍：** 裝潢簡潔而專業，氛圍較為安靜穩重。`沙發區比較豪華，類似小包廂，還可以半斜躺`。
+* **餐飲體驗：** 冷熱食自助餐與飲料選項，餐點的品質穩定，酒精飲料供應。
   * 💡 **必吃特色：** 台灣特色美食（台式小菜+花生湯+珍珠奶茶＋雙色地瓜球）！
   * 💡 **現點現做：** 招牌牛肉麵、肉躁麵。
-* **服務設施：** 電視、餐點、淋浴設施。
+* **服務設施：** 充電/WIFI、航班資訊、電視、餐點、淋浴設施。
 
 ![桃機華航貴賓室 飲品酒類特調區](/assets/images/china-airlines-lounge-drinks.jpg)
-*(圖：桃機華航貴賓室 飲品酒類特調區)*
+*(圖：桃機華航貴賓室） （「飲酒過量，有害健康」)*
 
 ---
 
 ### 2. 環亞貴賓室（Plaza Premium Lounge）
 * **官網連結：** [plazapremiumlounge.com](https://www.plazapremiumlounge.com/zh-hk/find/china-regions/taiwan/taipei/taiwan-taoyuan-international-airport?stype=All)
-* **營業時間 & 位置：** * 05:00 - 23:00 (第2航廈A區 / 第2航廈A1區)
+* **營業時間 & 位置：**
+  * 05:00 - 23:00 (第2航廈A區 / 第2航廈A1區)
   * 05:00 - 21:00 (第1航廈C區)
   * **24 小時營運：** (第1航廈D區)
   * ⚠️ **整修通知：** T2國際出境A區及T1國際出境C區即日起至 **2026年八月底** 進行改裝。改裝期間提供 `Lounge ToGo 隨行外帶服務`（主廚精製餐盒），或可前往其他正常營運區。
-* **使用資格：** 全球最大第三方貴賓室，對所有旅客開放，不限航空與艙等。可用信用卡會員、PP卡、龍騰卡，或直接購票入場。
-* **空間與氛圍：** 中性商務與休閒混合，用餐區和沙發休息區有分開，近 200 個座位。
-* **餐飲體驗：** 涵蓋亞洲與西式料理，包含部分酒精飲料（含台啤）。
+* **使用資格：** 全球最大第三方貴賓室，對所有旅客開放，不限航空與艙等。可用信用卡會員、PP卡、龍騰卡，或購票入場。
+* **空間與氛圍：** 設計為商務與休閒混合，用餐區和沙發休息區有分開，近 200 個座位。
+* **餐飲體驗：** 提供自助式餐點與飲料暢飲，涵蓋亞洲與西式料理，包含酒精飲料（含台灣啤酒）。
   * 💡 **必吃特色：** 亞洲料理（韓式/泰式）、芒果霜淇淋！
   * 💡 **現點現做：** 台式沙茶牛肉麵、梅干扣肉飯、日式豆皮烏龍湯麵（素）、薑黃時蔬炒飯（素）。
 * **服務設施：** 充電/WIFI、航班資訊、電視、書報、會議室、淋浴設施 (額外收費)、貴賓私人休息區。
 
 ![環亞貴賓室則是有台啤](/assets/images/plaza-premium-lounge-beer.png)
-*(圖：環亞貴賓室則是有台啤)*
+*(圖：環亞貴賓室）（「飲酒過量，有害健康」)*
 
 ---
 
 ### 3. 東方宇逸貴賓室（Oriental Club Lounge）
 * **官網連結：** [orientalclublounge.com](https://www.orientalclublounge.com/)
-* **營業時間 & 位置：** 自 **2026年7月1日**起，調整為 **24小時** 全天候營運 (23:00-05:00 為深夜模式，服務以現場為準)。位置在第二航廈出境管制區四樓。
+* **營業時間 & 位置：
+  * ** 自 **2026年7月1日**起，調整為 **24小時** 全天候營運 (23:00-05:00 為深夜模式，服務以現場為準)。
+  * 位置在第二航廈出境管制區四樓。
 * **使用資格：** 不限搭乘航班或艙等。可用 Priority Pass / 龍騰卡 / 信用卡優惠免費進入，或付費購票入場。
 * **空間與氛圍：** 以臺灣特有種「藍腹鷳」為意象，木質設計為主，風格接近精品休閒感。容納 203 個座位。
 * **餐飲體驗：** 現點現做熱食選項豐富，尤其是牛肉麵、台式料理、小菜與飲料。
@@ -78,27 +81,43 @@ categories: [機場攻略, 貴賓室優惠]
 ### 💰 華航貴賓室
 * **原價：** 1,500 元。
 * **信用卡優惠：**
-  * 中信中華航輝鼎尊無限卡/璀璨無限卡/大中華攜手飛無限卡（聯名卡持卡人可自費 1,500 元使用）。
+  * 中信中華航輝鼎尊無限卡/璀璨無限卡/大中華攜手飛無限卡，可使用貴賓室。
+  * 聯名卡持卡人可自費 1,500 元使用。
 * **哩程兌換：**
-  * 華航金卡、翡翠卡及晶鑽卡會員可兌換，或以 **5000哩** 兌換貴賓室。
+  * 華航金卡、翡翠卡及晶鑽卡會員，可使用貴賓室。
+  * 或以 5000哩 兌換貴賓室。
+  * 邀請額外的親友使用自營機場貴賓室，同行家人也可以一同使用。
 
 ### 💰 環亞貴賓室
-* **原價：** 1,500 元 (未滿兩歲兒童免費)。
+* **原價：** 1,500 元。未滿兩歲兒童免費，兩歲至十一歲之間的兒童或可享受折扣優惠。
 * **票券/信用卡優惠：**
   * **官網購票：** 9 折優惠 1,350 元。
   * **JCB 極緻卡：** 滿額符合條件享 3 小時免費；或享 900 元優惠價 (同行者7折)。
-  * **U.First 貴賓室 (原龍騰卡)：** Visa商務無限卡優惠費用 399 元。
-  * **免費/優惠使用資格銀行：** 玉山、中信(優惠價800)、元大/富邦(優惠價850)、遠東、凱基、聯邦。
-* **點數兌換：** 國泰小樹點 (900點)、兆豐銀行紅利 (8,000點)、彰化銀行 (15,000點)、星展銀行。
-* **旅遊平台優惠：** [Klook](https://www.klook.com/zh-TW/activity/5259-airport-lounge-taipei/) (1,370元)、[Trip.com](https://tw.trip.com/things-to-do/detail/46535266?language=TW&locale=zh_tw) (特惠 829元)。
+  * **LoungeKey：** 持有合作信用卡（JCB/HSBC）的用戶，可以憑卡片本身進入合作的貴賓室。
+  * **U.First 貴賓室 (原龍騰卡)：** Visa 商務無限卡/Visa 商務無限卡，優惠費用 NT$399。
+  * **免費使用資格銀行：** 玉山、中信、元大、富邦、遠東、凱基、聯邦。
+  * **自費/優惠價：** 玉山(優惠價900)、中信(優惠價800)、元大/富邦(優惠價850)。
+* **點數兌換：** 國泰小樹點 (900點)、兆豐銀行紅利 (8,000點)、彰化銀行 (15,000點)、星展銀行(可透過肯驛國際網站兌換龍騰卡貴賓室)。
+* **旅遊平台優惠：**
+  * [Klook](https://www.klook.com/zh-TW/activity/5259-airport-lounge-taipei/) (3 小時貴賓室價格 1,370 元)
+  * [Trip.com](https://tw.trip.com/things-to-do/detail/46535266?language=TW&locale=zh_tw) 特惠 3 小時貴賓室價格 829 元，另有 6 小時票券，票券不得取消。（補充：白金會員，可獲得一次免費兌換機場貴賓室的禮遇。）
 
 ### 💰 東方宇逸貴賓室
 * **原價：** 成人 1,300 元 (限 2 小時，超過每小時收 200 元)。未滿 2 歲兒童免費，2-11 歲享 7 折。
 * **票券/信用卡優惠：**
-  * **U.First 貴賓室：** Visa商務無限卡優惠費用 399 元。
-  * **免費/優惠使用資格銀行：** 玉山、中信(優惠價800)、富邦(優惠價850)、遠東、凱基、聯邦。
+  * **U.First 貴賓室：** Visa商務無限卡/Visa商務無限卡，優惠費用 399 元。。
+  * **免費使用資格銀行：** 玉山、中信、富邦、遠東、凱基、聯邦。
+  * **優惠價：** 中信(優惠價800)、富邦(優惠價850)。
 * **點數兌換：** 國泰小樹點 (900點)、兆豐銀行紅利 (8,000點)。
-* **旅遊平台優惠：** [Klook](https://www.klook.com/zh-TW/activity/34852-taoyuan-international-airport-t2-lounge-service-oriental-club/?spm=Activity.SearchSuggest_LIST&clickId=18e9245f29) (888元)、[KKday](https://www.kkday.com/zh-tw/product/35197?srsltid=AfmBOorappyF5qTTKSGNYUkvziqD6IFdwyzCV7aouk0Fhy9KZTZ3D5rA) (888元)、[PChome](https://www.pchometravel.com/ticket/V000005CUT8H1X1PF0D) (2小時 780元)、MOMO (788元)、可樂旅遊 (780元)。
+* **旅遊平台優惠：**
+  * [Klook](https://www.klook.com/zh-TW/activity/34852-taoyuan-international-airport-t2-lounge-service-oriental-club/?spm=Activity.SearchSuggest_LIST&clickId=18e9245f29) 3小時貴賓室價格 888 元；兒童640元。
+  * [KKday](https://www.kkday.com/zh-tw/product/35197?srsltid=AfmBOorappyF5qTTKSGNYUkvziqD6IFdwyzCV7aouk0Fhy9KZTZ3D5rA) 3小時貴賓室價格 888 元；兒童630元。
+  * [PChome](https://www.pchometravel.com/ticket/V000005CUT8H1X1PF0D) 2 小時貴賓室成人價格 780 元，兒童也有優惠票。
+  * [LINE 禮物](https://activity.eztravel.com.tw/detail/TKAC000011598) 3 小時貴賓室服務成人價格 888 元，兒童 600 元。
+  * [易遊網](https://activity.eztravel.com.tw/detail/TKAC000011598) 3小時貴賓室服務成人票 999 元，兒童 699 元。
+  * MOMO (788元)
+  * 可樂旅遊 (780元)
+  * 其他售票：DJB/雄獅/Line旅遊
 
 ---
 
@@ -213,12 +232,12 @@ categories: [機場攻略, 貴賓室優惠]
 
   <a href="https://www.youtube.com/watch?v=UqZGCTDWDoY" target="_blank" rel="noopener" class="yt-video-card">
     <div class="yt-video-thumb">
-      <img src="https://img.youtube.com/vi/UqZGCTDWDoY/hqdefault.jpg" alt="倫敦希思羅機場">
+      <img src="https://img.youtube.com/vi/UqZGCTDWDoY/hqdefault.jpg" alt="倫敦希思羅機場攻略">
       <span class="yt-play-btn">▶️</span>
     </div>
     <div class="yt-video-info">
       <h4 class="yt-video-title">倫敦希思羅機場</h4>
-      <p class="yt-video-desc">第二航廈完整資訊</p>
+      <p class="yt-video-desc">第二航廈出入境實用資訊/機場攻略</p>
     </div>
   </a>
 
@@ -229,7 +248,7 @@ categories: [機場攻略, 貴賓室優惠]
     </div>
     <div class="yt-video-info">
       <h4 class="yt-video-title">台中饗食天堂</h4>
-      <p class="yt-video-desc">日式・中式・港式・鐵板</p>
+      <p class="yt-video-desc">日式・中式・港式・鐵板 美食實拍</p>
     </div>
   </a>
 
@@ -246,11 +265,11 @@ categories: [機場攻略, 貴賓室優惠]
 
   <a href="https://www.youtube.com/watch?v=-Xj2CmZ2Q5A0" target="_blank" rel="noopener" class="yt-video-card">
     <div class="yt-video-thumb">
-      <img src="https://img.youtube.com/vi/-Xj2CmZ2Q5A0/hqdefault.jpg" alt="苗栗懶人包">
+      <img src="https://img.youtube.com/vi/-Xj2CmZ2Q5A0/hqdefault.jpg" alt="苗栗旅遊景點懶人包">
       <span class="yt-play-btn">▶️</span>
     </div>
     <div class="yt-video-info">
-      <h4 class="yt-video-title">苗栗懶人包</h4>
+      <h4 class="yt-video-title">苗栗旅遊懶人包</h4>
       <p class="yt-video-desc">獅潭・泰安・大湖・三義慢旅</p>
     </div>
   </a>
