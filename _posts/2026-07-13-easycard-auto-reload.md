@@ -25,7 +25,6 @@ categories: [生活優惠]
     * 💡 **疊加回饋：** JCB 10% 可以疊加下表信用卡活動回饋。
 
 ▼ JCB 官方網站公告 2026 悠遊聯名卡自動加值 10% 回饋資訊：
-*(請記得將原圖下載並放進 GitHub 的 /assets/images/ 資料夾中，檔名取為 jcb-easycard.png)*
 ![JCB 悠遊聯名卡自動加值10% 回饋資訊](/assets/images/jcb-easycard.png)
 
 ---
@@ -64,7 +63,7 @@ categories: [生活優惠]
 
 部落格還有更多 [交通優惠](https://s875261.pixnet.net/blog/categories/9007010626)、[生活優惠](https://s875261.pixnet.net/blog/categories/17004332258)、[航空優惠](https://s875261.pixnet.net/blog/categories/17004251271)、[吃到飽優惠](https://s875261.pixnet.net/blog/categories/17004183053) 歡迎多加參考！
 
-分享給一起出遊的朋友和家人吧！祝大家出遊開心 ✈️
+分享給一起出遊的朋友和家人吧！祝大家出遊開心 
 
 **（[小牛仔頻道](https://www.youtube.com/@%E5%B0%8F%E7%89%9B%E4%BB%94UK-q5j) 有最新生活玩樂分享，按讚！感謝支持！）**
 
