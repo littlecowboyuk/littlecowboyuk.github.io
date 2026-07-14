@@ -37,7 +37,7 @@ categories: [旅遊攻略, 航空優惠]
   * 💡 **現點現做：** 招牌牛肉麵、肉躁麵。
 * **服務設施：** 電視、餐點、淋浴設施。
 
-![桃機華航貴賓室 飲品酒類特調區](/assets/images/china-airlines-drinks.jpg)
+![桃機華航貴賓室 飲品酒類特調區](/assets/images/china-airlines-lounge-drinks.jpg)
 *(圖：桃機華航貴賓室 飲品酒類特調區)*
 
 ---
@@ -55,7 +55,7 @@ categories: [旅遊攻略, 航空優惠]
   * 💡 **現點現做：** 台式沙茶牛肉麵、梅干扣肉飯、日式豆皮烏龍湯麵（素）、薑黃時蔬炒飯（素）。
 * **服務設施：** 充電/WIFI、航班資訊、電視、書報、會議室、淋浴設施 (額外收費)、貴賓私人休息區。
 
-![環亞貴賓室則是有台啤](/assets/images/plaza-premium-beer.png)
+![環亞貴賓室則是有台啤](/assets/images/plaza-premium-lounge-beer.png)
 *(圖：環亞貴賓室則是有台啤)*
 
 ---
