@@ -118,22 +118,6 @@ categories: [機場攻略, 貴賓室優惠]
 ---
 
 ### 🎥 機場與各地旅遊｜影片精選
-* [KLM＋華航 飛行體驗 - 桃園機場華航貴賓室開箱](https://www.youtube.com/watch?v=L_6ncG7sRHo)
-* [桃園機場 貴賓室實拍 - 環亞貴賓室 餐點＋服務](https://www.youtube.com/watch?v=pH2pjqEUddU)
-* [土耳其機場 - 伊斯坦堡轉機攻略](https://www.youtube.com/watch?v=o2rsym4HEhk)
-* [倫敦希思羅機場 - 第二航廈完整資訊](https://www.youtube.com/watch?v=UqZGCTDWDoY)
-* [台中饗食天堂 - 日式・中式・港式・鐵板・甜點冰品](https://www.youtube.com/watch?v=i6wK37J-w04)
-* [台中永豐棧飯店 - 近捷運＆YouBike・價格便宜](https://www.youtube.com/watch?v=NjhrmBABSq4)
-* [苗栗懶人包 - 獅潭・泰安・大湖・三義慢旅](https://www.youtube.com/watch?v=-Xj2CmZ2Q5A0)
-* [苗栗小吃懶人包 - 苗栗市11家銅板小吃](https://www.youtube.com/watch?v=afObj-nuBgc)
-
-### 📝 旅遊＆優惠｜文章精選
-* [📌 金門懶人包 (Kinmen 3天2夜行程全攻略)](https://s875261.pixnet.net/blog/posts/868942441443443836)
-* [📌 【華信航空】機票優惠全攻略 (最新折扣碼＋省錢小技巧)](https://s875261.pixnet.net/blog/posts/875767090978439234)
-* [📌 苗栗聚餐總覽 (苗栗市、三義、後龍、竹南、頭份餐廳)](https://s875261.pixnet.net/blog/posts/889114011017104703)
-* [📌 【信用卡餐廳優惠】 (全台飯店自助餐、吃到飽餐廳買一送一)](https://s875261.pixnet.net/blog/posts/879333489378283202)
-
-### 🎥 機場與各地旅遊｜影片精選
 
 <style>
   /* GitHub Pages 專用影片卡網格排版 */
