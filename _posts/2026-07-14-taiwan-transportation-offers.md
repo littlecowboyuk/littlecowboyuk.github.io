@@ -18,7 +18,7 @@ categories: [生活優惠, 交通優惠]
 * [一、台鐵優惠（火車票優惠、PASS周遊券）](#一台鐵優惠火車票優惠pass周遊券觀光列車等)
 * [二、高鐵優惠（一般車廂、商務車廂）](#二高鐵優惠一般車廂商務車廂)
 * [三、TPASS 月票優惠｜1.0、2.0、2.0+](#三tpass-月票優惠)
-* [四、轉乘優惠（電子票證轉乘）](#四轉乘優惠電子票證轉乘優惠包含悠遊卡一卡通或-ipass--money)
+* [四、轉乘優惠（電子票證轉乘）](#四轉乘優惠電子票證轉乘優惠包含悠遊卡一卡通或-ipass-money)
 * [五、全台交通優惠—總整理（捷運/公車/YouBike/渡輪）](#五全台交通優惠總整理)
 * [六、結語分享](#六結語分享)
 
@@ -47,6 +47,8 @@ categories: [生活優惠, 交通優惠]
   }
   .yt-video-card-single:hover { transform: translateY(-3px); box-shadow: 0 6px 15px rgba(0,0,0,0.1); }
 </style>
+
+<div>
 <a href="https://www.youtube.com/watch?v=Z_W_Y7T47o0" target="_blank" rel="noopener" class="yt-video-card-single">
   <div style="position:relative; width:100%; padding-top:56.25%;">
     <img src="https://img.youtube.com/vi/Z_W_Y7T47o0/hqdefault.jpg" style="position:absolute; top:0; left:0; width:100%; height:100%; object-fit:cover;">
@@ -57,13 +59,13 @@ categories: [生活優惠, 交通優惠]
     <p style="color:#666; font-size:13px; margin:0;">鐵道旅遊10景點+環島住宿分享</p>
   </div>
 </a>
+</div>
 
 ---
 
 ## 二、高鐵優惠（一般車廂、商務車廂）
 
 ![高鐵優惠](/assets/images/hsr-offers.jpg)
-*(請記得將高鐵車廂照片下載，命名為 hsr-offers.jpg 並上傳至你的 /assets/images/ 資料夾中)*
 
 ### 🚗 一般車廂優惠
 * **早鳥優惠**：高鐵早鳥優惠享 **65折、8折、9折**！採限定班次，最晚發售至乘車日(含)前 5 日截止，提早規劃搶票最划算！
@@ -76,7 +78,7 @@ categories: [生活優惠, 交通優惠]
 ### 💳 2026 雙鐵刷卡高回饋推薦 (TOP 5 信用卡)
 1.  **[富邦Costco聯名卡](https://cardpromote.taipeifubon.com.tw/promotion/Detail?sn=C000288)** ➔ 🔥 **8% 回饋** (需前月新增店外一般消費滿額)
 2.  **[國泰蝦皮購物聯名卡](https://www.cathay-cube.com.tw/cathaybk/personal/event/overview/credit-card/online-shopping/202506/sp-travel)** ➔ **7% 回饋** (登錄成功加碼6.5%蝦幣+原權益0.5%)
-3.  **[臺銀綠行卡](https://www.google.com)** ➔ **6% 回饋** (需申辦電子帳單、臺銀帳戶自動扣繳並綁定台灣Pay)
+3.  **[臺銀綠行卡](https://wwwap.bot.com.tw/greengocard/)** ➔ **6% 回饋** (需申辦電子帳單、臺銀帳戶自動扣繳並綁定台灣Pay)
 4.  **[中國信託 Agoda 聯名卡](https://www.ctbcbank.com/content/dam/minisite/long/creditcard/AgodaCard/event.html#lightbox-railwayfood)** ➔ **5% 回饋** (賺取 Agoda A金)
 5.  **[第一銀行 Living Green 綠活卡](https://card.firstbank.com.tw/sites/Satellite?c=CreditCard&cid=1565690685690&d=Touch&pagename=FirstBankCard%2FCreditCard%2Fzh%2FCreditCardDetailView)** ➔ **5% 回饋** (當月單筆一般消費滿 1,000 元)
 * 其他優質回饋卡：**玉山Unicard** (4.5%，UP選方案)、**永豐55688聯名卡** (4%)、**台新Richart聯名卡** (3.3%)、**國泰世華CUBE卡** (3.3%，趣旅行方案)、**遠東商銀卡** (3%)、**玉山 U Bear** (3%)。
@@ -87,6 +89,7 @@ categories: [生活優惠, 交通優惠]
 * **升等商務艙小技巧**：聰明利用特定的信用卡，可以用紅利點數折抵、哩程兌換或是限定加價，無痛升等豪華商務艙！
 * 💡 *更多商務艙專屬服務與加購高鐵最新資訊請看：[📌 高鐵升等商務艙攻略](https://s875261.pixnet.net/blog/post/578087634)*
 
+<div>
 <a href="https://www.youtube.com/watch?v=QT8tyJcJ0EY" target="_blank" rel="noopener" class="yt-video-card-single">
   <div style="position:relative; width:100%; padding-top:56.25%;">
     <img src="https://img.youtube.com/vi/QT8tyJcJ0EY/hqdefault.jpg" style="position:absolute; top:0; left:0; width:100%; height:100%; object-fit:cover;">
@@ -97,13 +100,13 @@ categories: [生活優惠, 交通優惠]
     <p style="color:#666; font-size:13px; margin:0;">專屬服務&amp;免費茶點！高鐵升等體驗！</p>
   </div>
 </a>
+</div>
 
 ---
 
 ## 三、TPASS 月票優惠
 
 ![TPASS 優惠整理](/assets/images/tpass-summary.jpg)
-*(請記得將 TPASS 橫幅照片下載，命名為 tpass-summary.jpg 並上傳至你的 /assets/images/ 資料夾中)*
 
 ### 🚌 TPASS 1.0 各地生活圈交通月票
 包含全台各大生活圈：基北北桃生活圈、北宜生活圈、桃竹竹苗生活圈、中彰投苗生活圈、雲林縣、大嘉義生活圈、南高屏生活圈、花蓮縣、臺東縣、澎湖縣。跨運具通勤族必備。
