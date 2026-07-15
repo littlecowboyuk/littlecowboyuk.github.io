@@ -644,7 +644,10 @@ footer {
 .sticky-top-offset {
 	top:70px;
 }
-.homefirstpage .main-loop .main-loop-card:nth-child(-n+5) {
+/* Hide the first 4 "All Stories" cards (already shown in the top highlight)
+   only when there are enough posts (5+); otherwise show all so the section
+   isn't empty on a small blog. The .manyposts class is set in default.html. */
+.homefirstpage.manyposts .main-loop .main-loop-card:nth-child(-n+5) {
 	display:none !important;
 }
 .excerpt {
