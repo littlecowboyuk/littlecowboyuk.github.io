@@ -35,7 +35,7 @@ defaults:
       path: "_posts"
     values:
       layout: post
-      author: sal
+      author: 小牛仔
       avatar: /assets/images/avatar1.jpg
       
   # all pages
