@@ -6,6 +6,12 @@ $(function() {
         $('#lunrsearchresults').hide( 1000 );
         $( "body" ).removeClass( "modal-open" );
     });
+
+    // Track IME composition so the Enter that confirms a CJK candidate does not
+    // prematurely submit the form and search on partial input.
+    var $ls = $('#lunrsearch');
+    $ls.on('compositionstart', function () { this.dataset.composing = '1'; });
+    $ls.on('compositionend',   function () { this.dataset.composing = '';  });
 });
     
 {% assign counter = 0 %}
@@ -26,13 +32,31 @@ var documents = [{% for page in site.pages %}{% if page.url contains '.xml' or p
     "body": "{{ page.date | date: "%Y/%m/%d" }} - {{ page.content | markdownify | replace: '.', '. ' | replace: '</h2>', ': ' | replace: '</h3>', ': ' | replace: '</h4>', ': ' | replace: '</p>', ' ' | strip_html | strip_newlines | replace: '  ', ' ' | replace: '"', ' ' }}"{% assign counter = counter | plus: 1 %}
     }{% if forloop.last %}{% else %}, {% endif %}{% endfor %}];
 
+// --- CJK (Chinese/Japanese/Korean) search support ---
+// lunr 2.1.5 only tokenizes on whitespace/hyphens and its trimmer discards CJK
+// characters (they count as \W). Segment CJK into single-character tokens and keep
+// those characters through the pipeline so Chinese queries return results.
+var cjkSplitRe = /([⺀-⿿぀-ヿ㐀-䶿一-鿿豈-﫿ｦ-ﾟ가-힯])/g;
+var cjkTrimRe  = /^[^\w⺀-⿿぀-ヿ㐀-䶿一-鿿豈-﫿ｦ-ﾟ가-힯]+|[^\w⺀-⿿぀-ヿ㐀-䶿一-鿿豈-﫿ｦ-ﾟ가-힯]+$/g;
+function segmentCJK(text) {
+    return String(text).replace(cjkSplitRe, ' $1 ');
+}
+lunr.trimmer = function (token) {
+    return token.update(function (s) { return s.replace(cjkTrimRe, ''); });
+};
+lunr.Pipeline.registerFunction(lunr.trimmer, 'trimmer');
+
 var idx = lunr(function () {
     this.ref('id')
     this.field('title')
     this.field('body')
 
     documents.forEach(function (doc) {
-        this.add(doc)
+        this.add({
+            id: doc.id,
+            title: segmentCJK(doc.title),
+            body: segmentCJK(doc.body)
+        })
     }, this)
 });
 
@@ -46,7 +70,7 @@ function lunr_search(term) {
     if(term) {
         document.getElementById('modtit').innerHTML = "<h5 class='modal-title'>Search results for '" + term + "'</h5>" + document.getElementById('modtit').innerHTML;
         //put results on the screen.
-        var results = idx.search(term);
+        var results = idx.search(segmentCJK(term));
         if(results.length>0){
             //console.log(idx.search(term));
             //if results
@@ -76,6 +100,6 @@ function lunr_search(term) {
 
 
 
-<form class="bd-search hidden-sm-down" onSubmit="return lunr_search(document.getElementById('lunrsearch').value);">
+<form class="bd-search hidden-sm-down" onSubmit="var el=document.getElementById('lunrsearch'); if(el.dataset.composing) return false; return lunr_search(el.value);">
 <input type="text" class="form-control text-small"  id="lunrsearch" name="q" value="" placeholder="Type keyword and enter..."> 
 </form>
