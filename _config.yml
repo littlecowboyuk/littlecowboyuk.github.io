@@ -19,7 +19,7 @@ plugins:
   - jekyll-seo-tag
   
 authors:
-    sal:
+    小牛仔:
       name:            小牛仔
       site:            
       avatar:          /assets/images/avatar1.jpg
