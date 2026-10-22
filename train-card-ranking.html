@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>信用卡回饋排行</title>
+    <!-- 引入極輕量開源套件 List.js (僅 5KB，無外部廣告與資料庫) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/list.js/2.3.1/list.min.js"></script>
+    <style>
+        .custom-interactive-wrap {
+            max-width: 900px;
+            margin: 20px auto;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans TC', sans-serif;
+            color: #24292f;
+        }
+
+        /* 頂部搜尋列 */
+        .table-controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .search-box {
+            flex: 1 1 240px;
+            padding: 9px 14px;
+            border: 1px solid #d0d7de;
+            border-radius: 6px;
+            font-size: 14px;
+            outline: none;
+            background-color: #f6f8fa;
+            transition: all 0.2s ease;
+            box-sizing: border-box;
+        }
+
+        .search-box:focus {
+            background-color: #ffffff;
+            border-color: #8A63D2;
+            box-shadow: 0 0 0 3px rgba(138, 99, 210, 0.2);
+        }
+
+        /* 表格容器外觀 (GitHub 灰框卡片質感) */
+        .table-container {
+            border: 1px solid #d0d7de;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 1px 3px rgba(27, 31, 36, 0.04);
+            overflow-x: auto;
+            background-color: #ffffff;
+        }
+
+        table.custom-table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+            font-size: 14px;
+        }
+
+        /* 標題欄設定 (支援點選升降冪排序) */
+        table.custom-table th {
+            background-color: #F9F6FF;
+            color: #4A2A73;
+            font-weight: 700;
+            padding: 12px 14px;
+            border-bottom: 1px solid #d0d7de;
+            cursor: pointer;
+            user-select: none;
+            white-space: nowrap;
+        }
+
+        table.custom-table th:hover {
+            background-color: #efe6fa;
+        }
+
+        table.custom-table th::after {
+            content: " ⇕";
+            font-size: 11px;
+            color: #8A63D2;
+            opacity: 0.7;
+        }
+
+        /* 資料列樣式 */
+        table.custom-table td {
+            padding: 14px;
+            border-bottom: 1px solid #e1e4e8;
+            color: #24292f;
+            line-height: 1.6;
+            vertical-align: top;
+            box-sizing: border-box;
+        }
+
+        table.custom-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        table.custom-table tbody tr:hover {
+            background-color: #fdfcff;
+        }
+
+        /* 排行徽章 (Badge) */
+        .rank-badge {
+            display: inline-block;
+            font-size: 12px;
+            font-weight: 700;
+            padding: 3px 8px;
+            border-radius: 12px;
+            white-space: nowrap;
+        }
+        .rank-1 { background-color: #feede0; color: #c55a11; }
+        .rank-2 { background-color: #fef3c7; color: #b45309; }
+        .rank-3 { background-color: #e8f0fe; color: #1a4fd8; }
+        .rank-other { background-color: #f0f2f5; color: #57606a; }
+
+        /* 卡片超連結樣式 */
+        .card-link {
+            color: #4A2A73;
+            font-weight: 600;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .card-link:hover {
+            color: #8A63D2;
+            text-decoration: underline;
+        }
+
+        /* 回饋率條狀圖 */
+        .rate-bar-wrap {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 4px;
+        }
+        .rate-bar {
+            height: 6px;
+            background: linear-gradient(90deg, #8A63D2, #4A2A73);
+            border-radius: 3px;
+        }
+        .rate-text {
+            font-weight: 700;
+            color: #c55a11;
+            font-size: 15px;
+        }
+
+        /* 條件清單排版 */
+        .desc-list {
+            padding-left: 18px;
+            margin: 0;
+            font-size: 13.5px;
+            color: #333333;
+        }
+        .desc-list li {
+            margin-bottom: 5px;
+        }
+        .desc-list li:last-child {
+            margin-bottom: 0;
+        }
+
+        /* 底部補充說明區塊 */
+        .table-footer {
+            padding: 12px 16px;
+            background-color: #f6f8fa;
+            border-top: 1px solid #d0d7de;
+            font-size: 13.5px;
+            color: #57606a;
+        }
+        .table-footer a {
+            color: #4A2A73;
+            font-weight: 600;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+<div id="interactive-card-table" class="custom-interactive-wrap">
+    <!-- 即時搜尋控制區 -->
+    <div class="table-controls">
+        <input class="search search-box" placeholder="🔍 輸入關鍵字即時搜尋（如：富邦、8%、蝦皮、扣繳）..." />
+        <span style="font-size: 12.5px; color: #57606a;">💡 點擊欄位標題可升降冪排序</span>
+    </div>
+
+    <!-- 核心表格結構 -->
+    <div class="table-container">
+        <table class="custom-table">
+            <thead>
+                <tr>
+                    <th class="sort" data-sort="col-rank" style="width: 14%; text-align: center;">回饋排行</th>
+                    <th class="sort" data-sort="col-name" style="width: 28%;">信用卡</th>
+                    <th class="sort" data-sort="col-rate" style="width: 18%;">最高回饋</th>
+                    <th class="sort" data-sort="col-desc" style="width: 40%;">回饋條件與說明</th>
+                </tr>
+            </thead>
+            <!-- 需包在 class="list" 內，讓 JavaScript 自動接管搜尋與排序 -->
+            <tbody class="list">
+                <tr>
+                    <td style="text-align: center;">
+                        <span class="rank-badge rank-1">TOP 1</span>
+                        <span class="col-rank" style="display: none;">1</span>
+                    </td>
+                    <td>
+                        <a href="https://cardpromote.taipeifubon.com.tw/promotion/Detail?sn=C000288" target="_blank" class="card-link col-name">富邦 Costco 聯名卡</a>
+                    </td>
+                    <td>
+                        <div class="rate-bar-wrap">
+                            <div class="rate-bar" style="width: 80px;"></div>
+                            <span class="rate-text col-rate">8.0%</span>
+                        </div>
+                    </td>
+                    <td class="col-desc">
+                        <ul class="desc-list">
+                            <li>世界卡最高 8% / 鈦商卡、鈦金卡最高 6%（皆含原權益 1%）。</li>
+                            <li>前月「店外」一般消費累積滿 12,000 元（若滿 6,000 元，世界卡 6%、鈦金卡 4%）。</li>
+                            <li>需使用台北富邦銀行帳戶自動轉帳扣繳卡費。</li>
+                            <li>世界卡加碼上限 550 元（可刷 7,857 元）；鈦金/鈦商卡加碼上限 450 元（可刷 9,000 元）。</li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td style="text-align: center;">
+                        <span class="rank-badge rank-2">TOP 2</span>
+                        <span class="col-rank" style="display: none;">2</span>
+                    </td>
+                    <td>
+                        <a href="https://www.cathay-cube.com.tw/cathaybk/personal/event/overview/credit-card/online-shopping/202506/sp-travel" target="_blank" class="card-link col-name">國泰蝦皮購物聯名卡</a>
+                    </td>
+                    <td>
+                        <div class="rate-bar-wrap">
+                            <div class="rate-bar" style="width: 70px;"></div>
+                            <span class="rate-text col-rate">7.0%</span>
+                        </div>
+                    </td>
+                    <td class="col-desc">
+                        <ul class="desc-list">
+                            <li>7% 蝦幣：登錄成功加碼 6.5% 蝦幣，加計原權益 0.5% 蝦幣。</li>
+                            <li>活動分兩波（7~9月、10~12月），每波加碼上限 3,000 蝦幣，每波可刷 46,153 元。</li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td style="text-align: center;">
+                        <span class="rank-badge rank-3">TOP 3</span>
+                        <span class="col-rank" style="display: none;">3</span>
+                    </td>
+                    <td>
+                        <a href="https://wwwap.bot.com.tw/greengocard/" target="_blank" class="card-link col-name">臺銀綠行卡</a>
+                    </td>
+                    <td>
+                        <div class="rate-bar-wrap">
+                            <div class="rate-bar" style="width: 60px;"></div>
+                            <span class="rate-text col-rate">6.0%</span>
+                        </div>
+                    </td>
+                    <td class="col-desc">
+                        <ul class="desc-list">
+                            <li>低碳出行 +5%、行動支付 +1%。</li>
+                            <li>需同時達成申辦電子帳單、臺銀帳戶自動授扣、綁定台灣Pay。</li>
+                            <li>新戶每月上限 500 元（可刷 1 萬元）；舊戶每月上限 300 元（可刷 6,000 元）。</li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td style="text-align: center;">
+                        <span class="rank-badge rank-other">TOP 4</span>
+                        <span class="col-rank" style="display: none;">4</span>
+                    </td>
+                    <td>
+                        <a href="https://www.ctbcbank.com/content/dam/minisite/long/creditcard/AgodaCard/event.html#lightbox-railwayfood" target="_blank" class="card-link col-name">中國信託 Agoda 聯名卡</a>
+                    </td>
+                    <td>
+                        <div class="rate-bar-wrap">
+                            <div class="rate-bar" style="width: 50px;"></div>
+                            <span class="rate-text col-rate">5.0%</span>
+                        </div>
+                    </td>
+                    <td class="col-desc">
+                        <ul class="desc-list">
+                            <li>A金回饋：1% 基本 + 4% 加碼。</li>
+                            <li>加碼 4% 每期上限 500 A金，換算下來每期可刷到 12,500 元。</li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td style="text-align: center;">
+                        <span class="rank-badge rank-other">TOP 5</span>
+                        <span class="col-rank" style="display: none;">5</span>
+                    </td>
+                    <td>
+                        <a href="https://www.esunbank.com/zh-tw/personal/credit-card/discount/shopInfo?sno=7009" target="_blank" class="card-link col-name">玉山 Unicard</a>
+                    </td>
+                    <td>
+                        <div class="rate-bar-wrap">
+                            <div class="rate-bar" style="width: 45px;"></div>
+                            <span class="rate-text col-rate">4.5%</span>
+                        </div>
+                    </td>
+                    <td class="col-desc">
+                        <ul class="desc-list">
+                            <li>e point 回饋：切換至 UP 選方案。</li>
+                            <li>一般消費最高 1%（需申請帳單 e 化及玉山帳戶扣繳）+ 百大指定消費加碼最高 3.5%。</li>
+                            <li>歸戶每月上限 5,000 點，可刷高達 14 萬元。</li>
+                        </ul>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- 底部補充說明區塊 -->
+        <div class="table-footer">
+            📌 <strong>補充：</strong>還有其他雙鐵回饋還不錯的卡嗎？看<a href="https://s875261.pixnet.net/blog/posts/895278644744637635" target="_blank">這篇完整台鐵和高鐵整理</a>
+        </div>
+    </div>
+</div>
+
+<!-- 初始化互動功能腳本 -->
+<script>
+    var options = {
+        valueNames: [ 'col-rank', 'col-name', 'col-rate', 'col-desc' ]
+    };
+
+    var tableList = new List('interactive-card-table', options);
+</script>
+
+</body>
+</html>
