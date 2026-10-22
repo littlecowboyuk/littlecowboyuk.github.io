@@ -359,4 +359,54 @@
                             <span class="rate-text col-rate">3.0%</span>
                         </div>
                     </td>
-                    <td class="condition-text col-desc">
+                    <td class="condition-text col-desc">高鐵/台鐵刷遠銀卡每月累積滿 NT$3,000 (含) 以上</td>
+                </tr>
+
+                <!-- 10. 富邦Ｊ卡 -->
+                <tr>
+                    <td style="text-align: center;">
+                        <span class="rank-badge rank-other">TOP 10</span>
+                        <span class="col-rank" style="display: none;">10</span>
+                    </td>
+                    <td><span class="card-name-text col-name">富邦 Ｊ 卡</span></td>
+                    <td>
+                        <div class="rate-bar-wrap">
+                            <div class="rate-bar" style="width: 20px;"></div>
+                            <span class="rate-text col-rate">2.0%</span>
+                        </div>
+                    </td>
+                    <td class="condition-text col-desc">使用一卡通支付每月累積滿 100 元</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- 底部連結補充 -->
+        <div class="table-footer">
+            📌 <strong>推薦閱讀：</strong>火車票 PASS 周遊券、觀光列車與環島之星攻略，請見<a href="https://s875261.pixnet.net/blog/posts/895278644744637635" target="_blank">【台鐵優惠懶人包】</a>[cite: 1]
+        </div>
+    </div>
+</div>
+
+<!-- 初始化互動功能與站內搜尋腳本 -->
+<script>
+    // 1. 初始化 List.js 表格即時過濾與排序
+    var options = {
+        valueNames: [ 'col-rank', 'col-name', 'col-rate', 'col-desc' ]
+    };
+    var tableList = new List('interactive-card-table', options);
+
+    // 2. 搜尋小牛仔站內文章專用函式 (突破跨來源阻擋，強制新分頁開啟)
+    function searchLittleCowboy(e) {
+        if (e && e.preventDefault) e.preventDefault();
+        var val = document.getElementById('siteKeywordInput').value.trim();
+        if (!val) return false;
+
+        // 使用 Google 絕對鎖定 site: 語法
+        var targetUrl = "https://www.google.com/search?q=" + encodeURIComponent("site:s875261.pixnet.net " + val);
+        window.open(targetUrl, '_blank');
+        return false;
+    }
+</script>
+
+</body>
+</html>
