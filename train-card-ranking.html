@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>信用卡回饋排行</title>
-    <!-- 引入極輕量開源套件 List.js (僅 5KB，無外部廣告與資料庫) -->
+    <!-- 引入極輕量開源套件 List.js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/list.js/2.3.1/list.min.js"></script>
     <style>
         .custom-interactive-wrap {
@@ -14,7 +14,7 @@
             color: #24292f;
         }
 
-        /* 頂部搜尋列 */
+        /* 頂部搜尋列與按鈕整合 */
         .table-controls {
             display: flex;
             justify-content: space-between;
@@ -24,8 +24,15 @@
             flex-wrap: wrap;
         }
 
+        .search-form-wrap {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex: 1 1 320px;
+        }
+
         .search-box {
-            flex: 1 1 240px;
+            flex-grow: 1;
             padding: 9px 14px;
             border: 1px solid #d0d7de;
             border-radius: 6px;
@@ -34,6 +41,7 @@
             background-color: #f6f8fa;
             transition: all 0.2s ease;
             box-sizing: border-box;
+            height: 40px;
         }
 
         .search-box:focus {
@@ -42,7 +50,31 @@
             box-shadow: 0 0 0 3px rgba(138, 99, 210, 0.2);
         }
 
-        /* 表格容器外觀 (GitHub 灰框卡片質感) */
+        /* 專屬深紫色「只搜小牛仔站內」按鈕 */
+        .btn-site-search {
+            padding: 0 16px;
+            height: 40px;
+            font-size: 13.5px;
+            font-weight: 600;
+            color: #ffffff;
+            background-color: #4A2A73;
+            border: 1px solid #4A2A73;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            white-space: nowrap;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .btn-site-search:hover {
+            background-color: #8A63D2;
+            border-color: #8A63D2;
+            box-shadow: 0 2px 6px rgba(138, 99, 210, 0.25);
+        }
+
+        /* 表格容器外觀 */
         .table-container {
             border: 1px solid #d0d7de;
             border-radius: 8px;
@@ -59,7 +91,7 @@
             font-size: 14px;
         }
 
-        /* 標題欄設定 (支援點選升降冪排序) */
+        /* 標題欄設定 */
         table.custom-table th {
             background-color: #F9F6FF;
             color: #4A2A73;
@@ -82,7 +114,6 @@
             opacity: 0.7;
         }
 
-        /* 資料列樣式 */
         table.custom-table td {
             padding: 14px;
             border-bottom: 1px solid #e1e4e8;
@@ -100,7 +131,7 @@
             background-color: #fdfcff;
         }
 
-        /* 排行徽章 (Badge) */
+        /* 排行徽章 */
         .rank-badge {
             display: inline-block;
             font-size: 12px;
@@ -114,7 +145,6 @@
         .rank-3 { background-color: #e8f0fe; color: #1a4fd8; }
         .rank-other { background-color: #f0f2f5; color: #57606a; }
 
-        /* 卡片超連結樣式 */
         .card-link {
             color: #4A2A73;
             font-weight: 600;
@@ -126,7 +156,6 @@
             text-decoration: underline;
         }
 
-        /* 回饋率條狀圖 */
         .rate-bar-wrap {
             display: flex;
             align-items: center;
@@ -144,7 +173,6 @@
             font-size: 15px;
         }
 
-        /* 條件清單排版 */
         .desc-list {
             padding-left: 18px;
             margin: 0;
@@ -158,7 +186,6 @@
             margin-bottom: 0;
         }
 
-        /* 底部補充說明區塊 */
         .table-footer {
             padding: 12px 16px;
             background-color: #f6f8fa;
@@ -176,9 +203,12 @@
 <body>
 
 <div id="interactive-card-table" class="custom-interactive-wrap">
-    <!-- 即時搜尋控制區 -->
+    <!-- 頂部搜尋列：表格即時過濾 + Enter/點擊搜小牛仔站內文章 -->
     <div class="table-controls">
-        <input class="search search-box" placeholder="🔍 輸入關鍵字即時搜尋（如：富邦、8%、蝦皮、扣繳）..." />
+        <form class="search-form-wrap" onsubmit="searchLittleCowboy(event)">
+            <input type="text" id="siteKeywordInput" class="search search-box" placeholder="🔍 搜尋本表或全站文章（如：富邦、台鐵）..." required />
+            <button type="submit" class="btn-site-search">搜小牛仔 ➔</button>
+        </form>
         <span style="font-size: 12.5px; color: #57606a;">💡 點擊欄位標題可升降冪排序</span>
     </div>
 
@@ -193,7 +223,6 @@
                     <th class="sort" data-sort="col-desc" style="width: 40%;">回饋條件與說明</th>
                 </tr>
             </thead>
-            <!-- 需包在 class="list" 內，讓 JavaScript 自動接管搜尋與排序 -->
             <tbody class="list">
                 <tr>
                     <td style="text-align: center;">
@@ -313,18 +342,30 @@
 
         <!-- 底部補充說明區塊 -->
         <div class="table-footer">
-            📌 <strong>補充：</strong>還有其他雙鐵回饋還不錯的卡嗎？看<a href="https://s875261.pixnet.net/blog/posts/895278644744637635" target="_blank">這篇完整台鐵和高鐵整理</a>
+            📌 <strong>補充：</strong>還有其他雙鐵回饋還不錯的卡嗎？看<a href="https://s875261.pixnet.net/blog/posts/895278644744637635" target="_blank">這篇完整整理</a>
         </div>
     </div>
 </div>
 
-<!-- 初始化互動功能腳本 -->
+<!-- 初始化互動功能與站內搜尋腳本 -->
 <script>
+    // 1. 初始化 List.js 表格即時過濾與排序
     var options = {
         valueNames: [ 'col-rank', 'col-name', 'col-rate', 'col-desc' ]
     };
-
     var tableList = new List('interactive-card-table', options);
+
+    // 2. 搜尋小牛仔站內文章專用函式 (突破跨網域限制，在新視窗開啟)
+    function searchLittleCowboy(e) {
+        if (e && e.preventDefault) e.preventDefault();
+        var val = document.getElementById('siteKeywordInput').value.trim();
+        if (!val) return false;
+
+        // 使用 Google 絕對鎖定 site: 語法
+        var targetUrl = "https://www.google.com/search?q=" + encodeURIComponent("site:s875261.pixnet.net " + val);
+        window.open(targetUrl, '_blank');
+        return false;
+    }
 </script>
 
 </body>
