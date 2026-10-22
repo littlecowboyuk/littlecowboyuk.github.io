@@ -254,3 +254,119 @@
                         <span class="col-rank" style="display: none;">2</span>
                     </td>
                     <td>
+                        <a href="https://www.cathay-cube.com.tw/cathaybk/personal/event/overview/credit-card/online-shopping/202506/sp-travel" target="_blank" class="card-link col-name">國泰蝦皮購物聯名卡</a>
+                    </td>
+                    <td>
+                        <div class="rate-bar-wrap">
+                            <div class="rate-bar" style="width: 70px;"></div>
+                            <span class="rate-text col-rate">7.0%</span>
+                        </div>
+                    </td>
+                    <td class="col-desc">
+                        <ul class="desc-list">
+                            <li>7% 蝦幣：登錄成功加碼 6.5% 蝦幣，加計原權益 0.5% 蝦幣。</li>
+                            <li>活動分兩波（7~9月、10~12月），每波加碼上限 3,000 蝦幣，每波可刷 46,153 元。</li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td style="text-align: center;">
+                        <span class="rank-badge rank-3">TOP 3</span>
+                        <span class="col-rank" style="display: none;">3</span>
+                    </td>
+                    <td>
+                        <a href="https://wwwap.bot.com.tw/greengocard/" target="_blank" class="card-link col-name">臺銀綠行卡</a>
+                    </td>
+                    <td>
+                        <div class="rate-bar-wrap">
+                            <div class="rate-bar" style="width: 60px;"></div>
+                            <span class="rate-text col-rate">6.0%</span>
+                        </div>
+                    </td>
+                    <td class="col-desc">
+                        <ul class="desc-list">
+                            <li>低碳出行 +5%、行動支付 +1%。</li>
+                            <li>需同時達成申辦電子帳單、臺銀帳戶自動授扣、綁定台灣Pay。</li>
+                            <li>新戶每月上限 500 元（可刷 1 萬元）；舊戶每月上限 300 元（可刷 6,000 元）。</li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td style="text-align: center;">
+                        <span class="rank-badge rank-other">TOP 4</span>
+                        <span class="col-rank" style="display: none;">4</span>
+                    </td>
+                    <td>
+                        <a href="https://www.ctbcbank.com/content/dam/minisite/long/creditcard/AgodaCard/event.html#lightbox-railwayfood" target="_blank" class="card-link col-name">中國信託 Agoda 聯名卡</a>
+                    </td>
+                    <td>
+                        <div class="rate-bar-wrap">
+                            <div class="rate-bar" style="width: 50px;"></div>
+                            <span class="rate-text col-rate">5.0%</span>
+                        </div>
+                    </td>
+                    <td class="col-desc">
+                        <ul class="desc-list">
+                            <li>A金回饋：1% 基本 + 4% 加碼。</li>
+                            <li>加碼 4% 每期上限 500 A金，換算下來每期可刷到 12,500 元。</li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td style="text-align: center;">
+                        <span class="rank-badge rank-other">TOP 5</span>
+                        <span class="col-rank" style="display: none;">5</span>
+                    </td>
+                    <td>
+                        <a href="https://www.esunbank.com/zh-tw/personal/credit-card/discount/shopInfo?sno=7009" target="_blank" class="card-link col-name">玉山 Unicard</a>
+                    </td>
+                    <td>
+                        <div class="rate-bar-wrap">
+                            <div class="rate-bar" style="width: 45px;"></div>
+                            <span class="rate-text col-rate">4.5%</span>
+                        </div>
+                    </td>
+                    <td class="col-desc">
+                        <ul class="desc-list">
+                            <li>e point 回饋：切換至 UP 選方案。</li>
+                            <li>一般消費最高 1%（需申請帳單 e 化及玉山帳戶扣繳）+ 百大指定消費加碼最高 3.5%。</li>
+                            <li>歸戶每月上限 5,000 點，可刷高達 14 萬元。</li>
+                        </ul>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- 底部補充說明區塊 -->
+        <div class="table-footer">
+            📌 <strong>補充：</strong>還有其他雙鐵回饋還不錯的卡嗎？看<a href="https://s875261.pixnet.net/blog/posts/895278644744637635" target="_blank">這篇完整整理</a>
+        </div>
+    </div>
+</div>
+
+<!-- 初始化互動功能與站內搜尋腳本 -->
+<script>
+    // 1. 初始化 List.js 表格即時過濾與排序
+    var options = {
+        valueNames: [ 'col-rank', 'col-name', 'col-rate', 'col-desc' ]
+    };
+    var tableList = new List('interactive-card-table', options);
+
+    // 2. 搜尋小牛仔站內文章專用函式 (突破跨網域限制，在新視窗開啟)
+    function searchLittleCowboy(e) {
+        if (e && e.preventDefault) e.preventDefault();
+        var val = document.getElementById('siteKeywordInput').value.trim();
+        if (!val) return false;
+
+        // 使用 Google 絕對鎖定 site: 語法
+        var targetUrl = "https://www.google.com/search?q=" + encodeURIComponent("site:s875261.pixnet.net " + val);
+        window.open(targetUrl, '_blank');
+        return false;
+    }
+</script>
+
+</body>
+</html>
