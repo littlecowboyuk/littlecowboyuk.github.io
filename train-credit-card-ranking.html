@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>台鐵刷卡回饋排行榜</title>
-    <!-- 引入極輕量開源套件 List.js (僅 5KB，無廣告與外部資料庫) -->
+    <title>信用卡回饋排行</title>
+    <!-- 引入極輕量開源套件 List.js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/list.js/2.3.1/list.min.js"></script>
     <style>
         .custom-interactive-wrap {
@@ -14,7 +14,7 @@
             color: #24292f;
         }
 
-        /* 頂部搜尋列與全站搜尋整合 */
+        /* 頂部搜尋列與按鈕整合 */
         .table-controls {
             display: flex;
             justify-content: space-between;
@@ -50,7 +50,7 @@
             box-shadow: 0 0 0 3px rgba(138, 99, 210, 0.2);
         }
 
-        /* 專屬深紫色搜尋按鈕 */
+        /* 專屬深紫色「只搜小牛仔站內」按鈕 */
         .btn-site-search {
             padding: 0 16px;
             height: 40px;
@@ -74,7 +74,7 @@
             box-shadow: 0 2px 6px rgba(138, 99, 210, 0.25);
         }
 
-        /* 表格容器外觀 (GitHub 灰框卡片質感) */
+        /* 表格容器外觀 */
         .table-container {
             border: 1px solid #d0d7de;
             border-radius: 8px;
@@ -91,7 +91,7 @@
             font-size: 14px;
         }
 
-        /* 標題欄設定 (支援點選排序) */
+        /* 標題欄設定 */
         table.custom-table th {
             background-color: #F9F6FF;
             color: #4A2A73;
@@ -114,13 +114,12 @@
             opacity: 0.7;
         }
 
-        /* 資料列樣式 */
         table.custom-table td {
             padding: 14px;
             border-bottom: 1px solid #e1e4e8;
             color: #24292f;
             line-height: 1.6;
-            vertical-align: middle;
+            vertical-align: top;
             box-sizing: border-box;
         }
 
@@ -132,7 +131,7 @@
             background-color: #fdfcff;
         }
 
-        /* 排行徽章 (Badge) */
+        /* 排行徽章 */
         .rank-badge {
             display: inline-block;
             font-size: 12px;
@@ -146,18 +145,22 @@
         .rank-3 { background-color: #e8f0fe; color: #1a4fd8; }
         .rank-other { background-color: #f0f2f5; color: #57606a; }
 
-        /* 卡片文字 */
-        .card-name-text {
-            color: #24292f;
+        .card-link {
+            color: #4A2A73;
             font-weight: 600;
-            font-size: 14.5px;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .card-link:hover {
+            color: #8A63D2;
+            text-decoration: underline;
         }
 
-        /* 回饋率條狀圖 */
         .rate-bar-wrap {
             display: flex;
             align-items: center;
             gap: 8px;
+            margin-top: 4px;
         }
         .rate-bar {
             height: 6px;
@@ -170,14 +173,19 @@
             font-size: 15px;
         }
 
-        /* 條件與門檻文字 */
-        .condition-text {
+        .desc-list {
+            padding-left: 18px;
+            margin: 0;
             font-size: 13.5px;
-            color: #57606a;
-            line-height: 1.5;
+            color: #333333;
+        }
+        .desc-list li {
+            margin-bottom: 5px;
+        }
+        .desc-list li:last-child {
+            margin-bottom: 0;
         }
 
-        /* 底部補充區塊 */
         .table-footer {
             padding: 12px 16px;
             background-color: #f6f8fa;
@@ -195,13 +203,13 @@
 <body>
 
 <div id="interactive-card-table" class="custom-interactive-wrap">
-    <!-- 頂部即時搜尋與全站搜尋控制區 -->
+    <!-- 頂部搜尋列：表格即時過濾 + Enter/點擊搜小牛仔站內文章 -->
     <div class="table-controls">
-        <form action="https://s875261.pixnet.net/blog/search" method="get" target="_blank" class="search-form-wrap">
-            <input type="text" name="q" class="search search-box" placeholder="🔍 搜尋信用卡、回饋率或條件（如：聯邦、5%、滿額）..." required />
+        <form class="search-form-wrap" onsubmit="searchLittleCowboy(event)">
+            <input type="text" id="siteKeywordInput" class="search search-box" placeholder="🔍 搜尋本表或全站文章（如：富邦、台鐵）..." required />
             <button type="submit" class="btn-site-search">搜小牛仔 ➔</button>
         </form>
-        <span style="font-size: 12.5px; color: #57606a;">💡 點擊欄位標題可排序</span>
+        <span style="font-size: 12.5px; color: #57606a;">💡 點擊欄位標題可升降冪排序</span>
     </div>
 
     <!-- 核心表格結構 -->
@@ -209,191 +217,40 @@
         <table class="custom-table">
             <thead>
                 <tr>
-                    <th class="sort" data-sort="col-rank" style="width: 14%; text-align: center;">排行</th>
-                    <th class="sort" data-sort="col-name" style="width: 30%;">信用卡</th>
-                    <th class="sort" data-sort="col-rate" style="width: 22%;">最高回饋</th>
-                    <th class="sort" data-sort="col-desc" style="width: 34%;">條件門檻與加碼說明</th>
+                    <th class="sort" data-sort="col-rank" style="width: 14%; text-align: center;">回饋排行</th>
+                    <th class="sort" data-sort="col-name" style="width: 28%;">信用卡</th>
+                    <th class="sort" data-sort="col-rate" style="width: 18%;">最高回饋</th>
+                    <th class="sort" data-sort="col-desc" style="width: 40%;">回饋條件與說明</th>
                 </tr>
             </thead>
-            <!-- 需包在 class="list" 內，讓 JavaScript 自動接管搜尋與排序 -->
             <tbody class="list">
-                <!-- 1. 聯邦Ｍ卡 -->
                 <tr>
                     <td style="text-align: center;">
                         <span class="rank-badge rank-1">TOP 1</span>
                         <span class="col-rank" style="display: none;">1</span>
                     </td>
-                    <td><span class="card-name-text col-name">聯邦 Ｍ 卡</span></td>
+                    <td>
+                        <a href="https://cardpromote.taipeifubon.com.tw/promotion/Detail?sn=C000288" target="_blank" class="card-link col-name">富邦 Costco 聯名卡</a>
+                    </td>
                     <td>
                         <div class="rate-bar-wrap">
-                            <div class="rate-bar" style="width: 100px;"></div>
-                            <span class="rate-text col-rate">11.0%</span>
+                            <div class="rate-bar" style="width: 80px;"></div>
+                            <span class="rate-text col-rate">8.0%</span>
                         </div>
                     </td>
-                    <td class="condition-text col-desc">跨場景消費加碼再贈 250 元刷卡金，最高回饋疊加至 11%</td>
+                    <td class="col-desc">
+                        <ul class="desc-list">
+                            <li>世界卡最高 8% / 鈦商卡、鈦金卡最高 6%（皆含原權益 1%）。</li>
+                            <li>前月「店外」一般消費累積滿 12,000 元（若滿 6,000 元，世界卡 6%、鈦金卡 4%）。</li>
+                            <li>需使用台北富邦銀行帳戶自動轉帳扣繳卡費。</li>
+                            <li>世界卡加碼上限 550 元（可刷 7,857 元）；鈦金/鈦商卡加碼上限 450 元（可刷 9,000 元）。</li>
+                        </ul>
+                    </td>
                 </tr>
 
-                <!-- 2. 富邦Costco聯名卡 -->
                 <tr>
                     <td style="text-align: center;">
                         <span class="rank-badge rank-2">TOP 2</span>
                         <span class="col-rank" style="display: none;">2</span>
                     </td>
-                    <td><span class="card-name-text col-name">富邦 Costco 聯名卡</span></td>
                     <td>
-                        <div class="rate-bar-wrap">
-                            <div class="rate-bar" style="width: 75px;"></div>
-                            <span class="rate-text col-rate">8.0%</span>
-                        </div>
-                    </td>
-                    <td class="condition-text col-desc">需前月新增店外一般消費滿額</td>
-                </tr>
-
-                <!-- 3. 國泰蝦皮購物聯名卡 -->
-                <tr>
-                    <td style="text-align: center;">
-                        <span class="rank-badge rank-3">TOP 3</span>
-                        <span class="col-rank" style="display: none;">3</span>
-                    </td>
-                    <td><span class="card-name-text col-name">國泰蝦皮購物聯名卡</span></td>
-                    <td>
-                        <div class="rate-bar-wrap">
-                            <div class="rate-bar" style="width: 65px;"></div>
-                            <span class="rate-text col-rate">7.0%</span>
-                        </div>
-                    </td>
-                    <td class="condition-text col-desc">登錄成功加碼 6.5% 蝦幣，加計原權益 0.5% 蝦幣</td>
-                </tr>
-
-                <!-- 4. 中國信託 Agoda 聯名卡 -->
-                <tr>
-                    <td style="text-align: center;">
-                        <span class="rank-badge rank-other">TOP 4</span>
-                        <span class="col-rank" style="display: none;">4</span>
-                    </td>
-                    <td><span class="card-name-text col-name">中國信託 Agoda 聯名卡</span></td>
-                    <td>
-                        <div class="rate-bar-wrap">
-                            <div class="rate-bar" style="width: 50px;"></div>
-                            <span class="rate-text col-rate">5.0%</span>
-                        </div>
-                    </td>
-                    <td class="condition-text col-desc">回饋 A 金（特定通路加碼）</td>
-                </tr>
-
-                <!-- 5. 第一銀行 Living Green 綠活卡 -->
-                <tr>
-                    <td style="text-align: center;">
-                        <span class="rank-badge rank-other">TOP 5</span>
-                        <span class="col-rank" style="display: none;">5</span>
-                    </td>
-                    <td><span class="card-name-text col-name">第一銀行 綠活卡 (Living Green)</span></td>
-                    <td>
-                        <div class="rate-bar-wrap">
-                            <div class="rate-bar" style="width: 50px;"></div>
-                            <span class="rate-text col-rate">5.0%</span>
-                        </div>
-                    </td>
-                    <td class="condition-text col-desc">當月單筆一般消費需滿 1,000 元</td>
-                </tr>
-
-                <!-- 6. 玉山Unicard -->
-                <tr>
-                    <td style="text-align: center;">
-                        <span class="rank-badge rank-other">TOP 6</span>
-                        <span class="col-rank" style="display: none;">6</span>
-                    </td>
-                    <td><span class="card-name-text col-name">玉山 Unicard</span></td>
-                    <td>
-                        <div class="rate-bar-wrap">
-                            <div class="rate-bar" style="width: 45px;"></div>
-                            <span class="rate-text col-rate">4.5%</span>
-                        </div>
-                    </td>
-                    <td class="condition-text col-desc">需切換至【UP選】方案享有加碼</td>
-                </tr>
-
-                <!-- 7. 永豐55688聯名卡 -->
-                <tr>
-                    <td style="text-align: center;">
-                        <span class="rank-badge rank-other">TOP 7</span>
-                        <span class="col-rank" style="display: none;">7</span>
-                    </td>
-                    <td><span class="card-name-text col-name">永豐 55688 聯名卡</span></td>
-                    <td>
-                        <div class="rate-bar-wrap">
-                            <div class="rate-bar" style="width: 40px;"></div>
-                            <span class="rate-text col-rate">4.0%</span>
-                        </div>
-                    </td>
-                    <td class="condition-text col-desc">搭乘台灣大車隊或指定雙鐵交通加碼</td>
-                </tr>
-
-                <!-- 8. 台新銀行 Richart 聯名卡 -->
-                <tr>
-                    <td style="text-align: center;">
-                        <span class="rank-badge rank-other">TOP 8</span>
-                        <span class="col-rank" style="display: none;">8</span>
-                    </td>
-                    <td><span class="card-name-text col-name">台新銀行 Richart 聯名卡</span></td>
-                    <td>
-                        <div class="rate-bar-wrap">
-                            <div class="rate-bar" style="width: 33px;"></div>
-                            <span class="rate-text col-rate">3.3%</span>
-                        </div>
-                    </td>
-                    <td class="condition-text col-desc">需切換為「天天刷」權益方案</td>
-                </tr>
-
-                <!-- 9. 遠東商銀卡 -->
-                <tr>
-                    <td style="text-align: center;">
-                        <span class="rank-badge rank-other">TOP 9</span>
-                        <span class="col-rank" style="display: none;">9</span>
-                    </td>
-                    <td><span class="card-name-text col-name">遠東商銀信用卡</span></td>
-                    <td>
-                        <div class="rate-bar-wrap">
-                            <div class="rate-bar" style="width: 30px;"></div>
-                            <span class="rate-text col-rate">3.0%</span>
-                        </div>
-                    </td>
-                    <td class="condition-text col-desc">高鐵 / 台鐵刷遠銀卡每月累積滿 NT$3,000 (含) 以上</td>
-                </tr>
-
-                <!-- 10. 富邦Ｊ卡 -->
-                <tr>
-                    <td style="text-align: center;">
-                        <span class="rank-badge rank-other">TOP 10</span>
-                        <span class="col-rank" style="display: none;">10</span>
-                    </td>
-                    <td><span class="card-name-text col-name">富邦 Ｊ 卡</span></td>
-                    <td>
-                        <div class="rate-bar-wrap">
-                            <div class="rate-bar" style="width: 20px;"></div>
-                            <span class="rate-text col-rate">2.0%</span>
-                        </div>
-                    </td>
-                    <td class="condition-text col-desc">使用一卡通支付每月累積滿 100 元</td>
-                </tr>
-            </tbody>
-        </table>
-
-        <!-- 底部連結補充 -->
-        <div class="table-footer">
-            📌 <strong>推薦閱讀：</strong>高鐵商務車廂升等技巧與完整購票好康，請見<a href="https://s875261.pixnet.net/blog/posts/9578087634" target="_blank">【高鐵優惠懶人包】</a>[cite: 1]
-        </div>
-    </div>
-</div>
-
-<!-- 初始化互動功能腳本 -->
-<script>
-    var options = {
-        valueNames: [ 'col-rank', 'col-name', 'col-rate', 'col-desc' ]
-    };
-
-    var tableList = new List('interactive-card-table', options);
-</script>
-
-</body>
-</html>
