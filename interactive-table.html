@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>互動表格範例</title>
+    <!-- 引入極輕量開源套件 List.js (僅 5KB，無廣告、無外部資料庫) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/list.js/2.3.1/list.min.js"></script>
+    <style>
+        .custom-interactive-wrap {
+            max-width: 860px;
+            margin: 20px auto;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans TC', sans-serif;
+            color: #24292f;
+        }
+
+        /* 控制列：搜尋與下拉篩選 */
+        .table-controls {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 14px;
+            flex-wrap: wrap;
+        }
+
+        .search-box {
+            flex: 1 1 200px;
+            padding: 8px 12px;
+            border: 1px solid #d0d7de;
+            border-radius: 6px;
+            font-size: 14px;
+            outline: none;
+            background-color: #f6f8fa;
+            transition: all 0.2s ease;
+        }
+
+        .search-box:focus {
+            background-color: #ffffff;
+            border-color: #8A63D2;
+            box-shadow: 0 0 0 3px rgba(138, 99, 210, 0.2);
+        }
+
+        .category-select {
+            padding: 8px 12px;
+            border: 1px solid #d0d7de;
+            border-radius: 6px;
+            font-size: 14px;
+            background-color: #ffffff;
+            color: #24292f;
+            cursor: pointer;
+            outline: none;
+        }
+
+        /* 表格容器外觀 (GitHub 灰框卡片) */
+        .table-container {
+            border: 1px solid #d0d7de;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 1px 3px rgba(27, 31, 36, 0.04);
+            overflow-x: auto;
+        }
+
+        table.custom-table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+            font-size: 14px;
+        }
+
+        /* 標題欄設定 (支援點選排序) */
+        table.custom-table th {
+            background-color: #F9F6FF;
+            color: #4A2A73;
+            font-weight: 700;
+            padding: 12px 14px;
+            border-bottom: 1px solid #d0d7de;
+            cursor: pointer;
+            user-select: none;
+            white-space: nowrap;
+        }
+
+        table.custom-table th:hover {
+            background-color: #efe6fa;
+        }
+
+        table.custom-table th::after {
+            content: " ⇕";
+            font-size: 11px;
+            color: #8A63D2;
+            opacity: 0.7;
+        }
+
+        /* 資料列樣式 */
+        table.custom-table td {
+            padding: 12px 14px;
+            border-bottom: 1px solid #e1e4e8;
+            color: #24292f;
+            line-height: 1.5;
+        }
+
+        table.custom-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        table.custom-table tbody tr:hover {
+            background-color: #f6f8fa;
+        }
+
+        /* 類別標籤小藥丸 (Badge) */
+        .tag-badge {
+            display: inline-block;
+            padding: 3px 8px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+        .tag-japan { background: #feede0; color: #c55a11; }
+        .tag-uk { background: #e8f0fe; color: #1a4fd8; }
+        .tag-tw { background: #e3f5ea; color: #1e7f4f; }
+
+        /* 回饋率條狀可視化 (類 Datawrapper 效果) */
+        .rate-bar-wrap {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .rate-bar {
+            height: 6px;
+            background: #8A63D2;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body>
+
+<div id="interactive-card-table" class="custom-interactive-wrap">
+    <!-- 頂部即時篩選與搜尋控制區 -->
+    <div class="table-controls">
+        <input class="search search-box" placeholder="🔍 輸入關鍵字即時搜尋..." />
+        
+        <select id="categoryFilter" class="category-select" onchange="filterCategory(this.value)">
+            <option value="">全部類別</option>
+            <option value="日本">🇯🇵 日本</option>
+            <option value="英國">🇬🇧 英國</option>
+            <option value="台灣">🇹🇼 台灣</option>
+        </select>
+    </div>
+
+    <!-- 核心表格結構 -->
+    <div class="table-container">
+        <table class="custom-table">
+            <thead>
+                <tr>
+                    <th class="sort" data-sort="col-category">類別</th>
+                    <th class="sort" data-sort="col-name">信用卡 / 優惠名稱</th>
+                    <th class="sort" data-sort="col-rate">最高回饋</th>
+                    <th class="sort" data-sort="col-desc">條件與上限</th>
+                    <th>推薦用途</th>
+                </tr>
+            </thead>
+            <!-- 需包在 class="list" 內，讓 JavaScript 自動接管搜尋與排序 -->
+            <tbody class="list">
+                <tr>
+                    <td class="col-category"><span class="tag-badge tag-japan">日本</span></td>
+                    <td class="col-name"><strong>玉山熊本熊卡</strong></td>
+                    <td class="col-rate">
+                        <div class="rate-bar-wrap">
+                            <div class="rate-bar" style="width: 85px;"></div>
+                            <span>8.5%</span>
+                        </div>
+                    </td>
+                    <td class="col-desc">指定日本超商/交通加碼 5%</td>
+                    <td>實體藥妝、交通儲值</td>
+                </tr>
+                <tr>
+                    <td class="col-category"><span class="tag-badge tag-uk">英國</span></td>
+                    <td class="col-name"><strong>台新 FlyGo 卡</strong></td>
+                    <td class="col-rate">
+                        <div class="rate-bar-wrap">
+                            <div class="rate-bar" style="width: 30px;"></div>
+                            <span>3.0%</span>
+                        </div>
+                    </td>
+                    <td class="col-desc">國外消費無上限實體回饋</td>
+                    <td>機票預訂、倫敦地鐵、百貨</td>
+                </tr>
+                <tr>
+                    <td class="col-category"><span class="tag-badge tag-tw">台灣</span></td>
+                    <td class="col-name"><strong>聯邦綠卡</strong></td>
+                    <td class="col-rate">
+                        <div class="rate-bar-wrap">
+                            <div class="rate-bar" style="width: 100px;"></div>
+                            <span>12.0%</span>
+                        </div>
+                    </td>
+                    <td class="col-desc">綠色通路上限 300 元/月</td>
+                    <td>高鐵、台鐵、捷運、Gogoro</td>
+                </tr>
+                <tr>
+                    <td class="col-category"><span class="tag-badge tag-japan">日本</span></td>
+                    <td class="col-name"><strong>富邦 J 卡</strong></td>
+                    <td class="col-rate">
+                        <div class="rate-bar-wrap">
+                            <div class="rate-bar" style="width: 60px;"></div>
+                            <span>6.0%</span>
+                        </div>
+                    </td>
+                    <td class="col-desc">日韓實體店登錄活動</td>
+                    <td>Bic Camera、驚安殿堂唐吉訶德</td>
+                </tr>
+                <tr>
+                    <td class="col-category"><span class="tag-badge tag-tw">台灣</span></td>
+                    <td class="col-name"><strong>永豐 DAWHO 大戶卡</strong></td>
+                    <td class="col-rate">
+                        <div class="rate-bar-wrap">
+                            <div class="rate-bar" style="width: 70px;"></div>
+                            <span>7.0%</span>
+                        </div>
+                    </td>
+                    <td class="col-desc">七大生活通路加碼</td>
+                    <td>外送平台、餐廳聚會、飯店</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<!-- 初始化互動功能腳本 -->
+<script>
+    // 綁定欄位類別名稱
+    var options = {
+        valueNames: [ 'col-category', 'col-name', 'col-rate', 'col-desc' ]
+    };
+
+    var tableList = new List('interactive-card-table', options);
+
+    // 下拉選單分類篩選邏輯
+    function filterCategory(category) {
+        if (!category) {
+            tableList.filter(); // 清除篩選，顯示全部
+        } else {
+            tableList.filter(function(item) {
+                return item.values()['col-category'].includes(category);
+            });
+        }
+    }
+</script>
+
+</body>
+</html>
