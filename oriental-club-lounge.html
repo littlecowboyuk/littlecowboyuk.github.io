@@ -1,0 +1,371 @@
+<!-- 東方宇逸貴賓室（Oriental Club Lounge）小牛仔風格互動表格 開始 -->
+<div class="cowboy-ocl-widget" style="width: 100%; max-width: 100%; box-sizing: border-box; margin: 25px 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Noto Sans TC', sans-serif;">
+
+  <style>
+    .cowboy-ocl-widget {
+      --primary-color: #8c532b;
+      --primary-hover: #704020;
+      --accent-bg: #fdf6ec;
+      --header-bg: #f9cb9c;
+      --badge-bg: #fde8cd;
+      --border-color: #ebd3be;
+      --text-main: #374151;
+    }
+    .cowboy-ocl-bar {
+      background-color: var(--header-bg);
+      color: #5c3210;
+      padding: 14px 20px;
+      border-radius: 16px 16px 0 0;
+      border: 1px solid var(--border-color);
+      border-bottom: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .cowboy-ocl-title {
+      font-weight: 800;
+      font-size: 18.5px;
+      letter-spacing: 0.8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .cowboy-ocl-ctrl-box {
+      background: #fffdfa;
+      border: 1px solid var(--border-color);
+      border-bottom: none;
+      padding: 14px 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .cowboy-ocl-search-row {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .cowboy-ocl-input {
+      flex: 1 1 240px;
+      padding: 10px 14px;
+      border: 1.5px solid #d1d5db;
+      border-radius: 10px;
+      font-size: 14px;
+      outline: none;
+      transition: all 0.2s ease;
+      background: #ffffff;
+      box-sizing: border-box;
+    }
+    .cowboy-ocl-input:focus {
+      border-color: var(--primary-color);
+      box-shadow: 0 0 0 3px rgba(140, 83, 43, 0.15);
+    }
+    .cowboy-ocl-blog-btn {
+      background: #fff;
+      color: var(--primary-color);
+      border: 1.5px solid var(--primary-color);
+      padding: 9px 16px;
+      border-radius: 10px;
+      font-size: 13.5px;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s;
+      white-space: nowrap;
+    }
+    .cowboy-ocl-blog-btn:hover {
+      background: var(--primary-color);
+      color: #fff;
+    }
+    .cowboy-ocl-filter-group {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .cowboy-ocl-btn {
+      border: 1px solid #d1d5db;
+      background: #fff;
+      color: #4b5563;
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 13px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: all 0.2s ease;
+    }
+    .cowboy-ocl-btn:hover, .cowboy-ocl-btn.active {
+      background: var(--primary-color);
+      color: #ffffff;
+      border-color: var(--primary-color);
+    }
+    .cowboy-ocl-table-wrap {
+      width: 100%;
+      overflow-x: auto;
+      border: 1px solid var(--border-color);
+      border-radius: 0 0 16px 16px;
+      background: #ffffff;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.04);
+    }
+    table.cowboy-ocl-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 14px;
+      color: var(--text-main);
+    }
+    table.cowboy-ocl-table thead th {
+      background-color: #faeada;
+      color: #5c3210;
+      padding: 12px 18px;
+      font-weight: 700;
+      font-size: 14px;
+      border-bottom: 2px solid var(--border-color);
+    }
+    table.cowboy-ocl-table td {
+      padding: 16px 18px;
+      border-bottom: 1px solid #f3f4f6;
+      vertical-align: top;
+      line-height: 1.65;
+    }
+    table.cowboy-ocl-table tbody tr:hover {
+      background-color: #fffaf5;
+    }
+    .cowboy-ocl-badge {
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 700;
+      color: #78350f;
+      background: var(--badge-bg);
+      border: 1px solid #fbd38d;
+      white-space: nowrap;
+    }
+    .cowboy-ocl-price {
+      color: #c2410c;
+      font-weight: 700;
+    }
+    .cowboy-ocl-highlight {
+      background: #fef08a;
+      padding: 2px 5px;
+      border-radius: 4px;
+      font-weight: 600;
+    }
+    .cowboy-ocl-table a {
+      color: #92400e;
+      text-decoration: underline;
+      font-weight: 600;
+    }
+    .cowboy-ocl-table a:hover {
+      color: #b45309;
+    }
+
+    @media print {
+      .print-hide { display: none !important; }
+      .cowboy-ocl-widget { margin: 0 !important; width: 100% !important; }
+      table.cowboy-ocl-table { font-size: 12px !important; }
+      table.cowboy-ocl-table td, table.cowboy-ocl-table th { border: 1px solid #ddd !important; }
+    }
+  </style>
+
+  <!-- 頂部標題列與列印按鈕 -->
+  <div class="cowboy-ocl-bar">
+    <div class="cowboy-ocl-title">
+      🏮 東方宇逸貴賓室（Oriental Club Lounge）收費與優惠全攻略
+    </div>
+    <button type="button" class="print-hide cowboy-ocl-btn" onclick="window.print()" style="padding: 5px 12px; font-size: 12px; background: #fff; color: #5c3210; border-color: #d97706;">
+      🖨️ 列印存為 PDF
+    </button>
+  </div>
+
+  <!-- 工具操作區（搜尋 + 站內定向搜尋 + 篩選分類標籤） -->
+  <div class="cowboy-ocl-ctrl-box print-hide">
+    <div class="cowboy-ocl-search-row">
+      <input type="text" id="cowboyOCLSearch" class="cowboy-ocl-input" placeholder="🔍 搜尋成人/兒童價格、信用卡免費資格、自費優惠或票券平台..." onkeyup="filterCowboyOCL()">
+      <button type="button" class="cowboy-ocl-blog-btn" onclick="searchCowboyBlogOCL()" title="使用 Google 定向搜尋小牛仔站內東方宇逸貴賓室相關文章">
+        📖 搜尋小牛仔文章
+      </button>
+    </div>
+    
+    <div class="cowboy-ocl-filter-group">
+      <button type="button" class="cowboy-ocl-btn active" onclick="setCowboyOCLFilter('all', this)">全部方案</button>
+      <button type="button" class="cowboy-ocl-btn" onclick="setCowboyOCLFilter('收費標準', this)">自費價格規範</button>
+      <button type="button" class="cowboy-ocl-btn" onclick="setCowboyOCLFilter('信用卡權益', this)">信用卡與銀行權益</button>
+      <button type="button" class="cowboy-ocl-btn" onclick="setCowboyOCLFilter('點數兌換', this)">點數/紅利兌換</button>
+      <button type="button" class="cowboy-ocl-btn" onclick="setCowboyOCLFilter('平台比價', this)">旅遊平台票券比價</button>
+      <button type="button" class="cowboy-ocl-btn" onclick="setCowboyOCLFilter('影音推薦', this)">推薦影音開箱</button>
+    </div>
+  </div>
+
+  <!-- 表格主體 -->
+  <div class="cowboy-ocl-table-wrap">
+    <table class="cowboy-ocl-table" id="cowboyOCLTable">
+      <thead>
+        <tr>
+          <th style="width: 25%;">方案類別 / 通路</th>
+          <th style="width: 75%;">詳細內容說明與費用重點</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- 收費標準與超時規範 -->
+        <tr data-cat="收費標準">
+          <td>
+            <span class="cowboy-ocl-badge">自費價格標準</span>
+          </td>
+          <td>
+            <ul style="margin: 0; padding-left: 20px;">
+              <li><strong>成人定價</strong>：每次 <span class="cowboy-ocl-price">1,300 元</span>。</li>
+              <li><strong>兒童規範</strong>：
+                <ul>
+                  <li>未滿 2 歲之幼童可免費入場。</li>
+                  <li>2 至 11 歲兒童享有 <span class="cowboy-ocl-highlight">7 折優惠</span>。</li>
+                </ul>
+              </li>
+              <li><strong>服務時間與超時收費</strong>：單次基本使用時間以 <strong>2 小時</strong>為限；若超出使用時長，則以每小時 <span class="cowboy-ocl-price">TWD 200</span> 計費加收。</li>
+            </ul>
+          </td>
+        </tr>
+
+        <!-- 信用卡貴賓室使用資訊 -->
+        <tr data-cat="信用卡權益">
+          <td>
+            <span class="cowboy-ocl-badge">信用卡專屬權益</span>
+          </td>
+          <td>
+            <ul style="margin: 0; padding-left: 20px;">
+              <li><strong><a href="https://www.youfirst.com.tw/lounge/visa/index.aspx" target="_blank" rel="noopener">U.First 全球貴賓室</a></strong>：
+                <span class="cowboy-ocl-highlight">自 2026/1/1 起更名</span> 原龍騰出行/龍騰卡全球貴賓室正式更名為「U.First 全球貴賓室」。持 Visa 商務無限卡享專屬自費優惠價 <span class="cowboy-ocl-price">NT$ 399 元</span>[cite: 1]。
+              </li>
+              <li><strong>各大合作銀行權益方案</strong>：
+                <ul>
+                  <li><a href="https://www.esunbank.com/zh-tw/personal/credit-card/benefit/vip-room" target="_blank" rel="noopener">玉山銀行</a>：持卡人符合指定消費資格享有免費使用貴賓室[cite: 1]。</li>
+                  <li><a href="https://www.ctbcbank.com/content/twrbo/zh_tw/cc_index/cc_additional/cc_add_index/cc_add_viproom.html" target="_blank" rel="noopener">中國信託</a>：符合資格享免費使用，亦得以每次 <span class="cowboy-ocl-price">800 元</span> 優惠價自費使用[cite: 1]。</li>
+                  <li><a href="https://www.fubon.com/banking/Personal/credit_card/airport_VIP/airport_VIP.htm" target="_blank" rel="noopener">台北富邦</a>：持卡人符合資格享有免費使用貴賓室，或以優惠價 <span class="cowboy-ocl-price">850 元</span> 自費入場[cite: 1]。</li>
+                  <li><a href="https://www.feib.com.tw/detail?id=178" target="_blank" rel="noopener">遠東商銀</a>：持卡人符合指定消費資格享有免費使用貴賓室[cite: 1]。</li>
+                  <li><a href="https://www.kgibank.com.tw/zh-tw/personal/credit-card/viproom" target="_blank" rel="noopener">凱基銀行</a>：持卡人符合指定消費門檻享有免費使用貴賓室[cite: 1]。</li>
+                  <li><a href="https://card.ubot.com.tw/CardRights/AirPort_Vip" target="_blank" rel="noopener">聯邦銀行</a>：持卡人符合指定消費門檻享有免費使用貴賓室[cite: 1]。</li>
+                </ul>
+              </li>
+            </ul>
+          </td>
+        </tr>
+
+        <!-- 點數兌換貴賓室 -->
+        <tr data-cat="點數兌換">
+          <td>
+            <span class="cowboy-ocl-badge">點數與紅利兌換</span>
+          </td>
+          <td>
+            <ul style="margin: 0; padding-left: 20px;">
+              <li><strong><a href="https://www.cathay-cube.com.tw/cathaybk/personal/event/overview/credit-card/bonus/product/viproom" target="_blank" rel="noopener">國泰小樹點</a></strong>：以 <span class="cowboy-ocl-price">900 點</span> 小樹點(信用卡)可兌換 U.First 全球貴賓室服務一點會籍卡[cite: 1]。</li>
+              <li><strong><a href="https://www.megabank.com.tw/personal/credit-card/service/bouns-overview/shop/00000008" target="_blank" rel="noopener">兆豐銀行</a></strong>：全卡友紅利點數兌換，以 <span class="cowboy-ocl-price">8,000 點</span> 紅利可兌換貴賓室權益乙次，兌換次數無上限[cite: 1]。</li>
+            </ul>
+          </td>
+        </tr>
+
+        <!-- 旅遊售票平台比價 -->
+        <tr data-cat="平台比價">
+          <td>
+            <span class="cowboy-badge">旅遊平台比價<br><small style="font-weight: normal; color: #666;">(各通路票價參考)</small></span>
+          </td>
+          <td>
+            <ul style="margin: 0; padding-left: 20px;">
+              <li><strong><a href="https://www.klook.com/zh-TW/activity/34852-taoyuan-international-airport-t2-lounge-service-oriental-club/?spm=Activity.SearchSuggest_LIST&clickId=18e9245f29" target="_blank" rel="noopener">Klook</a></strong>：3 小時成人票 <span class="cowboy-ocl-price">888 元</span>；兒童票 640 元[cite: 1]。</li>
+              <li><strong><a href="https://www.kkday.com/zh-tw/product/35197?srsltid=AfmBOorappyF5qTTKSGNYUkvziqD6IFdwyzCV7aouk0Fhy9KZTZ3D5rA" target="_blank" rel="noopener">KKday</a></strong>：3 小時成人票 <span class="cowboy-ocl-price">888 元</span>；兒童票 630 元[cite: 1]。
+                <ul>
+                  <li><u>小牛仔提醒</u>：訂票可疊加使用折扣券，省錢攻略請見 ➔ <a href="https://s875261.pixnet.net/blog/posts/9578108658" target="_blank" rel="noopener">旅遊平台折扣碼彙整</a>[cite: 1]。</li>
+                </ul>
+              </li>
+              <li><strong><a href="https://www.pchometravel.com/ticket/V000005CUT8H1X1PF0D" target="_blank" rel="noopener">PChome 旅遊平台</a></strong>：2 小時成人票 <span class="cowboy-ocl-price">780 元</span>，亦提供兒童優惠票（票券時間為 2 小時，但價格極具競爭力且時間通常充裕）[cite: 1]。</li>
+              <li><strong><a href="https://giftshop-tw.line.me/voucher/322111331" target="_blank" rel="noopener">LINE 禮物</a></strong>：3 小時服務成人票 <span class="cowboy-ocl-price">888 元</span>，兒童票 600 元[cite: 1]。</li>
+              <li><strong><a href="https://activity.eztravel.com.tw/detail/TKAC000011598" target="_blank" rel="noopener">易遊網</a></strong>：3 小時成人票 999 元，兒童票 699 元[cite: 1]。</li>
+              <li><strong><a href="https://www.momoshop.com.tw/product/12304860?srsltid=AfmBOorV7A5G9l6rEilNURFCYQ6GVYLvQs-ABTRUwClGazpkKmZG976X" target="_blank" rel="noopener">MOMO 購物網</a></strong>：3 小時成人票 <span class="cowboy-ocl-price">788 元</span>，兒童票 599 元[cite: 1]。</li>
+              <li><strong><a href="https://www.colatour.com.tw/C10T_Ticket/C10T02_Feature.aspx?ItemNo=5741" target="_blank" rel="noopener">可樂旅遊</a></strong>：2 小時成人票 <span class="cowboy-ocl-price">780 元</span>，兒童票 546 元[cite: 1]。</li>
+              <li>其他票券通路：DJB、雄獅旅遊、LINE 旅遊等平台亦有不定期優惠[cite: 1]。</li>
+            </ul>
+          </td>
+        </tr>
+
+        <!-- 影音開箱推薦列 -->
+        <tr data-cat="影音推薦" style="background-color: #fff9f2;">
+          <td style="vertical-align: middle;">
+            <span class="cowboy-ocl-badge" style="background: #fed7aa; color: #9a3412; border-color: #f97316;">🎥 影音實測推薦</span>
+          </td>
+          <td>
+            <div style="display: flex; gap: 16px; align-items: center; flex-wrap: wrap;">
+              <!-- 影片預覽圖（自適應長寬比） -->
+              <a href="https://youtu.be/pH2pjqEUddU" target="_blank" rel="noopener" style="position: relative; width: 180px; height: 105px; flex-shrink: 0; border-radius: 10px; overflow: hidden; display: block; border: 1.5px solid var(--border-color); text-decoration: none;">
+                <img src="https://img.youtube.com/vi/pH2pjqEUddU/hqdefault.jpg" alt="桃園機場 貴賓室實拍" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+                <div style="position: absolute; inset: 0; background: rgba(0,0,0,0.3); display: flex; align-items: center; justify-content: center; font-size: 32px; color: #fff;">
+                  ▶️
+                </div>
+              </a>
+              <!-- 說明文字與跳轉 -->
+              <div style="flex: 1 1 240px;">
+                <div style="font-weight: 800; font-size: 15.5px; color: #78350f; margin-bottom: 6px;">
+                  桃園機場貴賓室實測開箱！
+                </div>
+                <p style="margin: 0 0 8px 0; font-size: 13.5px; color: #555; line-height: 1.6;">
+                  準備出國前先來放鬆！直擊桃機貴賓室精緻餐點、現煮熱食、舒適座位與各項優惠折扣實測一次掌握。
+                </p>
+                <a href="https://youtu.be/pH2pjqEUddU" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; gap: 5px; font-size: 13.5px; background: #ea580c; color: #ffffff !important; padding: 6px 14px; border-radius: 8px; text-decoration: none; font-weight: 700; box-shadow: 0 2px 6px rgba(234, 88, 12, 0.25);">
+                  ▶️ 點我觀看實拍影片
+                </a>
+              </div>
+            </div>
+          </td>
+        </tr>
+
+      </tbody>
+    </table>
+  </div>
+
+</div>
+
+<!-- 篩選與搜尋 JavaScript 邏輯 -->
+<script>
+  let currentCowboyOCLCat = 'all';
+
+  // 1. 分類標籤點擊切換
+  function setCowboyOCLFilter(category, btn) {
+    currentCowboyOCLCat = category;
+    document.querySelectorAll('.cowboy-ocl-filter-group .cowboy-ocl-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    filterCowboyOCL();
+  }
+
+  // 2. 表格即時過濾（同步比對關鍵字與分類標籤）
+  function filterCowboyOCL() {
+    const input = document.getElementById('cowboyOCLSearch').value.toLowerCase().trim();
+    const rows = document.querySelectorAll('#cowboyOCLTable tbody tr');
+
+    rows.forEach(row => {
+      const text = row.innerText.toLowerCase();
+      const rowCat = row.getAttribute('data-cat') || '';
+
+      const matchSearch = text.includes(input);
+      const matchCategory = (currentCowboyOCLCat === 'all') || (rowCat.includes(currentCowboyOCLCat));
+
+      if (matchSearch && matchCategory) {
+        row.style.display = '';
+      } else {
+        row.style.display = 'none';
+      }
+    });
+  }
+
+  // 3. 搜尋小牛仔站內文章（透過 Google 定向檢索，確保 100% 成功找到文章）
+  function searchCowboyBlogOCL() {
+    var inputElem = document.getElementById('cowboyOCLSearch');
+    var keyword = inputElem ? inputElem.value.trim() : '';
+    var term = keyword !== '' ? keyword : '東方宇逸貴賓室';
+    
+    // 同步搜尋小牛仔痞客邦站台與 GitHub 新站
+    var targetUrl = 'https://www.google.com/search?q=(site:s875261.pixnet.net+OR+site:littlecowboyuk.github.io)+' + encodeURIComponent(term);
+    window.open(targetUrl, '_blank');
+  }
+</script>
+<!-- 東方宇逸貴賓室（Oriental Club Lounge）小牛仔風格互動表格 結束 -->
