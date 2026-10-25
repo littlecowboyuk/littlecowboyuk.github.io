@@ -1,0 +1,349 @@
+<!-- 華航貴賓室（China Airlines）小牛仔風格互動表格 開始 -->
+<div class="cowboy-cal-widget" style="width: 100%; max-width: 100%; box-sizing: border-box; margin: 25px 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Noto Sans TC', sans-serif;">
+
+  <style>
+    .cowboy-cal-widget {
+      --primary-color: #8c532b;
+      --primary-hover: #704020;
+      --accent-bg: #fdf6ec;
+      --header-bg: #f9cb9c;
+      --badge-bg: #fde8cd;
+      --border-color: #ebd3be;
+      --text-main: #374151;
+    }
+    .cowboy-cal-bar {
+      background-color: var(--header-bg);
+      color: #5c3210;
+      padding: 14px 20px;
+      border-radius: 16px 16px 0 0;
+      border: 1px solid var(--border-color);
+      border-bottom: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .cowboy-cal-title {
+      font-weight: 800;
+      font-size: 18.5px;
+      letter-spacing: 0.8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .cowboy-cal-ctrl-box {
+      background: #fffdfa;
+      border: 1px solid var(--border-color);
+      border-bottom: none;
+      padding: 14px 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .cowboy-cal-search-row {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .cowboy-cal-input {
+      flex: 1 1 240px;
+      padding: 10px 14px;
+      border: 1.5px solid #d1d5db;
+      border-radius: 10px;
+      font-size: 14px;
+      outline: none;
+      transition: all 0.2s ease;
+      background: #ffffff;
+      box-sizing: border-box;
+    }
+    .cowboy-cal-input:focus {
+      border-color: var(--primary-color);
+      box-shadow: 0 0 0 3px rgba(140, 83, 43, 0.15);
+    }
+    .cowboy-cal-blog-btn {
+      background: #fff;
+      color: var(--primary-color);
+      border: 1.5px solid var(--primary-color);
+      padding: 9px 16px;
+      border-radius: 10px;
+      font-size: 13.5px;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s;
+      white-space: nowrap;
+    }
+    .cowboy-cal-blog-btn:hover {
+      background: var(--primary-color);
+      color: #fff;
+    }
+    .cowboy-cal-filter-group {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .cowboy-cal-btn {
+      border: 1px solid #d1d5db;
+      background: #fff;
+      color: #4b5563;
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 13px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: all 0.2s ease;
+    }
+    .cowboy-cal-btn:hover, .cowboy-cal-btn.active {
+      background: var(--primary-color);
+      color: #ffffff;
+      border-color: var(--primary-color);
+    }
+    .cowboy-cal-table-wrap {
+      width: 100%;
+      overflow-x: auto;
+      border: 1px solid var(--border-color);
+      border-radius: 0 0 16px 16px;
+      background: #ffffff;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.04);
+    }
+    table.cowboy-cal-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 14px;
+      color: var(--text-main);
+    }
+    table.cowboy-cal-table thead th {
+      background-color: #faeada;
+      color: #5c3210;
+      padding: 12px 18px;
+      font-weight: 700;
+      font-size: 14px;
+      border-bottom: 2px solid var(--border-color);
+    }
+    table.cowboy-cal-table td {
+      padding: 16px 18px;
+      border-bottom: 1px solid #f3f4f6;
+      vertical-align: top;
+      line-height: 1.65;
+    }
+    table.cowboy-cal-table tbody tr:hover {
+      background-color: #fffaf5;
+    }
+    .cowboy-cal-badge {
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 700;
+      color: #78350f;
+      background: var(--badge-bg);
+      border: 1px solid #fbd38d;
+      white-space: nowrap;
+    }
+    .cowboy-cal-price {
+      color: #c2410c;
+      font-weight: 700;
+    }
+    .cowboy-cal-highlight {
+      background: #fef08a;
+      padding: 2px 5px;
+      border-radius: 4px;
+      font-weight: 600;
+    }
+    .cowboy-cal-table a {
+      color: #92400e;
+      text-decoration: underline;
+      font-weight: 600;
+    }
+    .cowboy-cal-table a:hover {
+      color: #b45309;
+    }
+
+    @media print {
+      .print-hide { display: none !important; }
+      .cowboy-cal-widget { margin: 0 !important; width: 100% !important; }
+      table.cowboy-cal-table { font-size: 12px !important; }
+      table.cowboy-cal-table td, table.cowboy-cal-table th { border: 1px solid #ddd !important; }
+    }
+  </style>
+
+  <!-- 頂部標題列與列印按鈕 -->
+  <div class="cowboy-cal-bar">
+    <div class="cowboy-cal-title">
+      🌸 中華航空貴賓室（China Airlines Lounge）使用指南＆優惠總整
+    </div>
+    <button type="button" class="print-hide cowboy-cal-btn" onclick="window.print()" style="padding: 5px 12px; font-size: 12px; background: #fff; color: #5c3210; border-color: #d97706;">
+      🖨️ 列印存為 PDF
+    </button>
+  </div>
+
+  <!-- 工具控制區：即時搜尋 + 站內搜尋 + 類別切換 -->
+  <div class="cowboy-cal-ctrl-box print-hide">
+    <div class="cowboy-cal-search-row">
+      <input type="text" id="cowboyCALSearch" class="cowboy-cal-input" placeholder="🔍 搜尋特定聯名卡、自費價格、哩程兌換或會員資格..." onkeyup="filterCowboyCAL()">
+      <button type="button" class="cowboy-cal-blog-btn" onclick="searchCowboyBlogCAL()" title="使用 Google 精準搜尋小牛仔站內華航文章">
+        📖 搜尋小牛仔文章
+      </button>
+    </div>
+    
+    <div class="cowboy-cal-filter-group">
+      <button type="button" class="cowboy-cal-btn active" onclick="setCowboyCALFilter('all', this)">全部方案</button>
+      <button type="button" class="cowboy-cal-btn" onclick="setCowboyCALFilter('收費標準', this)">自費價格規範</button>
+      <button type="button" class="cowboy-cal-btn" onclick="setCowboyCALFilter('信用卡權益', this)">特定聯名卡優惠</button>
+      <button type="button" class="cowboy-cal-btn" onclick="setCowboyCALFilter('哩程與會員', this)">華夏會員與哩程</button>
+      <button type="button" class="cowboy-cal-btn" onclick="setCowboyCALFilter('影音開箱', this)">推薦影音實測</button>
+    </div>
+  </div>
+
+  <!-- 表格主體 -->
+  <div class="cowboy-cal-table-wrap">
+    <table class="cowboy-cal-table" id="cowboyCALTable">
+      <thead>
+        <tr>
+          <th style="width: 25%;">類別 / 方案</th>
+          <th style="width: 75%;">詳細內容說明與使用重點</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- 收費標準與超時規範 -->
+        <tr data-cat="收費標準">
+          <td>
+            <span class="cowboy-cal-badge">自費價格標準</span>
+          </td>
+          <td>
+            <ul style="margin: 0; padding-left: 20px;">
+              <li><strong>自費使用價格</strong>：每次費用 <span class="cowboy-cal-price">NT$ 1,500 元</span>[cite: 1]。</li>
+              <li><strong>兒童優惠規範</strong>：
+                <ul>
+                  <li>未滿 2 歲之幼兒可免費入場[cite: 1]。</li>
+                  <li>2 至 11 歲兒童可享 <span class="cowboy-cal-highlight">7 折優惠</span>[cite: 1]。</li>
+                </ul>
+              </li>
+              <li><strong>使用時數與超時費用</strong>：貴賓室服務時間以 <strong>2 小時</strong>為限，若超出使用時間，則以每小時 <span class="cowboy-cal-price">NT$ 200 元</span> 計算加收費用[cite: 1]。</li>
+            </ul>
+          </td>
+        </tr>
+
+        <!-- 特定聯名卡方案 -->
+        <tr data-cat="信用卡權益">
+          <td>
+            <span class="cowboy-cal-badge">特定聯名卡專屬</span>
+          </td>
+          <td>
+            <ul style="margin: 0; padding-left: 20px;">
+              <li>🔗 <a href="https://www.ctbcbank.com/twrbo/zh_tw/cc_index/cc_additional/cc_add_index/cc_add_viproom.html" target="_blank" rel="noopener">中國信託中華航空聯名卡權益詳情</a>[cite: 1]</li>
+              <li><strong>適用卡別</strong>：
+                <ul>
+                  <li>中國信託中華航空鼎尊無限卡[cite: 1]</li>
+                  <li>中國信託中華航空璀璨無限卡[cite: 1]</li>
+                  <li>中國信託大中華攜手飛無限卡[cite: 1]</li>
+                </ul>
+              </li>
+              <li><strong>使用方式</strong>：指定頂級聯名卡符合資格之持卡人可享免費使用[cite: 1]；若額度不足或自費使用，聯名卡持卡人得以每次 <span class="cowboy-cal-price">NT$ 1,500 元</span> 之自費價使用中華航空貴賓室[cite: 1]。</li>
+            </ul>
+          </td>
+        </tr>
+
+        <!-- 華夏會員與哩程兌換 -->
+        <tr data-cat="哩程與會員">
+          <td>
+            <span class="cowboy-cal-badge">哩程兌換＆高階會員</span>
+          </td>
+          <td>
+            <ul style="margin: 0; padding-left: 20px;">
+              <li><strong>華航哩程兌換</strong>：每位每次扣抵 <span class="cowboy-cal-price">5,000 哩</span> 即可兌換使用貴賓室一次[cite: 1]。</li>
+              <li><strong>高階會籍禮遇</strong>：華航的金卡、翡翠卡及晶鑽卡會員享有專屬貴賓室禮遇[cite: 1]。</li>
+              <li><strong>同行親友使用規範</strong>：
+                <ul>
+                  <li>會員可扣抵哩程邀請額外的親友一同進入自營機場貴賓室[cite: 1]。</li>
+                  <li>同行家人亦可扣抵點數或依相關規範一同使用自營貴賓室設施[cite: 1]。</li>
+                </ul>
+              </li>
+            </ul>
+          </td>
+        </tr>
+
+        <!-- 影音實測推薦列 -->
+        <tr data-cat="影音開箱" style="background-color: #fff9f2;">
+          <td style="vertical-align: middle;">
+            <span class="cowboy-cal-badge" style="background: #fed7aa; color: #9a3412; border-color: #f97316;">🎥 影音實測推薦</span>
+          </td>
+          <td>
+            <div style="display: flex; gap: 16px; align-items: center; flex-wrap: wrap;">
+              <!-- 影片預覽圖 -->
+              <a href="https://www.youtube.com/watch?v=L_6ncG7sRHo" target="_blank" rel="noopener" style="position: relative; width: 180px; height: 105px; flex-shrink: 0; border-radius: 10px; overflow: hidden; display: block; border: 1.5px solid var(--border-color); text-decoration: none;">
+                <img src="https://img.youtube.com/vi/L_6ncG7sRHo/hqdefault.jpg" alt="KLM＋華航 飛行體驗 - 桃園機場華航貴賓室開箱" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+                <div style="position: absolute; inset: 0; background: rgba(0,0,0,0.3); display: flex; align-items: center; justify-content: center; font-size: 32px; color: #fff;">
+                  ▶️
+                </div>
+              </a>
+              <!-- 說明文字與跳轉 -->
+              <div style="flex: 1 1 240px;">
+                <div style="font-weight: 800; font-size: 15.5px; color: #78350f; margin-bottom: 6px;">
+                  KLM ＋ 華航 飛行體驗：桃園機場華航貴賓室開箱！
+                </div>
+                <p style="margin: 0 0 8px 0; font-size: 13.5px; color: #555; line-height: 1.6;">
+                  開箱最具代表性台灣風格的桃園機場中華航空自營貴賓室！現煮道地牛肉麵、各項冷熱精緻餐飲與寬敞木質調休憩空間實拍。
+                </p>
+                <a href="https://www.youtube.com/watch?v=L_6ncG7sRHo" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; gap: 5px; font-size: 13.5px; background: #ea580c; color: #ffffff !important; padding: 6px 14px; border-radius: 8px; text-decoration: none; font-weight: 700; box-shadow: 0 2px 6px rgba(234, 88, 12, 0.25);">
+                  ▶️ 點我觀看實拍影片
+                </a>
+              </div>
+            </div>
+          </td>
+        </tr>
+
+      </tbody>
+    </table>
+  </div>
+
+</div>
+
+<!-- 篩選與搜尋 JavaScript 邏輯 -->
+<script>
+  let currentCowboyCALCat = 'all';
+
+  // 1. 分類標籤點擊切換
+  function setCowboyCALFilter(category, btn) {
+    currentCowboyCALCat = category;
+    document.querySelectorAll('.cowboy-cal-filter-group .cowboy-cal-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    filterCowboyCAL();
+  }
+
+  // 2. 表格即時過濾（雙重比對關鍵字與分類標籤）
+  function filterCowboyCAL() {
+    const input = document.getElementById('cowboyCALSearch').value.toLowerCase().trim();
+    const rows = document.querySelectorAll('#cowboyCALTable tbody tr');
+
+    rows.forEach(row => {
+      const text = row.innerText.toLowerCase();
+      const rowCat = row.getAttribute('data-cat') || '';
+
+      const matchSearch = text.includes(input);
+      const matchCategory = (currentCowboyCALCat === 'all') || (rowCat.includes(currentCowboyCALCat));
+
+      if (matchSearch && matchCategory) {
+        row.style.display = '';
+      } else {
+        row.style.display = 'none';
+      }
+    });
+  }
+
+  // 3. 搜尋小牛仔站內文章（透過 Google 精準檢索避免 404）
+  function searchCowboyBlogCAL() {
+    var inputElem = document.getElementById('cowboyCALSearch');
+    var keyword = inputElem ? inputElem.value.trim() : '';
+    var term = keyword !== '' ? keyword : '華航貴賓室';
+    
+    // 同步搜尋小牛仔痞客邦站台與 GitHub 新站
+    var targetUrl = 'https://www.google.com/search?q=(site:s875261.pixnet.net+OR+site:littlecowboyuk.github.io)+' + encodeURIComponent(term);
+    window.open(targetUrl, '_blank');
+  }
+</script>
+<!-- 華航貴賓室（China Airlines）小牛仔風格互動表格 結束 -->
