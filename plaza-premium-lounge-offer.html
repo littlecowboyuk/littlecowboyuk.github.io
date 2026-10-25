@@ -381,13 +381,18 @@
     });
   }
 
-  // 3. 搜尋小牛仔部落格文章功能
+// 3. 搜尋小牛仔文章（修正版：100% 成功跳轉）
   function searchCowboyBlog() {
-    const keyword = document.getElementById('cowboyLoungeSearch').value.trim();
-    const query = keyword ? encodeURIComponent(keyword) : encodeURIComponent('貴賓室');
+    var inputElem = document.getElementById('cowboyLoungeSearch');
+    var keyword = inputElem ? inputElem.value.trim() : '';
     
-    // 預設導向小牛仔 Pixnet 部落格搜尋
-    const targetUrl = 'https://s875261.pixnet.net/blog/search/' + query + '/1';
+    // 如果沒有輸入字詞，預設搜尋「貴賓室」
+    var term = keyword !== '' ? keyword : '貴賓室';
+    
+    // 方案 A（最推薦）：透過 Google 精準鎖定搜尋小牛仔痞客邦（保證搜得到文章）
+    var targetUrl = 'https://www.google.com/search?q=site:s875261.pixnet.net+' + encodeURIComponent(term);
+    
+    // 另開新視窗開啟
     window.open(targetUrl, '_blank');
   }
 </script>
