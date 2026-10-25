@@ -1,249 +1,394 @@
-<!-- 引入互動表格樣式與功能 -->
-<style>
-  .lounge-filter-container {
-    margin: 20px 0 16px 0;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    align-items: center;
-  }
-  .lounge-search-input {
-    flex: 1 1 240px;
-    padding: 10px 14px;
-    border: 1px solid #d1d5db;
-    border-radius: 8px;
-    font-size: 15px;
-    outline: none;
-    transition: border-color 0.2s, box-shadow 0.2s;
-  }
-  .lounge-search-input:focus {
-    border-color: #f59e0b;
-    box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.2);
-  }
-  .lounge-filter-btn {
-    padding: 8px 16px;
-    border: 1px solid #e5e7eb;
-    background: #f9fafb;
-    color: #4b5563;
-    border-radius: 20px;
-    cursor: pointer;
-    font-size: 14px;
-    font-weight: 500;
-    transition: all 0.2s ease;
-  }
-  .lounge-filter-btn:hover, .lounge-filter-btn.active {
-    background: #f59e0b;
-    color: #fff;
-    border-color: #f59e0b;
-  }
-  .lounge-table-wrap {
-    width: 100%;
-    overflow-x: auto;
-    border: 1px solid #e5e7eb;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-    background: #ffffff;
-    margin-bottom: 24px;
-  }
-  table.lounge-table {
-    width: 100%;
-    border-collapse: collapse;
-    text-align: left;
-    font-family: inherit;
-  }
-  table.lounge-table thead th {
-    background-color: #f9cb9c;
-    color: #78350f;
-    padding: 14px 18px;
-    font-size: 17px;
-    font-weight: 700;
-    border-bottom: 2px solid #f59e0b;
-  }
-  table.lounge-table td {
-    padding: 14px 18px;
-    border-bottom: 1px solid #f3f4f6;
-    vertical-align: top;
-    line-height: 1.6;
-    color: #374151;
-  }
-  table.lounge-table tbody tr:hover {
-    background-color: #fffbeb;
-  }
-  .lounge-category-badge {
-    display: inline-block;
-    padding: 4px 10px;
-    border-radius: 6px;
-    font-size: 14px;
-    font-weight: 700;
-    color: #92400e;
-    background: #fef3c7;
-    white-space: nowrap;
-  }
-  .highlight-tag {
-    background-color: #fef08a;
-    padding: 2px 6px;
-    border-radius: 4px;
-    font-weight: 600;
-  }
-  .price-accent {
-    color: #e11d48;
-    font-weight: 700;
-  }
-</style>
+<!-- 小牛仔部落格風格：貴賓室優惠互動表格 開始 -->
+<div class="cowboy-lounge-widget" style="width: 100%; max-width: 100%; box-sizing: border-box; margin: 25px 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Noto Sans TC', sans-serif;">
 
-<!-- 互動搜尋與篩選器列 -->
-<div class="lounge-filter-container">
-  <input type="text" id="loungeSearch" class="lounge-search-input" placeholder="🔍 搜尋信用卡、銀行、票券平台或優惠關鍵字..." onkeyup="filterLoungeTable()">
-  <button class="lounge-filter-btn active" onclick="setFilter('all', this)">全部優惠</button>
-  <button class="lounge-filter-btn" onclick="setFilter('官網與會員', this)">官網/會員</button>
-  <button class="lounge-filter-btn" onclick="setFilter('信用卡', this)">信用卡/銀行</button>
-  <button class="lounge-filter-btn" onclick="setFilter('平台票券', this)">平台票券</button>
-</div>
+  <style>
+    .cowboy-lounge-widget {
+      --primary-color: #8c532b;
+      --primary-hover: #704020;
+      --accent-bg: #fdf6ec;
+      --header-bg: #f9cb9c;
+      --badge-bg: #fde8cd;
+      --border-color: #ebd3be;
+      --text-main: #374151;
+    }
+    .cowboy-bar {
+      background-color: var(--header-bg);
+      color: #5c3210;
+      padding: 14px 20px;
+      border-radius: 16px 16px 0 0;
+      border: 1px solid var(--border-color);
+      border-bottom: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .cowboy-title {
+      font-weight: 800;
+      font-size: 19px;
+      letter-spacing: 0.8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .cowboy-ctrl-box {
+      background: #fffdfa;
+      border: 1px solid var(--border-color);
+      border-bottom: none;
+      padding: 14px 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .cowboy-search-row {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .cowboy-input {
+      flex: 1 1 240px;
+      padding: 10px 14px;
+      border: 1.5px solid #d1d5db;
+      border-radius: 10px;
+      font-size: 14px;
+      outline: none;
+      transition: all 0.2s ease;
+      background: #ffffff;
+    }
+    .cowboy-input:focus {
+      border-color: var(--primary-color);
+      box-shadow: 0 0 0 3px rgba(140, 83, 43, 0.15);
+    }
+    .cowboy-blog-search-btn {
+      background: #fff;
+      color: var(--primary-color);
+      border: 1.5px solid var(--primary-color);
+      padding: 9px 16px;
+      border-radius: 10px;
+      font-size: 13.5px;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s;
+      white-space: nowrap;
+    }
+    .cowboy-blog-search-btn:hover {
+      background: var(--primary-color);
+      color: #fff;
+    }
+    .cowboy-filter-group {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .cowboy-btn {
+      border: 1px solid #d1d5db;
+      background: #fff;
+      color: #4b5563;
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 13px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: all 0.2s ease;
+    }
+    .cowboy-btn:hover, .cowboy-btn.active {
+      background: var(--primary-color);
+      color: #ffffff;
+      border-color: var(--primary-color);
+    }
+    .cowboy-table-wrapper {
+      width: 100%;
+      overflow-x: auto;
+      border: 1px solid var(--border-color);
+      border-radius: 0 0 16px 16px;
+      background: #ffffff;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.04);
+    }
+    table.cowboy-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 14.5px;
+      color: var(--text-main);
+    }
+    table.cowboy-table thead th {
+      background-color: #faeada;
+      color: #5c3210;
+      padding: 12px 18px;
+      font-weight: 700;
+      font-size: 14px;
+      border-bottom: 2px solid var(--border-color);
+    }
+    table.cowboy-table td {
+      padding: 16px 18px;
+      border-bottom: 1px solid #f3f4f6;
+      vertical-align: top;
+      line-height: 1.65;
+    }
+    table.cowboy-table tbody tr:hover {
+      background-color: #fffaf5;
+    }
+    .cowboy-badge {
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 700;
+      color: #78350f;
+      background: var(--badge-bg);
+      border: 1px solid #fbd38d;
+      white-space: nowrap;
+    }
+    .cowboy-highlight {
+      background: #fef08a;
+      padding: 2px 5px;
+      border-radius: 4px;
+      font-weight: 600;
+    }
+    .cowboy-price-tag {
+      color: #c2410c;
+      font-weight: 700;
+    }
+    .cowboy-table a {
+      color: #92400e;
+      text-decoration: underline;
+      font-weight: 600;
+    }
+    .cowboy-table a:hover {
+      color: #b45309;
+    }
 
-<!-- 貴賓室優惠互動表格 -->
-<div class="lounge-table-wrap">
-  <table class="lounge-table" id="loungeDataTable">
-    <thead>
-      <tr>
-        <th style="width: 24%;">類別 / 管道</th>
-        <th style="width: 76%;">優惠詳細內容與費用說明</th>
-      </tr>
-    </thead>
-    <tbody>
-      <!-- 環亞官網購票 -->
-      <tr data-category="官網與會員">
-        <td>
-          <span class="lounge-category-badge">環亞官網購票</span>
-        </td>
-        <td>
-          <ul>
-            <li>🔗 <a href="https://www.plazapremiumlounge.com/zh-hk/find/china-regions/taiwan/taipei/taiwan-taoyuan-international-airport?stype=All" target="_blank" rel="noopener">環亞貴賓室官方價格查詢</a></li>
-            <li>貴賓室原價：<strong>1,500 元</strong>。</li>
-            <li>官網購買享 9 折優惠，折扣後 <strong class="price-accent">1,350 元</strong>。</li>
-            <li><strong>兒童收費規定</strong>：
-              <ul>
-                <li>未滿 2 歲兒童可免費進入使用。</li>
-                <li>2 歲至 11 歲兒童可享折扣優惠（費用因服務設施地點而異）。</li>
-                <li>12 歲或以上需支付全額費用；所有兒童均需年滿 18 歲以上成人陪同。</li>
-              </ul>
-            </li>
-          </ul>
-        </td>
-      </tr>
+    @media print {
+      .print-hide { display: none !important; }
+      .cowboy-lounge-widget { margin: 0 !important; }
+      table.cowboy-table { font-size: 12px !important; }
+      table.cowboy-table td, table.cowboy-table th { border: 1px solid #ddd !important; }
+    }
+  </style>
 
-      <!-- 智旅者會員 -->
-      <tr data-category="官網與會員">
-        <td>
-          <span class="lounge-category-badge">智旅者會員</span>
-        </td>
-        <td>
-          <ul>
-            <li>🔗 <a href="https://www.plazapremiumlounge.com/zh-hk/discover/partner-offers/st-benefits" target="_blank" rel="noopener">環亞通會員專屬權益</a>：智旅者會員享有 <strong>20%（8折）折扣優惠</strong>，每次使用符合資格之貴賓室最高可賺取 150 點 ST 積分。</li>
-          </ul>
-        </td>
-      </tr>
+  <!-- 頂部標題列 -->
+  <div class="cowboy-bar">
+    <div class="cowboy-title">
+      ✈️ 貴賓室優惠＆購票評比總攻略
+    </div>
+    <button type="button" class="print-hide cowboy-btn" onclick="window.print()" style="padding: 5px 12px; font-size: 12px; background: #fff; color: #5c3210; border-color: #d97706;">
+      🖨️ 列印存為 PDF
+    </button>
+  </div>
 
-      <!-- 信用卡貴賓室優惠 -->
-      <tr data-category="信用卡">
-        <td>
-          <span class="lounge-category-badge">信用卡專屬權益</span>
-        </td>
-        <td>
-          <ul>
-            <li><strong><a href="https://www.specialoffers.jcb/zh-tw/services/travel/airport-lounge-e2026/" target="_blank" rel="noopener">JCB 極緻卡</a></strong>：
-              桃園機場環亞貴賓室 3 小時免費使用（需事先線上登錄取得序號，並於現場出示同日登機證與卡片）。
-              <ul>
-                <li><span class="highlight-tag">自 2026 年 1 月 1 日起</span>：須於登錄當月前 2 個月內，刷卡購買國際線機票或國外團費單筆滿 NT$30,000 以上方符資格。</li>
-                <li>每卡每月限領 2 次；額度換完或達上限時，享持卡人本人優惠價 <strong class="price-accent">NT$900</strong>，同行者（最多 4 位）享定價 7 折（NT$1,050）。</li>
-              </ul>
-            </li>
-            <li><strong><a href="https://loungekey.com/" target="_blank" rel="noopener">LoungeKey</a></strong>：持指定合作信用卡（JCB、HSBC 等），憑卡即可進入合作貴賓室。</li>
-            <li><strong>Priority Pass (PP卡)</strong>：可透過配合信用卡附贈取得，或由個人直接付費購買。</li>
-            <li><strong><a href="https://www.youfirst.com.tw/lounge/visa/index.aspx" target="_blank" rel="noopener">U.First 全球貴賓室</a></strong>：
-              <span class="highlight-tag">自 2026/1/1 起</span> 原龍騰卡正式更名為「U.First 全球貴賓室」。Visa 商務無限卡專屬自費優惠價 <strong class="price-accent">NT$399</strong>。
-            </li>
-            <li><strong>各銀行卡友方案</strong>：
-              <ul>
-                <li><a href="https://www.esunbank.com/zh-tw/personal/credit-card/benefit/vip-room" target="_blank" rel="noopener">玉山銀行</a>：符合指定消費資格享免費使用，亦可申請 U.First 會籍卡。</li>
-                <li><a href="https://www.ctbcbank.com/content/twrbo/zh_tw/cc_index/cc_additional/cc_add_index/cc_add_viproom.html" target="_blank" rel="noopener">中國信託</a>：符合資格享免費，亦得以每次 800 元自費優惠價使用。</li>
-                <li><a href="https://www.yuantabank.com.tw/bank/creditCard/right/list.do?right_id=%E5%9C%8B%E5%A4%96%E6%97%85%E9%81%8A" target="_blank" rel="noopener">元大銀行</a>：符合門檻享免費使用或優惠價 850 元。</li>
-                <li><a href="https://www.fubon.com/banking/Personal/credit_card/airport_VIP/airport_VIP.htm" target="_blank" rel="noopener">台北富邦</a>：符合消費資格享免費使用或優惠價 850 元。</li>
-                <li><a href="https://www.feib.com.tw/detail?id=178" target="_blank" rel="noopener">遠東商銀</a> / <a href="https://www.kgibank.com.tw/zh-tw/personal/credit-card/viproom" target="_blank" rel="noopener">凱基銀行</a> / <a href="https://card.ubot.com.tw/CardRights/AirPort_Vip" target="_blank" rel="noopener">聯邦銀行</a>：持卡符合門檻享免費使用權益。</li>
-              </ul>
-            </li>
-            <li><strong>紅利/點數折抵兌換</strong>：
-              <ul>
-                <li><strong><a href="https://www.cathay-cube.com.tw/cathaybk/personal/event/overview/credit-card/bonus/product/viproom" target="_blank" rel="noopener">國泰小樹點</a></strong>：900 點兌換 U.First 1 點會籍卡；1,800 點兌換 2 點會籍卡。</li>
-                <li><strong><a href="https://www.megabank.com.tw/personal/credit-card/service/bouns-overview/shop/00000008" target="_blank" rel="noopener">兆豐銀行</a></strong>：8,000 點紅利可兌換貴賓室 1 次（無次數上限）。</li>
-                <li><strong><a href="https://www.bankchb.com/frontend/mashup.jsp?funcId=dfa7ecd015" target="_blank" rel="noopener">彰化銀行</a></strong>：15,000 點紅利可折抵本人貴賓室 1 人次。</li>
-                <li><strong><a href="https://www.dbs.com.tw/personal-zh/cards/rewards/bonus_travel_service" target="_blank" rel="noopener">星展銀行</a></strong>：飛行積金 3,000 點 / 現金積點 800 點 / 活利積分 15,000 點可兌換 1 次。</li>
-              </ul>
-            </li>
-          </ul>
-        </td>
-      </tr>
+  <!-- 工具操作區（搜尋 + 小牛仔文章搜尋 + 篩選標籤） -->
+  <div class="cowboy-ctrl-box print-hide">
+    <div class="cowboy-search-row">
+      <input type="text" id="cowboyLoungeSearch" class="cowboy-input" placeholder="🔍 搜尋信用卡、銀行、價格或優惠規則..." onkeyup="filterCowboyLounge()">
+      <button type="button" class="cowboy-blog-search-btn" onclick="searchCowboyBlog()" title="前往小牛仔的飛行時光部落格搜尋此關鍵字">
+        📖 搜尋小牛仔文章
+      </button>
+    </div>
+    
+    <div class="cowboy-filter-group">
+      <button type="button" class="cowboy-btn active" onclick="setCowboyFilter('all', this)">全部方案</button>
+      <button type="button" class="cowboy-btn" onclick="setCowboyFilter('官網與會員', this)">官網與會員</button>
+      <button type="button" class="cowboy-btn" onclick="setCowboyFilter('信用卡權益', this)">信用卡與銀行</button>
+      <button type="button" class="cowboy-btn" onclick="setCowboyFilter('票券與平台', this)">平台票券比價</button>
+      <button type="button" class="cowboy-btn" onclick="setCowboyFilter('影音推薦', this)">推薦影音開箱</button>
+    </div>
+  </div>
 
-      <!-- 全球通行證 -->
-      <tr data-category="官網與會員">
-        <td>
-          <span class="lounge-category-badge">貴賓室通行證</span>
-        </td>
-        <td>
-          <ul>
-            <li>🔗 <a href="https://www.plazapremiumlounge.com/zh-hk/discover/partner-offers/new-passes" target="_blank" rel="noopener">環亞全新貴賓室全球通行證</a>：享 10% 折扣，2 天通行證 <strong>70 美元起</strong>。</li>
-            <li>可於各合作城市貴賓室享受 3 小時服務，適用城市涵蓋：<strong>台北、香港、吉隆坡、新加坡、杜拜、達曼、吉達、利雅得</strong>等。</li>
-          </ul>
-        </td>
-      </tr>
+  <!-- 表格主體 -->
+  <div class="cowboy-table-wrapper">
+    <table class="cowboy-table" id="cowboyLoungeTable">
+      <thead>
+        <tr>
+          <th style="width: 24%;">優惠類型 / 通路</th>
+          <th style="width: 76%;">詳細內容說明與費用重點</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- 環亞官網購票 -->
+        <tr data-cat="官網與會員">
+          <td>
+            <span class="cowboy-badge">環亞官網購票</span>
+          </td>
+          <td>
+            <ul style="margin: 0; padding-left: 20px;">
+              <li>🔗 <a href="https://www.plazapremiumlounge.com/zh-hk/find/china-regions/taiwan/taipei/taiwan-taoyuan-international-airport?stype=All" target="_blank" rel="noopener">環亞貴賓室網站價格查詢</a></li>
+              <li>貴賓室原價：<strong>1,500 元</strong>。</li>
+              <li>官網購買貴賓室享 9 折優惠，折扣後 <span class="cowboy-price-tag">1,350 元</span>。</li>
+              <li><strong>兒童優惠說明</strong>：
+                <ul>
+                  <li>未滿 2 歲兒童可免費進入/使用。</li>
+                  <li>2 歲至 11 歲兒童可享受折扣優惠（折扣費用因設施地點而異）。</li>
+                  <li>12 歲或以上旅客需支付全額費用；所有兒童必須由年滿 18 歲成年人陪同進入。</li>
+                </ul>
+              </li>
+            </ul>
+          </td>
+        </tr>
 
-      <!-- 旅遊平台票券價格 -->
-      <tr data-category="平台票券">
-        <td>
-          <span class="lounge-category-badge">旅遊平台票券<br><small style="font-weight: normal; color: #666;">(2026/07 價格參考)</small></span>
-        </td>
-        <td>
-          <ul>
-            <li><strong>平台特點</strong>：Klook、Trip.com 等提供 3 / 6 / 12 小時彈性票券，相較現場單次購買更實惠，停留時間亦更長。</li>
-            <li><strong><a href="https://tw.trip.com/things-to-do/detail/46535266?language=TW&locale=zh_tw" target="_blank" rel="noopener">Trip.com</a></strong>：
-              3 小時票券特惠約 <strong class="price-accent">830 元</strong>；6 小時約 1,346 元（Trip 白金會員享 1 次免費兌換）。
-            </li>
-            <li><strong><a href="https://www.pchometravel.com/ticket/V000005COGRYWNHTT44" target="_blank" rel="noopener">PChome 旅遊</a></strong>：3 小時票券約 1,130 元（促銷檔期曾有 886 元超值價）。</li>
-            <li><strong><a href="https://www.klook.com/zh-TW/activity/5259-airport-lounge-taipei/" target="_blank" rel="noopener">Klook 客路</a></strong>：3 小時票券約 1,370 元，另提供 6 小時及 9 小時方案。</li>
-            <li><strong>其他銷售通路</strong>：DJB、雄獅旅遊、LINE 旅遊等平台不定期推出特惠票券。</li>
-          </ul>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+        <!-- 智旅者會員 -->
+        <tr data-cat="官網與會員">
+          <td>
+            <span class="cowboy-badge">智旅者會員</span>
+          </td>
+          <td>
+            <ul style="margin: 0; padding-left: 20px;">
+              <li>🔗 <a href="https://www.plazapremiumlounge.com/zh-hk/discover/partner-offers/st-benefits" target="_blank" rel="noopener">環亞通會員專屬優惠</a>：智旅者會員可享有 <strong>20%（8折）</strong>折扣，且每次使用符合資格貴賓室最高可賺取 150 點 ST 積分。</li>
+            </ul>
+          </td>
+        </tr>
+
+        <!-- 信用卡貴賓室優惠 -->
+        <tr data-cat="信用卡權益">
+          <td>
+            <span class="cowboy-badge">信用卡貴賓室優惠</span>
+          </td>
+          <td>
+            <ul style="margin: 0; padding-left: 20px;">
+              <li><strong><a href="https://www.specialoffers.jcb/zh-tw/services/travel/airport-lounge-e2026/" target="_blank" rel="noopener">JCB 極緻卡</a></strong>：
+                桃園機場環亞貴賓室 3 小時免費使用，需事先線上登錄取得序號，並於同日出示登機證與卡片。每卡每月限領 2 次。
+                <ul>
+                  <li><span class="cowboy-highlight">自 2026 年 1 月 1 日起</span>：需於登錄當月前 2 個月內，刷卡購買國際線機票或國外團費單筆達 NT$30,000(含) 以上才符合登錄條件。</li>
+                  <li>若當月登錄組數兌換完畢或達上限，可享 <span class="cowboy-price-tag">NT$900</span> 優惠價自費進入；同行者（最多 4 位）享定價 7 折優惠（約 NT$1,050）。</li>
+                </ul>
+              </li>
+              <li><strong><a href="https://loungekey.com/" target="_blank" rel="noopener">LoungeKey</a></strong>：持有合作信用卡（如 JCB / HSBC）用戶，可憑卡片本身進入 LoungeKey 合作貴賓室。</li>
+              <li><strong>Priority Pass (PP卡)</strong>：可透過信用卡附贈獲得，亦可由個人直接自費購買。
+                <ul>
+                  <li><u>最新補充</u>：今年使用 Priority Pass 體驗倫敦環亞貴賓室，完整圖文請參考 <a href="https://s875261.pixnet.net/blog/posts/939066362800587044" target="_blank" rel="noopener">這篇分享</a>。</li>
+                </ul>
+              </li>
+              <li><strong><a href="https://www.youfirst.com.tw/lounge/visa/index.aspx" target="_blank" rel="noopener">U.First 貴賓室</a></strong>：
+                <span class="cowboy-highlight">自 2026/1/1 起</span> 原龍騰出行/龍騰卡正式更名為「U.First 全球貴賓室」。Visa 商務無限卡友專屬優惠費用 <span class="cowboy-price-tag">NT$399</span>。
+              </li>
+              <li><strong>各大合作銀行權益</strong>：
+                <ul>
+                  <li><a href="https://www.esunbank.com/zh-tw/personal/credit-card/benefit/vip-room" target="_blank" rel="noopener">玉山銀行</a>：持卡符合資格享免費使用，亦可線上申辦 U.First 貴賓卡。</li>
+                  <li><a href="https://www.ctbcbank.com/content/twrbo/zh_tw/cc_index/cc_additional/cc_add_index/cc_add_viproom.html" target="_blank" rel="noopener">中國信託</a>：符合資格享免費，亦得以每次 800 元優惠價自費使用。</li>
+                  <li><a href="https://www.yuantabank.com.tw/bank/creditCard/right/list.do?right_id=%E5%9C%8B%E5%A4%96%E6%97%85%E9%81%8A" target="_blank" rel="noopener">元大銀行</a> / <a href="https://www.fubon.com/banking/Personal/credit_card/airport_VIP/airport_VIP.htm" target="_blank" rel="noopener">富邦銀行</a>：持卡符合資格享免費使用或優惠價 850 元。</li>
+                  <li><a href="https://www.feib.com.tw/detail?id=178" target="_blank" rel="noopener">遠東銀行</a> / <a href="https://www.kgibank.com.tw/zh-tw/personal/credit-card/viproom" target="_blank" rel="noopener">凱基銀行</a> / <a href="https://card.ubot.com.tw/CardRights/AirPort_Vip" target="_blank" rel="noopener">聯邦銀行</a>：持卡符合指定門檻享免費使用。</li>
+                </ul>
+              </li>
+              <li><strong>紅利與哩程點數兌換</strong>：
+                <ul>
+                  <li><a href="https://www.cathay-cube.com.tw/cathaybk/personal/event/overview/credit-card/bonus/product/viproom" target="_blank" rel="noopener">國泰小樹點</a>：900 點兌換 U.First 一點會籍卡，1,800 點可兌換二點。</li>
+                  <li><a href="https://www.megabank.com.tw/personal/credit-card/service/bouns-overview/shop/00000008" target="_blank" rel="noopener">兆豐銀行</a>：8,000 點紅利可兌換 1 次，兌換無上限。</li>
+                  <li><a href="https://www.bankchb.com/frontend/mashup.jsp?funcId=dfa7ecd015" target="_blank" rel="noopener">彰化銀行</a>：15,000 點紅利可折抵本人 1 人次使用費。</li>
+                  <li><a href="https://www.dbs.com.tw/personal-zh/cards/rewards/bonus_travel_service" target="_blank" rel="noopener">星展銀行</a>：飛行積金 3,000 點 / 現金積點 800 點 / 活利積分 15,000 點可兌換 1 次。</li>
+                </ul>
+              </li>
+            </ul>
+          </td>
+        </tr>
+
+        <!-- 貴賓室通行證 -->
+        <tr data-cat="官網與會員">
+          <td>
+            <span class="cowboy-badge">貴賓室通行證</span>
+          </td>
+          <td>
+            <ul style="margin: 0; padding-left: 20px;">
+              <li>🔗 <a href="https://www.plazapremiumlounge.com/zh-hk/discover/partner-offers/new-passes" target="_blank" rel="noopener">全新貴賓室通行證</a>：環亞貴賓室推出「全球通行證 10% 折扣」，2 天通行證 <strong>70 美元起</strong>，可在每個指定城市享受 3 小時貴賓室服務。</li>
+              <li>適用城市（包含台北）：<strong>台北｜香港｜吉隆坡｜新加坡｜杜拜｜達曼、吉達或利雅得</strong>。</li>
+            </ul>
+          </td>
+        </tr>
+
+        <!-- 2026/07 票券價格 -->
+        <tr data-cat="票券與平台">
+          <td>
+            <span class="cowboy-badge">2026/07 票券價格</span>
+          </td>
+          <td>
+            <ul style="margin: 0; padding-left: 20px;">
+              <li><strong>旅遊平台特點</strong>：Klook、Trip.com 等提供 3 / 6 / 12 小時貴賓室票券，價格比現場買便宜，使用時段也更具彈性。</li>
+              <li><a href="https://tw.trip.com/things-to-do/detail/46535266?language=TW&locale=zh_tw" target="_blank" rel="noopener">Trip.com</a>：3 小時票券特惠約 <span class="cowboy-price-tag">830 元</span>、6 小時約 1,346 元（Trip 白金會員享 1 次免費兌換）。</li>
+              <li><a href="https://www.pchometravel.com/ticket/V000005COGRYWNHTT44" target="_blank" rel="noopener">PChome 旅遊</a>：3 小時票券約 1,130 元（促銷檔期曾有 886 元）。</li>
+              <li><a href="https://www.klook.com/zh-TW/activity/5259-airport-lounge-taipei/" target="_blank" rel="noopener">Klook</a>：3 小時價格約 1,370 元，另有 6 / 9 小時方案。</li>
+              <li>其他販售平台：DJB、雄獅旅遊、LINE 旅遊等。</li>
+            </ul>
+          </td>
+        </tr>
+
+        <!-- 新增列：桃園機場 The Infinity 貴賓室與飛行體驗 -->
+        <tr data-cat="影音推薦" style="background-color: #fff9f2;">
+          <td style="vertical-align: middle;">
+            <span class="cowboy-badge" style="background: #fed7aa; color: #9a3412; border-color: #f97316;">🎥 影音實測推薦</span>
+          </td>
+          <td>
+            <div style="display: flex; gap: 16px; align-items: center; flex-wrap: wrap;">
+              <!-- 影片預覽圖（自適應長寬比） -->
+              <a href="https://youtu.be/8fiH22wCnkI" target="_blank" rel="noopener" style="position: relative; width: 180px; height: 105px; flex-shrink: 0; border-radius: 10px; overflow: hidden; display: block; border: 1.5px solid var(--border-color); text-decoration: none;">
+                <img src="https://img.youtube.com/vi/8fiH22wCnkI/hqdefault.jpg" alt="桃園機場 The Infinity 貴賓室與飛行體驗" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+                <div style="position: absolute; inset: 0; background: rgba(0,0,0,0.3); display: flex; align-items: center; justify-content: center; font-size: 32px; color: #fff;">
+                  ▶️
+                </div>
+              </a>
+              <!-- 說明文字與跳轉 -->
+              <div style="flex: 1 1 240px;">
+                <div style="font-weight: 800; font-size: 15.5px; color: #78350f; margin-bottom: 6px;">
+                  長榮航空 The Infinity 貴賓室 & 飛行體驗開箱！
+                </div>
+                <p style="margin: 0 0 8px 0; font-size: 13.5px; color: #555; line-height: 1.6;">
+                  跟著鏡頭開箱桃園機場超熱門長榮 The Infinity 貴賓室！現煮熱食、頂級酒品、專屬淋浴間設施與最新飛行紀錄全收錄。
+                </p>
+                <a href="https://youtu.be/8fiH22wCnkI" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; gap: 5px; font-size: 13.5px; background: #ea580c; color: #ffffff !important; padding: 6px 14px; border-radius: 8px; text-decoration: none; font-weight: 700; box-shadow: 0 2px 6px rgba(234, 88, 12, 0.25);">
+                  ▶️ 點我觀看實拍影片
+                </a>
+              </div>
+            </div>
+          </td>
+        </tr>
+
+      </tbody>
+    </table>
+  </div>
+
 </div>
 
 <!-- 篩選與搜尋 JavaScript 邏輯 -->
 <script>
-  let currentCategory = 'all';
+  let currentCowboyCat = 'all';
 
-  function setFilter(cat, btn) {
-    currentCategory = cat;
-    document.querySelectorAll('.lounge-filter-btn').forEach(b => b.classList.remove('active'));
+  // 1. 分類標籤切換
+  function setCowboyFilter(category, btn) {
+    currentCowboyCat = category;
+    document.querySelectorAll('.cowboy-filter-group .cowboy-btn').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
-    filterLoungeTable();
+    filterCowboyLounge();
   }
 
-  function filterLoungeTable() {
-    const input = document.getElementById('loungeSearch').value.toLowerCase();
-    const rows = document.querySelectorAll('#loungeDataTable tbody tr');
+  // 2. 表格即時過濾（同步比對關鍵字與分類）
+  function filterCowboyLounge() {
+    const input = document.getElementById('cowboyLoungeSearch').value.toLowerCase().trim();
+    const rows = document.querySelectorAll('#cowboyLoungeTable tbody tr');
 
     rows.forEach(row => {
-      const rowText = row.innerText.toLowerCase();
-      const rowCategory = row.getAttribute('data-category');
+      const text = row.innerText.toLowerCase();
+      const rowCat = row.getAttribute('data-cat') || '';
 
-      const matchesSearch = rowText.includes(input);
-      const matchesCategory = (currentCategory === 'all') || (rowCategory === currentCategory);
+      const matchSearch = text.includes(input);
+      const matchCategory = (currentCowboyCat === 'all') || (rowCat.includes(currentCowboyCat));
 
-      if (matchesSearch && matchesCategory) {
+      if (matchSearch && matchCategory) {
         row.style.display = '';
       } else {
         row.style.display = 'none';
       }
     });
   }
+
+  // 3. 搜尋小牛仔部落格文章功能
+  function searchCowboyBlog() {
+    const keyword = document.getElementById('cowboyLoungeSearch').value.trim();
+    const query = keyword ? encodeURIComponent(keyword) : encodeURIComponent('貴賓室');
+    
+    // 預設導向小牛仔 Pixnet 部落格搜尋
+    const targetUrl = 'https://s875261.pixnet.net/blog/search/' + query + '/1';
+    window.open(targetUrl, '_blank');
+  }
 </script>
+<!-- 小牛仔部落格風格：貴賓室優惠互動表格 結束 -->
