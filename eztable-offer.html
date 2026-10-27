@@ -1,0 +1,357 @@
+<!-- EZTABLE 訂位平台優惠 小牛仔風格互動表格 開始 -->
+<div class="cowboy-eztable-widget" style="width: 100%; max-width: 100%; box-sizing: border-box; margin: 25px 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Noto Sans TC', sans-serif;">
+
+  <style>
+    .cowboy-eztable-widget {
+      --primary-color: #8c532b;
+      --primary-hover: #704020;
+      --accent-bg: #fdf6ec;
+      --header-bg: #f9cb9c;
+      --badge-bg: #fde8cd;
+      --border-color: #ebd3be;
+      --text-main: #374151;
+    }
+    .cowboy-ez-bar {
+      background-color: var(--header-bg);
+      color: #5c3210;
+      padding: 14px 20px;
+      border-radius: 16px 16px 0 0;
+      border: 1px solid var(--border-color);
+      border-bottom: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .cowboy-ez-title {
+      font-weight: 800;
+      font-size: 18.5px;
+      letter-spacing: 0.8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .cowboy-ez-ctrl-box {
+      background: #fffdfa;
+      border: 1px solid var(--border-color);
+      border-bottom: none;
+      padding: 14px 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .cowboy-ez-search-row {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .cowboy-ez-input {
+      flex: 1 1 240px;
+      padding: 10px 14px;
+      border: 1.5px solid #d1d5db;
+      border-radius: 10px;
+      font-size: 14px;
+      outline: none;
+      transition: all 0.2s ease;
+      background: #ffffff;
+      box-sizing: border-box;
+    }
+    .cowboy-ez-input:focus {
+      border-color: var(--primary-color);
+      box-shadow: 0 0 0 3px rgba(140, 83, 43, 0.15);
+    }
+    .cowboy-ez-blog-btn {
+      background: #fff;
+      color: var(--primary-color);
+      border: 1.5px solid var(--primary-color);
+      padding: 9px 16px;
+      border-radius: 10px;
+      font-size: 13.5px;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s;
+      white-space: nowrap;
+    }
+    .cowboy-ez-blog-btn:hover {
+      background: var(--primary-color);
+      color: #fff;
+    }
+    .cowboy-ez-filter-group {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .cowboy-ez-btn {
+      border: 1px solid #d1d5db;
+      background: #fff;
+      color: #4b5563;
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 13px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: all 0.2s ease;
+    }
+    .cowboy-ez-btn:hover, .cowboy-ez-btn.active {
+      background: var(--primary-color);
+      color: #ffffff;
+      border-color: var(--primary-color);
+    }
+    .cowboy-ez-table-wrap {
+      width: 100%;
+      overflow-x: auto;
+      border: 1px solid var(--border-color);
+      border-radius: 0 0 16px 16px;
+      background: #ffffff;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.04);
+    }
+    table.cowboy-ez-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 14px;
+      color: var(--text-main);
+    }
+    table.cowboy-ez-table thead th {
+      background-color: #faeada;
+      color: #5c3210;
+      padding: 12px 18px;
+      font-weight: 700;
+      font-size: 14px;
+      border-bottom: 2px solid var(--border-color);
+    }
+    table.cowboy-ez-table td {
+      padding: 16px 18px;
+      border-bottom: 1px solid #f3f4f6;
+      vertical-align: top;
+      line-height: 1.65;
+    }
+    table.cowboy-ez-table tbody tr:hover {
+      background-color: #fffaf5;
+    }
+    .cowboy-ez-badge {
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 700;
+      color: #78350f;
+      background: var(--badge-bg);
+      border: 1px solid #fbd38d;
+      white-space: nowrap;
+    }
+    .cowboy-ez-price {
+      color: #c2410c;
+      font-weight: 700;
+    }
+    .cowboy-ez-highlight {
+      background: #fef08a;
+      padding: 2px 5px;
+      border-radius: 4px;
+      font-weight: 600;
+    }
+    .cowboy-ez-table a {
+      color: #92400e;
+      text-decoration: underline;
+      font-weight: 600;
+    }
+    .cowboy-ez-table a:hover {
+      color: #b45309;
+    }
+
+    @media print {
+      .print-hide { display: none !important; }
+      .cowboy-eztable-widget { margin: 0 !important; width: 100% !important; }
+      table.cowboy-ez-table { font-size: 12px !important; }
+      table.cowboy-ez-table td, table.cowboy-ez-table th { border: 1px solid #ddd !important; }
+    }
+  </style>
+
+  <!-- 頂部標題列與列印按鈕 -->
+  <div class="cowboy-ez-bar">
+    <div class="cowboy-ez-title">
+      🍽️ EZTABLE 訂位平台優惠＆信用卡回饋全攻略
+    </div>
+    <button type="button" class="print-hide cowboy-ez-btn" onclick="window.print()" style="padding: 5px 12px; font-size: 12px; background: #fff; color: #5c3210; border-color: #d97706;">
+      🖨️ 列印存為 PDF
+    </button>
+  </div>
+
+  <!-- 工具操作區（搜尋 + 站內搜尋 + 類別篩選） -->
+  <div class="cowboy-ez-ctrl-box print-hide">
+    <div class="cowboy-ez-search-row">
+      <input type="text" id="cowboyEZSearch" class="cowboy-ez-input" placeholder="🔍 搜尋銀行、折價券、回饋%、低消門檻或支付方式..." onkeyup="filterCowboyEZ()">
+      <button type="button" class="cowboy-ez-blog-btn" onclick="searchCowboyBlogEZ()" title="使用 Google 定向搜尋小牛仔站內美食與折扣碼文章">
+        📖 搜尋小牛仔文章
+      </button>
+    </div>
+    
+    <div class="cowboy-ez-filter-group">
+      <button type="button" class="cowboy-ez-btn active" onclick="setCowboyEZFilter('all', this)">全部優惠</button>
+      <button type="button" class="cowboy-ez-btn" onclick="setCowboyEZFilter('平台限定', this)">平台限定現折</button>
+      <button type="button" class="cowboy-ez-btn" onclick="setCowboyEZFilter('信用卡回饋', this)">銀行信用卡專屬</button>
+      <button type="button" class="cowboy-ez-btn" onclick="setCowboyEZFilter('行動支付', this)">行動支付加碼</button>
+      <button type="button" class="cowboy-ez-btn" onclick="setCowboyEZFilter('影音開箱', this)">美食影音推薦</button>
+    </div>
+  </div>
+
+  <!-- 表格主體 -->
+  <div class="cowboy-ez-table-wrap">
+    <table class="cowboy-ez-table" id="cowboyEZTable">
+      <thead>
+        <tr>
+          <th style="width: 25%;">方案類別 / 合作機構</th>
+          <th style="width: 75%;">詳細內容說明與折抵規則</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- 平台限定活動 -->
+        <tr data-cat="平台限定">
+          <td>
+            <span class="cowboy-ez-badge">EZTABLE 官網限定</span>
+          </td>
+          <td>
+            <ul style="margin: 0; padding-left: 20px;">
+              <li>🔗 <strong><a href="https://tw.eztable.com/restaurant/166" target="_blank" rel="noopener">EZTABLE 餐廳訂位專區</a></strong></li>
+              <li><span class="cowboy-ez-highlight">最新限定活動</span>：領券享現折 <span class="cowboy-ez-price">NT$100</span>，結帳再疊加享信用卡或行動支付專屬折扣！</li>
+              <li>💡 <u>訂票與旅遊省錢彙整</u>：請參考站內 <a href="https://s875261.pixnet.net/blog/posts/9578133286" target="_blank" rel="noopener">旅遊訂票優惠＋信用卡活動攻略！</a>[cite: 2]</li>
+            </ul>
+          </td>
+        </tr>
+
+        <!-- 中國信託 -->
+        <tr data-cat="信用卡回饋">
+          <td>
+            <span class="cowboy-ez-badge">中國信託銀行</span>
+          </td>
+          <td>
+            <ul style="margin: 0; padding-left: 20px;">
+              <li><strong>百大美饌活動</strong>：刷中信卡滿額，用餐完成後贈送 <span class="cowboy-ez-price">200 元折價券</span>。</li>
+              <li><strong>全卡友加碼</strong>：中信卡全卡適用，用餐後最高享 <span class="cowboy-ez-highlight">5% EZCASH 回饋</span>。</li>
+            </ul>
+          </td>
+        </tr>
+
+        <!-- 土地銀行 / 第一銀行 -->
+        <tr data-cat="信用卡回饋">
+          <td>
+            <span class="cowboy-badge">公股銀行專屬</span>
+          </td>
+          <td>
+            <ul style="margin: 0; padding-left: 20px;">
+              <li><strong>土地銀行鈦金卡</strong>：單筆預付滿 2,000 元，結帳現折 <span class="cowboy-ez-price">10%</span>。</li>
+              <li><strong>第一銀行世界卡 / GLORY⁺卡</strong>：預付訂位結帳享現折 <span class="cowboy-ez-price">15%</span> 超高折扣。</li>
+            </ul>
+          </td>
+        </tr>
+
+        <!-- 華南銀行 -->
+        <tr data-cat="信用卡回饋">
+          <td>
+            <span class="cowboy-ez-badge">華南銀行專屬</span>
+          </td>
+          <td>
+            <ul style="margin: 0; padding-left: 20px;">
+              <li><strong>華南全卡友滿額折</strong>：單筆預付滿 $3,000 元，現折 <span class="cowboy-ez-price">$1,000 元</span>！折扣後滿額再加碼贈 <span class="cowboy-ez-highlight">500 EZCASH</span>。</li>
+              <li><strong>華南 Visa 熊Q卡</strong>：預付單筆滿 $2,000 元現折 <span class="cowboy-ez-price">5%</span>（單筆折抵上限 $100 元）。</li>
+            </ul>
+          </td>
+        </tr>
+
+        <!-- 行動支付（街口 / 全支付） -->
+        <tr data-cat="行動支付">
+          <td>
+            <span class="cowboy-ez-badge">行動支付加碼</span>
+          </td>
+          <td>
+            <ul style="margin: 0; padding-left: 20px;">
+              <li><strong>街口支付</strong>：搭配「街口豬富卡」付款，享最高回饋 <span class="cowboy-ez-price">8.5％</span>。</li>
+              <li><strong>全支付</strong>：單筆消費滿 $1,500 元，搭配指定銀行信用卡付款最高享 <span class="cowboy-ez-price">7% 回饋</span>。</li>
+            </ul>
+          </td>
+        </tr>
+
+        <!-- 影音美食實測推薦列 -->
+        <tr data-cat="影音開箱" style="background-color: #fff9f2;">
+          <td style="vertical-align: middle;">
+            <span class="cowboy-ez-badge" style="background: #fed7aa; color: #9a3412; border-color: #f97316;">🎥 美食影音推薦</span>
+          </td>
+          <td>
+            <div style="display: flex; gap: 16px; align-items: center; flex-wrap: wrap;">
+              <!-- 影片預覽圖（自適應長寬比） -->
+              <a href="https://youtu.be/i6wK37J-w04" target="_blank" rel="noopener" style="position: relative; width: 180px; height: 105px; flex-shrink: 0; border-radius: 10px; overflow: hidden; display: block; border: 1.5px solid var(--border-color); text-decoration: none;">
+                <img src="https://img.youtube.com/vi/i6wK37J-w04/hqdefault.jpg" alt="饗食天堂 LaLaport 台中店吃到飽開箱" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+                <div style="position: absolute; inset: 0; background: rgba(0,0,0,0.3); display: flex; align-items: center; justify-content: center; font-size: 32px; color: #fff;">
+                  ▶️
+                </div>
+              </a>
+              <!-- 說明文字與跳轉 -->
+              <div style="flex: 1 1 240px;">
+                <div style="font-weight: 800; font-size: 15.5px; color: #78350f; margin-bottom: 6px;">
+                  饗食天堂 LaLaport 台中店吃到飽實拍！
+                </div>
+                <p style="margin: 0 0 8px 0; font-size: 13.5px; color: #555; line-height: 1.6;">
+                  用 EZTABLE 訂吃到飽超划算！跟著小牛仔鏡頭直擊熱門菜色、生鮮海鮮、現切排餐與甜點總整理。
+                </p>
+                <a href="https://youtu.be/i6wK37J-w04" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; gap: 5px; font-size: 13.5px; background: #ea580c; color: #ffffff !important; padding: 6px 14px; border-radius: 8px; text-decoration: none; font-weight: 700; box-shadow: 0 2px 6px rgba(234, 88, 12, 0.25);">
+                  ▶️ 點我觀看實拍影片
+                </a>
+              </div>
+            </div>
+          </td>
+        </tr>
+
+      </tbody>
+    </table>
+  </div>
+
+</div>
+
+<!-- 篩選與搜尋 JavaScript 邏輯 -->
+<script>
+  let currentCowboyEZCat = 'all';
+
+  // 1. 分類標籤切換
+  function setCowboyEZFilter(category, btn) {
+    currentCowboyEZCat = category;
+    document.querySelectorAll('.cowboy-ez-filter-group .cowboy-ez-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    filterCowboyEZ();
+  }
+
+  // 2. 表格即時過濾（雙重比對關鍵字與分類標籤）
+  function filterCowboyEZ() {
+    const input = document.getElementById('cowboyEZSearch').value.toLowerCase().trim();
+    const rows = document.querySelectorAll('#cowboyEZTable tbody tr');
+
+    rows.forEach(row => {
+      const text = row.innerText.toLowerCase();
+      const rowCat = row.getAttribute('data-cat') || '';
+
+      const matchSearch = text.includes(input);
+      const matchCategory = (currentCowboyEZCat === 'all') || (rowCat.includes(currentCowboyEZCat));
+
+      if (matchSearch && matchCategory) {
+        row.style.display = '';
+      } else {
+        row.style.display = 'none';
+      }
+    });
+  }
+
+  // 3. 搜尋小牛仔站內文章（使用 Google 定向檢索）
+  function searchCowboyBlogEZ() {
+    var inputElem = document.getElementById('cowboyEZSearch');
+    var keyword = inputElem ? inputElem.value.trim() : '';
+    var term = keyword !== '' ? keyword : 'EZTABLE 優惠';
+    
+    // 同步檢索小牛仔痞客邦站台與 GitHub 新站
+    var targetUrl = 'https://www.google.com/search?q=(site:s875261.pixnet.net+OR+site:littlecowboyuk.github.io)+' + encodeURIComponent(term);
+    window.open(targetUrl, '_blank');
+  }
+</script>
+<!-- EZTABLE 訂位平台優惠 小牛仔風格互動表格 結束 -->
