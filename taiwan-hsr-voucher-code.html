@@ -1,0 +1,387 @@
+<!-- 高鐵優惠碼 小牛仔風格互動表格 開始 -->
+<div class="cowboy-hsr-widget" style="width: 100%; max-width: 100%; box-sizing: border-box; margin: 25px 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Noto Sans TC', sans-serif;">
+
+  <style>
+    .cowboy-hsr-widget {
+      --primary-color: #8c532b;
+      --primary-hover: #704020;
+      --accent-bg: #fdf6ec;
+      --header-bg: #f9cb9c;
+      --badge-bg: #fde8cd;
+      --border-color: #ebd3be;
+      --text-main: #374151;
+    }
+    .cowboy-hsr-bar {
+      background-color: var(--header-bg);
+      color: #5c3210;
+      padding: 14px 20px;
+      border-radius: 16px 16px 0 0;
+      border: 1px solid var(--border-color);
+      border-bottom: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .cowboy-hsr-title {
+      font-weight: 800;
+      font-size: 18.5px;
+      letter-spacing: 0.8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .cowboy-hsr-ctrl-box {
+      background: #fffdfa;
+      border: 1px solid var(--border-color);
+      border-bottom: none;
+      padding: 14px 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .cowboy-hsr-search-row {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .cowboy-hsr-input {
+      flex: 1 1 240px;
+      padding: 10px 14px;
+      border: 1.5px solid #d1d5db;
+      border-radius: 10px;
+      font-size: 14px;
+      outline: none;
+      transition: all 0.2s ease;
+      background: #ffffff;
+      box-sizing: border-box;
+    }
+    .cowboy-hsr-input:focus {
+      border-color: var(--primary-color);
+      box-shadow: 0 0 0 3px rgba(140, 83, 43, 0.15);
+    }
+    .cowboy-hsr-blog-btn {
+      background: #fff;
+      color: var(--primary-color);
+      border: 1.5px solid var(--primary-color);
+      padding: 9px 16px;
+      border-radius: 10px;
+      font-size: 13.5px;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s;
+      white-space: nowrap;
+    }
+    .cowboy-hsr-blog-btn:hover {
+      background: var(--primary-color);
+      color: #fff;
+    }
+    .cowboy-hsr-filter-group {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .cowboy-hsr-btn {
+      border: 1px solid #d1d5db;
+      background: #fff;
+      color: #4b5563;
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 13px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: all 0.2s ease;
+    }
+    .cowboy-hsr-btn:hover, .cowboy-hsr-btn.active {
+      background: var(--primary-color);
+      color: #ffffff;
+      border-color: var(--primary-color);
+    }
+    .cowboy-hsr-table-wrap {
+      width: 100%;
+      overflow-x: auto;
+      border: 1px solid var(--border-color);
+      border-radius: 0 0 16px 16px;
+      background: #ffffff;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.04);
+    }
+    table.cowboy-hsr-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 14px;
+      color: var(--text-main);
+    }
+    table.cowboy-hsr-table thead th {
+      background-color: #faeada;
+      color: #5c3210;
+      padding: 12px 18px;
+      font-weight: 700;
+      font-size: 14px;
+      border-bottom: 2px solid var(--border-color);
+    }
+    table.cowboy-hsr-table td {
+      padding: 16px 18px;
+      border-bottom: 1px solid #f3f4f6;
+      vertical-align: top;
+      line-height: 1.65;
+    }
+    table.cowboy-hsr-table tbody tr:hover {
+      background-color: #fffaf5;
+    }
+    .cowboy-hsr-badge {
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 700;
+      color: #78350f;
+      background: var(--badge-bg);
+      border: 1px solid #fbd38d;
+      white-space: nowrap;
+    }
+    .cowboy-hsr-price {
+      color: #c2410c;
+      font-weight: 700;
+    }
+    .cowboy-hsr-highlight {
+      background: #fef08a;
+      padding: 2px 5px;
+      border-radius: 4px;
+      font-weight: 600;
+    }
+    .cowboy-code-tag {
+      display: inline-block;
+      background: #fee2e2;
+      color: #991b1b;
+      padding: 2px 8px;
+      border-radius: 6px;
+      font-family: monospace;
+      font-size: 14px;
+      font-weight: 700;
+      border: 1px dashed #ef4444;
+      margin: 2px 0;
+    }
+    .cowboy-copy-btn {
+      background: #f3f4f6;
+      border: 1px solid #d1d5db;
+      padding: 2px 8px;
+      border-radius: 6px;
+      font-size: 12px;
+      cursor: pointer;
+      color: #374151;
+      margin-left: 6px;
+      transition: all 0.2s;
+    }
+    .cowboy-copy-btn:hover {
+      background: #e5e7eb;
+      color: #111;
+    }
+    .cowboy-hsr-table a {
+      color: #92400e;
+      text-decoration: underline;
+      font-weight: 600;
+    }
+    .cowboy-hsr-table a:hover {
+      color: #b45309;
+    }
+
+    @media print {
+      .print-hide { display: none !important; }
+      .cowboy-hsr-widget { margin: 0 !important; width: 100% !important; }
+      table.cowboy-hsr-table { font-size: 12px !important; }
+      table.cowboy-hsr-table td, table.cowboy-hsr-table th { border: 1px solid #ddd !important; }
+    }
+  </style>
+
+  <!-- 頂部標題列與列印按鈕 -->
+  <div class="cowboy-hsr-bar">
+    <div class="cowboy-hsr-title">
+      🚄 2026 最新高鐵優惠碼＆訂票折扣全攻略
+    </div>
+    <button type="button" class="print-hide cowboy-hsr-btn" onclick="window.print()" style="padding: 5px 12px; font-size: 12px; background: #fff; color: #5c3210; border-color: #d97706;">
+      🖨️ 列印存為 PDF
+    </button>
+  </div>
+
+  <!-- 工具控制區（搜尋 + 小牛仔定向搜尋 + 類別標籤） -->
+  <div class="cowboy-hsr-ctrl-box print-hide">
+    <div class="cowboy-hsr-search-row">
+      <input type="text" id="cowboyHSRSearch" class="cowboy-hsr-input" placeholder="🔍 搜尋 Klook、KKday、郵政金融卡、折扣碼或門檻..." onkeyup="filterCowboyHSR()">
+      <button type="button" class="cowboy-hsr-blog-btn" onclick="searchCowboyBlogHSR()" title="使用 Google 定向搜尋小牛仔站內高鐵文章">
+        📖 搜尋小牛仔文章
+      </button>
+    </div>
+    
+    <div class="cowboy-hsr-filter-group">
+      <button type="button" class="cowboy-hsr-btn active" onclick="setCowboyHSRFilter('all', this)">全部優惠碼</button>
+      <button type="button" class="cowboy-hsr-btn" onclick="setCowboyHSRFilter('Klook', this)">Klook 平台</button>
+      <button type="button" class="cowboy-hsr-btn" onclick="setCowboyHSRFilter('KKday', this)">KKday 平台</button>
+      <button type="button" class="cowboy-hsr-btn" onclick="setCowboyHSRFilter('影音推薦', this)">商務車廂實拍</button>
+    </div>
+  </div>
+
+  <!-- 表格主體 -->
+  <div class="cowboy-hsr-table-wrap">
+    <table class="cowboy-hsr-table" id="cowboyHSRTable">
+      <thead>
+        <tr>
+          <th style="width: 25%;">平台 / 活動名稱</th>
+          <th style="width: 75%;">專屬優惠代碼、滿額門檻與使用期限</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Klook 中華郵政 VISA 金融卡 -->
+        <tr data-cat="Klook">
+          <td>
+            <span class="cowboy-hsr-badge">Klook 平台</span><br>
+            <small style="color: #666; font-weight: 600;">中華郵政 VISA 限定</small>
+          </td>
+          <td>
+            <ul style="margin: 0; padding-left: 20px;">
+              <li><strong>活動重點</strong>：高鐵離峰班次 <span class="cowboy-hsr-price">75 折起</span>，搭配<strong>每週一</strong>中華郵政 VISA 金融卡享專屬現折回饋！</li>
+              <li>
+                <span class="cowboy-code-tag">POST264001102</span>
+                <button type="button" class="cowboy-copy-btn" onclick="copyHSRCode('POST264001102', this)">📋 複製代碼</button>
+                ：滿額 <span class="cowboy-hsr-price">$2,500 折 $400</span>，有效期至 <strong>2026/12/01</strong>。
+              </li>
+              <li>
+                <span class="cowboy-code-tag">POST264001005</span>
+                <button type="button" class="cowboy-copy-btn" onclick="copyHSRCode('POST264001005', this)">📋 複製代碼</button>
+                ：滿額 <span class="cowboy-hsr-price">$2,500 折 $400</span>，有效期至 <strong>2026/11/04</strong>。
+              </li>
+              <li>
+                <span class="cowboy-code-tag">POSTHS268511</span>
+                <button type="button" class="cowboy-copy-btn" onclick="copyHSRCode('POSTHS268511', this)">📋 複製代碼</button>
+                ：每月高鐵國旅聯票滿額 <span class="cowboy-hsr-price">$1,000 折 $100</span>，有效期至 <strong>2026/11/30</strong>。
+              </li>
+            </ul>
+          </td>
+        </tr>
+
+        <!-- KKday 國旅聯票折上折 -->
+        <tr data-cat="KKday">
+          <td>
+            <span class="cowboy-hsr-badge">KKday 平台</span><br>
+            <small style="color: #666; font-weight: 600;">輸碼領券折上折</small>
+          </td>
+          <td>
+            <ul style="margin: 0; padding-left: 20px;">
+              <li><strong>活動重點</strong>：高鐵車票搭配國旅聯票，單筆滿 NT$2,200 即享 <span class="cowboy-hsr-price">95 折</span> 折扣。</li>
+              <li>
+                <span class="cowboy-code-tag">THSR26OF5</span>
+                <button type="button" class="cowboy-copy-btn" onclick="copyHSRCode('THSR26OF5', this)">📋 複製代碼</button>
+                ：國旅聯票單程車票結帳滿 NT$2,200 享 <strong>95 折</strong>，最高現折 <span class="cowboy-hsr-price">NT$150 元</span>。
+                <ul>
+                  <li>使用限制：每人使用上限為 <strong>3 次</strong>。</li>
+                  <li>適用出發期間：<strong>2026/01/01 - 2026/12/31</strong>。</li>
+                </ul>
+              </li>
+              <li>💡 <u>疊加優惠</u>：更多全站旅遊平台折價券請見 ➔ <a href="https://s875261.pixnet.net/blog/posts/9578108658" target="_blank" rel="noopener">旅遊平台最新折扣碼懶人包</a>！</li>
+            </ul>
+          </td>
+        </tr>
+
+        <!-- 影音實測推薦列 -->
+        <tr data-cat="影音推薦" style="background-color: #fff9f2;">
+          <td style="vertical-align: middle;">
+            <span class="cowboy-hsr-badge" style="background: #fed7aa; color: #9a3412; border-color: #f97316;">🎥 影音實拍推薦</span>
+          </td>
+          <td>
+            <div style="display: flex; gap: 16px; align-items: center; flex-wrap: wrap;">
+              <!-- 影片預覽圖（自適應長寬比） -->
+              <a href="https://www.youtube.com/watch?v=QT8tyJcJ0EY" target="_blank" rel="noopener" style="position: relative; width: 180px; height: 105px; flex-shrink: 0; border-radius: 10px; overflow: hidden; display: block; border: 1.5px solid var(--border-color); text-decoration: none;">
+                <img src="https://img.youtube.com/vi/QT8tyJcJ0EY/hqdefault.jpg" alt="高鐵商務車廂實拍" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+                <div style="position: absolute; inset: 0; background: rgba(0,0,0,0.3); display: flex; align-items: center; justify-content: center; font-size: 32px; color: #fff;">
+                  ▶️
+                </div>
+              </a>
+              <!-- 說明文字與跳轉 -->
+              <div style="flex: 1 1 240px;">
+                <div style="font-weight: 800; font-size: 15.5px; color: #78350f; margin-bottom: 6px;">
+                  高鐵商務車廂實拍：專屬服務與免費茶點升等開箱！
+                </div>
+                <p style="margin: 0 0 8px 0; font-size: 13.5px; color: #555; line-height: 1.6;">
+                  搭高鐵也能享受尊榮商務車廂！點數兌換、信用卡加價升等技巧與乘車免費精緻茶點體驗全紀錄。
+                </p>
+                <a href="https://www.youtube.com/watch?v=QT8tyJcJ0EY" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; gap: 5px; font-size: 13.5px; background: #ea580c; color: #ffffff !important; padding: 6px 14px; border-radius: 8px; text-decoration: none; font-weight: 700; box-shadow: 0 2px 6px rgba(234, 88, 12, 0.25);">
+                  ▶️ 點我觀看實拍影片
+                </a>
+              </div>
+            </div>
+          </td>
+        </tr>
+
+      </tbody>
+    </table>
+  </div>
+
+</div>
+
+<!-- 篩選與搜尋 JavaScript 邏輯 -->
+<script>
+  let currentCowboyHSRCat = 'all';
+
+  // 1. 分類標籤切換
+  function setCowboyHSRFilter(category, btn) {
+    currentCowboyHSRCat = category;
+    document.querySelectorAll('.cowboy-hsr-filter-group .cowboy-hsr-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    filterCowboyHSR();
+  }
+
+  // 2. 表格即時過濾（雙重比對關鍵字與分類標籤）
+  function filterCowboyHSR() {
+    const input = document.getElementById('cowboyHSRSearch').value.toLowerCase().trim();
+    const rows = document.querySelectorAll('#cowboyHSRTable tbody tr');
+
+    rows.forEach(row => {
+      const text = row.innerText.toLowerCase();
+      const rowCat = row.getAttribute('data-cat') || '';
+
+      const matchSearch = text.includes(input);
+      const matchCategory = (currentCowboyHSRCat === 'all') || (rowCat.includes(currentCowboyHSRCat));
+
+      if (matchSearch && matchCategory) {
+        row.style.display = '';
+      } else {
+        row.style.display = 'none';
+      }
+    });
+  }
+
+  // 3. 一鍵複製折扣代碼功能
+  function copyHSRCode(code, btn) {
+    navigator.clipboard.writeText(code).then(() => {
+      const originalText = btn.innerText;
+      btn.innerText = '✅ 已複製！';
+      btn.style.background = '#dcfce7';
+      btn.style.color = '#15803d';
+      btn.style.borderColor = '#86efac';
+      setTimeout(() => {
+        btn.innerText = originalText;
+        btn.style.background = '#f3f4f6';
+        btn.style.color = '#374151';
+        btn.style.borderColor = '#d1d5db';
+      }, 2000);
+    }).catch(err => {
+      alert('複製代碼：' + code);
+    });
+  }
+
+  // 4. 搜尋小牛仔站內高鐵文章（使用 Google 定向檢索）
+  function searchCowboyBlogHSR() {
+    var inputElem = document.getElementById('cowboyHSRSearch');
+    var keyword = inputElem ? inputElem.value.trim() : '';
+    var term = keyword !== '' ? keyword : '高鐵優惠';
+    
+    // 同步搜尋痞客邦與 GitHub Pages 新站
+    var targetUrl = 'https://www.google.com/search?q=(site:s875261.pixnet.net+OR+site:littlecowboyuk.github.io)+' + encodeURIComponent(term);
+    window.open(targetUrl, '_blank');
+  }
+</script>
+<!-- 高鐵優惠碼 小牛仔風格互動表格 結束 -->
