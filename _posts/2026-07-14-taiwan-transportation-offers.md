@@ -183,43 +183,76 @@ tags: [featured]
 ---
 
 <style>
-  /* 專業級 GitHub Pages 影片卡網格排版 */
+  /* 專業級 GitHub Pages 精緻小卡網格排版 */
   .yt-video-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 16px;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 14px;
     margin-bottom: 30px;
   }
   .yt-video-card {
     display: flex;
     flex-direction: column;
     border: 1px solid #e5e7eb;
-    border-radius: 12px;
+    border-radius: 10px;
     overflow: hidden;
     background: #fff;
     text-decoration: none !important;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
   }
   .yt-video-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+  }
+  /* 縮小圖片顯示區域 */
+  .yt-thumb-box {
+    position: relative;
+    width: 100%;
+    height: 120px;
+    background: #f3f4f6;
+    overflow: hidden;
+  }
+  .yt-thumb-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .yt-play-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1.6rem;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.4));
   }
   .yt-video-info-box {
-    padding: 12px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
   }
   .yt-card-title {
-    font-size: 15px; font-weight: 700; color: #222; margin: 0 0 4px 0; line-height: 1.4;
+    font-size: 14px;
+    font-weight: 700;
+    color: #222;
+    margin: 0;
+    line-height: 1.35;
   }
   .yt-card-desc {
-    font-size: 13px; color: #666; margin: 0;
+    font-size: 12px;
+    color: #666;
+    margin: 0;
+    line-height: 1.4;
   }
 </style>
 
 <div class="yt-video-grid">
+  <!-- 影片 1 -->
   <a href="https://www.youtube.com/watch?v=Xj2CmZ2Q5A0" target="_blank" rel="noopener" class="yt-video-card">
-    <div style="position:relative; width:100%; padding-top:56.25%;">
-      <img src="https://img.youtube.com/vi/Xj2CmZ2Q5A0/hqdefault.jpg" style="position:absolute; top:0; left:0; width:100%; height:100%; object-fit:cover;">
-      <span style="position:absolute; top:50%; left:50%; transform:translate(-50%, -50%); font-size:2.5rem; filter:drop-shadow(0 2px 4px rgba(0,0,0,0.5));">▶️</span>
+    <div class="yt-thumb-box">
+      <img src="https://img.youtube.com/vi/Xj2CmZ2Q5A0/hqdefault.jpg" alt="苗栗景點懶人包">
+      <span class="yt-play-icon">▶️</span>
     </div>
     <div class="yt-video-info-box">
       <h4 class="yt-card-title">🎥 苗栗景點懶人包</h4>
@@ -227,10 +260,11 @@ tags: [featured]
     </div>
   </a>
 
+  <!-- 影片 2 -->
   <a href="https://www.youtube.com/watch?v=-SF7pawyDUo" target="_blank" rel="noopener" class="yt-video-card">
-    <div style="position:relative; width:100%; padding-top:56.25%;">
-      <img src="https://img.youtube.com/vi/-SF7pawyDUo/hqdefault.jpg" style="position:absolute; top:0; left:0; width:100%; height:100%; object-fit:cover;">
-      <span style="position:absolute; top:50%; left:50%; transform:translate(-50%, -50%); font-size:2.5rem; filter:drop-shadow(0 2px 4px rgba(0,0,0,0.5));">▶️</span>
+    <div class="yt-thumb-box">
+      <img src="https://img.youtube.com/vi/-SF7pawyDUo/hqdefault.jpg" alt="金門美食3日遊">
+      <span class="yt-play-icon">▶️</span>
     </div>
     <div class="yt-video-info-box">
       <h4 class="yt-card-title">🎥 金門美食3日遊</h4>
@@ -238,9 +272,10 @@ tags: [featured]
     </div>
   </a>
 
+  <!-- 文章 1 -->
   <a href="https://s875261.pixnet.net/blog/posts/854287008627903201" target="_blank" rel="noopener" class="yt-video-card">
-    <div style="position:relative; width:100%; padding-top:56.25%;">
-      <img src="https://pimg.1px.tw/blog/s875261/post/854287008627903201/854297238191424082.png" style="position:absolute; top:0; left:0; width:100%; height:100%; object-fit:cover;">
+    <div class="yt-thumb-box">
+      <img src="https://pimg.1px.tw/blog/s875261/post/854287008627903201/854297238191424082.png" alt="全台吃到飽攻略">
     </div>
     <div class="yt-video-info-box">
       <h4 class="yt-card-title">📍 全台吃到飽 優惠攻略</h4>
@@ -248,9 +283,10 @@ tags: [featured]
     </div>
   </a>
 
+  <!-- 文章 2 -->
   <a href="https://s875261.pixnet.net/blog/posts/9578041474" target="_blank" rel="noopener" class="yt-video-card">
-    <div style="position:relative; width:100%; padding-top:56.25%;">
-      <img src="https://pimg.1px.tw/s875261/1757320400-1923598537-g.png" style="position:absolute; top:0; left:0; width:100%; height:100%; object-fit:cover;">
+    <div class="yt-thumb-box">
+      <img src="https://pimg.1px.tw/s875261/1757320400-1923598537-g.png" alt="饗食天堂 LaLaport 台中店">
     </div>
     <div class="yt-video-info-box">
       <h4 class="yt-card-title">📍 饗食天堂 LaLaport 台中店</h4>
@@ -258,9 +294,10 @@ tags: [featured]
     </div>
   </a>
 
+  <!-- 文章 3 -->
   <a href="https://s875261.pixnet.net/blog/posts/9578069446" target="_blank" rel="noopener" class="yt-video-card">
-    <div style="position:relative; width:100%; padding-top:56.25%;">
-      <img src="https://pimg.1px.tw/s875261/1758992824-2667079235-g.png" style="position:absolute; top:0; left:0; width:100%; height:100%; object-fit:cover;">
+    <div class="yt-thumb-box">
+      <img src="https://pimg.1px.tw/s875261/1758992824-2667079235-g.png" alt="台中永豐棧酒店">
     </div>
     <div class="yt-video-info-box">
       <h4 class="yt-card-title">📍 台中永豐棧酒店</h4>
@@ -268,9 +305,10 @@ tags: [featured]
     </div>
   </a>
 
+  <!-- 文章 4 -->
   <a href="https://s875261.pixnet.net/blog/posts/9577297708" target="_blank" rel="noopener" class="yt-video-card">
-    <div style="position:relative; width:100%; padding-top:56.25%;">
-      <img src="https://pimg.1px.tw/s875261/1739723399-3878761513-g.png" style="position:absolute; top:0; left:0; width:100%; height:100%; object-fit:cover;">
+    <div class="yt-thumb-box">
+      <img src="https://pimg.1px.tw/s875261/1739723399-3878761513-g.png" alt="台中鳳凰酒店">
     </div>
     <div class="yt-video-info-box">
       <h4 class="yt-card-title">📍 台中旅遊｜鳳凰酒店</h4>
