@@ -1,1 +1,408 @@
+<!-- 英國 TopCashback 導購返利優惠 互動式純表格模組 開始 -->
+<div class="interactive-tcb-container" style="width: 100%; max-width: 100%; box-sizing: border-box; margin: 25px 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Noto Sans TC', sans-serif;">
 
+  <!-- 表格頂部標題與工具橫幅 -->
+  <div style="background-color: #fff275; color: #423800; padding: 12px 18px; border-radius: 12px 12px 0 0; border: 1px solid #e6d84f; border-bottom: none; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px;">
+    <div style="font-weight: 800; font-size: 18px; letter-spacing: 0.8px; display: flex; align-items: center; gap: 6px;">
+      🇬🇧 英國 TopCashback 導購／返利優惠活動全攻略
+    </div>
+    
+    <!-- 一鍵列印按鈕 -->
+    <button type="button" onclick="printTCBTable()" class="print-hide-btn"
+      style="background: #ffffff; color: #78350f; border: 1.5px solid #d97706; padding: 6px 14px; border-radius: 20px; font-size: 13px; font-weight: 700; cursor: pointer; display: inline-flex; align-items: center; gap: 6px; box-shadow: 0 2px 5px rgba(0,0,0,0.06); transition: 0.2s;">
+      🖨️ 列印清單 / 存為PDF
+    </button>
+  </div>
+
+  <!-- 【重要】好友推薦專屬獎勵橫幅 -->
+  <div class="print-hide-block" style="background: #fffdf0; border: 1px solid #e6d84f; border-bottom: none; padding: 12px 16px; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 10px;">
+    <div style="font-size: 14px; color: #423800; line-height: 1.5;">
+      🎁 <strong>好友推薦專屬好康</strong>：若尚未擁有 TopCashback (TCB) 帳號，歡迎透過專屬推薦連結加入，註冊並符合資格即可獲得 <strong>£10 英鎊</strong> 新人獎勵金！
+    </div>
+    <div style="display: flex; gap: 8px; align-items: center;">
+      <a href="https://www.topcashback.co.uk/ref/s875261" target="_blank" rel="nofollow ugc noreferrer noopener"
+        style="background: #15803d; color: #ffffff !important; padding: 6px 14px; border-radius: 8px; font-size: 13px; font-weight: 700; text-decoration: none; display: inline-flex; align-items: center; gap: 4px; box-shadow: 0 2px 4px rgba(21,128,61,0.2);">
+        👉 點我註冊領 £10
+      </a>
+      <button type="button" onclick="copyTCBReferral(this)"
+        style="background: #ffffff; color: #374151; border: 1px solid #d1d5db; padding: 6px 12px; border-radius: 8px; font-size: 13px; cursor: pointer; font-weight: 600;">
+        📋 複製推薦連結
+      </button>
+    </div>
+  </div>
+
+  <!-- 上方照片區（一次顯示2張，可點擊或手指滑動看第3張） -->
+  <div class="print-hide-block" style="background: #fffef7; border: 1px solid #e6d84f; border-bottom: none; padding: 14px 14px 10px 14px; position: relative;">
+    
+    <!-- 輪播左右輔助箭頭 -->
+    <button type="button" onclick="scrollTCBGallery(-1)" aria-label="向左看"
+      style="position: absolute; left: 6px; top: 50%; transform: translateY(-50%); z-index: 5; background: rgba(0,0,0,0.5); color: #fff; border: none; width: 32px; height: 32px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 14px; backdrop-filter: blur(2px);">❮</button>
+
+    <button type="button" onclick="scrollTCBGallery(1)" aria-label="向右看"
+      style="position: absolute; right: 6px; top: 50%; transform: translateY(-50%); z-index: 5; background: rgba(0,0,0,0.5); color: #fff; border: none; width: 32px; height: 32px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 14px; backdrop-filter: blur(2px);">❯</button>
+
+    <!-- 照片橫向滑動軌道（預設呈現2張，平滑向右看第3張） -->
+    <div id="tcbGalleryTrack" style="display: flex; gap: 12px; overflow-x: auto; scroll-snap-type: x mandatory; scroll-behavior: smooth; -webkit-overflow-scrolling: touch; padding: 2px 28px 8px 28px; scrollbar-width: thin;">
+      
+      <!-- 照片 1: Topcashback bonus / Earnings -->
+      <div style="flex: 0 0 calc(50% - 6px); min-width: 240px; scroll-snap-align: start; background: #ffffff; border: 1px solid #fae8a4; border-radius: 10px; padding: 8px; box-sizing: border-box; text-align: center; box-shadow: 0 2px 6px rgba(0,0,0,0.03);">
+        <img src="https://pimg.1px.tw/blog/s875261/post/9578128082/856469311403802789.jpg" 
+             alt="TopCashback Earnings 提領加碼與返利明細" 
+             style="width: 100%; height: 190px; object-fit: contain; display: block; margin: 0 auto;">
+        <div style="font-size: 12px; color: #666; margin-top: 6px; font-weight: 600;">TopCashback Earnings 收益與兌換</div>
+      </div>
+
+      <!-- 照片 2: Uniqlo 優惠加碼 -->
+      <div style="flex: 0 0 calc(50% - 6px); min-width: 240px; scroll-snap-align: start; background: #ffffff; border: 1px solid #fae8a4; border-radius: 10px; padding: 8px; box-sizing: border-box; text-align: center; box-shadow: 0 2px 6px rgba(0,0,0,0.03);">
+        <img src="https://pimg.1px.tw/blog/s875261/post/9578128082/859378745763382734.jpg" 
+             alt="Uniqlo 優惠 回饋金8%" 
+             style="width: 100%; height: 190px; object-fit: contain; display: block; margin: 0 auto;">
+        <div style="font-size: 12px; color: #666; margin-top: 6px; font-weight: 600;">Uniqlo 限時回饋加碼 8%</div>
+      </div>
+
+      <!-- 照片 3: Boots 加碼 6%-9% -->
+      <div style="flex: 0 0 calc(50% - 6px); min-width: 240px; scroll-snap-align: start; background: #ffffff; border: 1px solid #fae8a4; border-radius: 10px; padding: 8px; box-sizing: border-box; text-align: center; box-shadow: 0 2px 6px rgba(0,0,0,0.03);">
+        <img src="https://pimg.1px.tw/blog/s875261/post/9578128082/959356275601133266.jpg" 
+             alt="TopCashback Boots 加碼6%-9%" 
+             style="width: 100%; height: 190px; object-fit: contain; display: block; margin: 0 auto;">
+        <div style="font-size: 12px; color: #666; margin-top: 6px; font-weight: 600;">Boots 藥妝回饋加碼 6% - 9%</div>
+      </div>
+
+    </div>
+
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 6px; font-size: 11.5px; color: #78350f; padding: 0 4px;">
+      <span>👈 👉 左右滑動或按箭頭觀看活動加碼截圖</span>
+      <span>資料與圖片來源：TopCashback UK / 實測記錄</span>
+    </div>
+  </div>
+
+  <!-- 互動操作工具列（搜尋 + 分類切換） -->
+  <div class="print-hide-block" style="background: #fffef7; border: 1px solid #e6d84f; border-bottom: none; padding: 10px 14px 14px 14px; display: flex; flex-wrap: wrap; gap: 10px; justify-content: space-between; align-items: center;">
+    <!-- 搜尋框 -->
+    <div style="flex: 1 1 220px;">
+      <input type="text" id="tcbTableSearch" placeholder="🔍 搜尋商家名稱、回饋率、保健品、超市（如: H&B, Boots, Uniqlo）..." onkeyup="filterTCBTable()"
+        style="width: 100%; padding: 8px 12px; border: 1px solid #d1d5db; border-radius: 6px; font-size: 13px; outline: none; box-sizing: border-box; background: #fff;">
+    </div>
+    <!-- 分類快選按鈕 -->
+    <div style="display: flex; gap: 6px; flex-wrap: wrap;">
+      <button type="button" class="tcb-filter-btn active" onclick="setTCBCategory('all', this)" style="border: 1px solid #ca8a04; background: #fff275; color: #423800; padding: 5px 10px; border-radius: 6px; font-size: 12px; cursor: pointer; font-weight: bold;">全部商家</button>
+      <button type="button" class="tcb-filter-btn" onclick="setTCBCategory('加碼', this)" style="border: 1px solid #d1d5db; background: #fff; color: #4b5563; padding: 5px 10px; border-radius: 6px; font-size: 12px; cursor: pointer;">🔥 限時加碼</button>
+      <button type="button" class="tcb-filter-btn" onclick="setTCBCategory('保健', this)" style="border: 1px solid #d1d5db; background: #fff; color: #4b5563; padding: 5px 10px; border-radius: 6px; font-size: 12px; cursor: pointer;">保健營養 (H&B)</button>
+      <button type="button" class="tcb-filter-btn" onclick="setTCBCategory('美妝藥妝', this)" style="border: 1px solid #d1d5db; background: #fff; color: #4b5563; padding: 5px 10px; border-radius: 6px; font-size: 12px; cursor: pointer;">美妝藥妝 (Boots)</button>
+      <button type="button" class="tcb-filter-btn" onclick="setTCBCategory('超市百貨', this)" style="border: 1px solid #d1d5db; background: #fff; color: #4b5563; padding: 5px 10px; border-radius: 6px; font-size: 12px; cursor: pointer;">英國超市/百貨</button>
+      <button type="button" class="tcb-filter-btn" onclick="setTCBCategory('服飾', this)" style="border: 1px solid #d1d5db; background: #fff; color: #4b5563; padding: 5px 10px; border-radius: 6px; font-size: 12px; cursor: pointer;">流行服飾</button>
+    </div>
+  </div>
+
+  <!-- 下方 TopCashback 商家回饋表格主體 -->
+  <div style="width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; border: 1px solid #e6d84f; border-bottom: none; background: #fff;">
+    <table id="tcbRankTable" style="width: 100%; border-collapse: collapse; min-width: 680px; text-align: left; font-size: 13.5px; color: #374151;">
+      <thead>
+        <tr style="background-color: #fefce8; color: #5c4400; border-bottom: 2px solid #e6d84f; font-size: 13px;">
+          <th style="padding: 10px 12px; width: 45px; text-align: center;">#</th>
+          <th onclick="sortTCBTable(1, 'str')" style="padding: 10px 12px; cursor: pointer; user-select: none;">
+            英國合作商家名稱 <span style="font-size: 11px; color: #888;">⇅</span>
+          </th>
+          <th onclick="sortTCBTable(2, 'num')" style="padding: 10px 12px; width: 130px; text-align: right; cursor: pointer; user-select: none;">
+            回饋金比率 <span style="font-size: 11px; color: #888;">⇅</span>
+          </th>
+          <th style="padding: 10px 12px; width: 105px; text-align: center;">品類分類</th>
+          <th style="padding: 10px 12px;">返利活動重點、加碼日與使用秘訣</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- 1. H&B -->
+        <tr data-cat="保健 加碼">
+          <td style="padding: 10px 12px; text-align: center; border-bottom: 1px solid #f1f1f1;">1</td>
+          <td style="padding: 10px 12px; border-bottom: 1px solid #f1f1f1; font-weight: 700; color: #1e3a8a;">
+            Holland & Barrett (H&B)
+          </td>
+          <td style="padding: 10px 12px; text-align: right; border-bottom: 1px solid #f1f1f1; font-weight: 800; color: #dc2626;" data-rate="20">
+            最高 20%
+          </td>
+          <td style="padding: 10px 12px; text-align: center; border-bottom: 1px solid #f1f1f1;">
+            <span style="background: #fee2e2; color: #991b1b; padding: 2px 6px; border-radius: 4px; font-size: 11px; font-weight: bold;">加碼日限定</span>
+          </td>
+          <td style="padding: 10px 12px; border-bottom: 1px solid #f1f1f1; color: #4b5563;">
+            <strong style="color: #d97706;">最新加碼：</strong>2026/11/11 全站最高衝至 <strong>20%</strong>！<br>
+            ⚠️ <strong>特別注意：</strong>H&B 於回饋金加碼當日<strong>可疊加使用優惠碼</strong>同樣享有回饋；非加碼日通常會排除使用優惠碼。自家產品常見 15%，其他品牌約 5%。
+          </td>
+        </tr>
+
+        <!-- 2. Boots -->
+        <tr data-cat="美妝藥妝 加碼">
+          <td style="padding: 10px 12px; text-align: center; border-bottom: 1px solid #f1f1f1;">2</td>
+          <td style="padding: 10px 12px; border-bottom: 1px solid #f1f1f1; font-weight: 700; color: #1e3a8a;">
+            Boots 英國博姿
+          </td>
+          <td style="padding: 10px 12px; text-align: right; border-bottom: 1px solid #f1f1f1; font-weight: 800; color: #b45309;" data-rate="9">
+            6% - 9%
+          </td>
+          <td style="padding: 10px 12px; text-align: center; border-bottom: 1px solid #f1f1f1;">
+            <span style="background: #fdf2f8; color: #9d174d; padding: 2px 6px; border-radius: 4px; font-size: 11px;">美妝保健</span>
+          </td>
+          <td style="padding: 10px 12px; border-bottom: 1px solid #f1f1f1; color: #4b5563;">
+            英國最大連鎖藥妝店，指定檔期回饋從常態加碼提升至 <strong>6% - 9%</strong>，採購 No7、各大醫美與專櫃美妝超好用。
+          </td>
+        </tr>
+
+        <!-- 3. Uniqlo -->
+        <tr data-cat="服飾 加碼">
+          <td style="padding: 10px 12px; text-align: center; border-bottom: 1px solid #f1f1f1;">3</td>
+          <td style="padding: 10px 12px; border-bottom: 1px solid #f1f1f1; font-weight: 700; color: #1e3a8a;">
+            Uniqlo UK (優衣庫)
+          </td>
+          <td style="padding: 10px 12px; text-align: right; border-bottom: 1px solid #f1f1f1; font-weight: 800; color: #b45309;" data-rate="8">
+            加碼 8%
+          </td>
+          <td style="padding: 10px 12px; text-align: center; border-bottom: 1px solid #f1f1f1;">
+            <span style="background: #fef3c7; color: #92400e; padding: 2px 6px; border-radius: 4px; font-size: 11px;">流行服飾</span>
+          </td>
+          <td style="padding: 10px 12px; border-bottom: 1px solid #f1f1f1; color: #4b5563;">
+            限時回饋金加碼高達 <strong>8%</strong>！英國購買發熱衣（HEATTECH）、輕羽絨與聯名款時搭配 TCB 導購現省一筆。
+          </td>
+        </tr>
+
+        <!-- 4. TopCashback Earnings -->
+        <tr data-cat="加碼 提領">
+          <td style="padding: 10px 12px; text-align: center; border-bottom: 1px solid #f1f1f1;">4</td>
+          <td style="padding: 10px 12px; border-bottom: 1px solid #f1f1f1; font-weight: 700; color: #1e3a8a;">
+            TopCashback Earnings 收益提領
+          </td>
+          <td style="padding: 10px 12px; text-align: right; border-bottom: 1px solid #f1f1f1; font-weight: 800; color: #b45309;" data-rate="5">
+            額外加碼最高 5%
+          </td>
+          <td style="padding: 10px 12px; text-align: center; border-bottom: 1px solid #f1f1f1;">
+            <span style="background: #e0f2fe; color: #0369a1; padding: 2px 6px; border-radius: 4px; font-size: 11px;">提領優惠</span>
+          </td>
+          <td style="padding: 10px 12px; border-bottom: 1px solid #f1f1f1; color: #4b5563;">
+            返利累積到帳後，除了直接出金到英國銀行帳戶，若選擇兌換為合作商家禮品卡（例如 Tesco、M&S、Amazon 等），還能享有 <strong>額外 2% ~ 5% 的 Payout Bonus 增值加碼</strong>！
+          </td>
+        </tr>
+
+        <!-- 5. Tesco -->
+        <tr data-cat="超市百貨">
+          <td style="padding: 10px 12px; text-align: center; border-bottom: 1px solid #f1f1f1;">5</td>
+          <td style="padding: 10px 12px; border-bottom: 1px solid #f1f1f1; font-weight: 700; color: #1e3a8a;">
+            Tesco (樂購超市)
+          </td>
+          <td style="padding: 10px 12px; text-align: right; border-bottom: 1px solid #f1f1f1; font-weight: 700; color: #b45309;" data-rate="2.6">
+            2.6% (兌換享5%)
+          </td>
+          <td style="padding: 10px 12px; text-align: center; border-bottom: 1px solid #f1f1f1;">
+            <span style="background: #ecfdf5; color: #065f46; padding: 2px 6px; border-radius: 4px; font-size: 11px;">大型超市</span>
+          </td>
+          <td style="padding: 10px 12px; border-bottom: 1px solid #f1f1f1; color: #4b5563;">
+            英國生活必逛生鮮超市。平日線上消費享 <strong>2.6% Cashback</strong>；累積的 Earnings 若兌換為 Tesco eGift Card 可享有高達 <strong>5% 增值</strong>。
+          </td>
+        </tr>
+
+        <!-- 6. Marks & Spencer (M&S) -->
+        <tr data-cat="超市百貨 服飾">
+          <td style="padding: 10px 12px; text-align: center; border-bottom: 1px solid #f1f1f1;">6</td>
+          <td style="padding: 10px 12px; border-bottom: 1px solid #f1f1f1; font-weight: 700; color: #1e3a8a;">
+            Marks & Spencer (M&S 瑪莎百貨)
+          </td>
+          <td style="padding: 10px 12px; text-align: right; border-bottom: 1px solid #f1f1f1; font-weight: 700; color: #b45309;" data-rate="2.25">
+            2.25%
+          </td>
+          <td style="padding: 10px 12px; text-align: center; border-bottom: 1px solid #f1f1f1;">
+            <span style="background: #f1f5f9; color: #334155; padding: 2px 6px; border-radius: 4px; font-size: 11px;">精品超市/百貨</span>
+          </td>
+          <td style="padding: 10px 12px; border-bottom: 1px solid #f1f1f1; color: #4b5563;">
+            英國指標性品質百貨，線上採購男女服飾、居家用品、伴手禮盒均可享 <strong>2.25% 返利</strong>。
+          </td>
+        </tr>
+
+        <!-- 7. Sainsbury's -->
+        <tr data-cat="超市百貨">
+          <td style="padding: 10px 12px; text-align: center; border-bottom: 1px solid #f1f1f1;">7</td>
+          <td style="padding: 10px 12px; border-bottom: 1px solid #f1f1f1; font-weight: 700; color: #1e3a8a;">
+            Sainsbury's (森寶利超市)
+          </td>
+          <td style="padding: 10px 12px; text-align: right; border-bottom: 1px solid #f1f1f1; font-weight: 700; color: #b45309;" data-rate="2">
+            2.0%
+          </td>
+          <td style="padding: 10px 12px; text-align: center; border-bottom: 1px solid #f1f1f1;">
+            <span style="background: #ecfdf5; color: #065f46; padding: 2px 6px; border-radius: 4px; font-size: 11px;">大型超市</span>
+          </td>
+          <td style="padding: 10px 12px; border-bottom: 1px solid #f1f1f1; color: #4b5563;">
+            英國第二大連鎖生鮮超市，線上線上下單採買生鮮雜貨享 <strong>2% 現金回饋</strong>。
+          </td>
+        </tr>
+
+        <!-- 8. John Lewis -->
+        <tr data-cat="超市百貨">
+          <td style="padding: 10px 12px; text-align: center; border-bottom: 1px solid #f1f1f1;">8</td>
+          <td style="padding: 10px 12px; border-bottom: 1px solid #f1f1f1; font-weight: 700; color: #1e3a8a;">
+            John Lewis & Partners (約翰路易斯百貨)
+          </td>
+          <td style="padding: 10px 12px; text-align: right; border-bottom: 1px solid #f1f1f1; font-weight: 700; color: #b45309;" data-rate="1">
+            1.0%
+          </td>
+          <td style="padding: 10px 12px; text-align: center; border-bottom: 1px solid #f1f1f1;">
+            <span style="background: #f1f5f9; color: #334155; padding: 2px 6px; border-radius: 4px; font-size: 11px;">高級百貨</span>
+          </td>
+          <td style="padding: 10px 12px; border-bottom: 1px solid #f1f1f1; color: #4b5563;">
+            英國頂級百貨連鎖，購買小家電、美妝專櫃、高品質寢具家具享 <strong>1% 回饋</strong>，享有品牌安心保固。
+          </td>
+        </tr>
+
+        <!-- 9. Waitrose -->
+        <tr data-cat="超市百貨">
+          <td style="padding: 10px 12px; text-align: center; border-bottom: 1px solid #f1f1f1;">9</td>
+          <td style="padding: 10px 12px; border-bottom: 1px solid #f1f1f1; font-weight: 700; color: #1e3a8a;">
+            Waitrose & Partners (皇家認證超市配送)
+          </td>
+          <td style="padding: 10px 12px; text-align: right; border-bottom: 1px solid #f1f1f1; font-weight: 700; color: #b45309;" data-rate="0.75">
+            £0.75 / 單
+          </td>
+          <td style="padding: 10px 12px; text-align: center; border-bottom: 1px solid #f1f1f1;">
+            <span style="background: #ecfdf5; color: #065f46; padding: 2px 6px; border-radius: 4px; font-size: 11px;">頂級生鮮配送</span>
+          </td>
+          <td style="padding: 10px 12px; border-bottom: 1px solid #f1f1f1; color: #4b5563;">
+            英國皇室認證高級超市，線上配送訂單（Waitrose Delivery）每筆享 <strong>£0.75 英鎊</strong> 定額回饋。
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- 【特別提醒】TopCashback 使用秘訣與排除條款說明 -->
+  <div style="background: #fffef7; border: 1px solid #e6d84f; border-top: none; border-radius: 0 0 12px 12px; padding: 14px 16px; box-sizing: border-box;">
+    <div style="font-weight: 700; font-size: 14.5px; color: #854d0e; margin-bottom: 6px; display: flex; align-items: center; gap: 6px;">
+      💡 TopCashback 返利防掉單與使用重點注意事項：
+    </div>
+    <ul style="margin: 0; padding-left: 20px; font-size: 13.5px; color: #4b5563; line-height: 1.7;">
+      <li><strong>正確導購流程：</strong>先在商家挑好購物車可能會造成追蹤失敗。建議先清空購物車或使用無痕視窗，從 TopCashback 點擊跳轉到商家網站後再將商品加入購物車並結帳。</li>
+      <li><strong>優惠碼排除條款：</strong>多數商家如果使用了非 TCB 官方公告的優惠代碼（或第三方折扣碼），會導致返利被拒絕。但 <strong>H&B 在官方回饋金加碼當天，通常可疊加使用折扣碼</strong>！</li>
+      <li><strong>提領小技巧：</strong>返利確認變為「Payable」後，除了提現到銀行，換成各大超市或百貨禮物卡往往有額外 <strong>2% ~ 5%</strong> 的增值 bonus！</li>
+    </ul>
+  </div>
+
+</div>
+
+<!-- 專屬列印優化 CSS -->
+<style>
+@media print {
+  .print-hide-block, .print-hide-btn {
+    display: none !important;
+  }
+  .interactive-tcb-container {
+    margin: 0 !important;
+    width: 100% !important;
+  }
+  #tcbRankTable {
+    width: 100% !important;
+    min-width: 100% !important;
+    font-size: 12px !important;
+  }
+  #tcbRankTable th, #tcbRankTable td {
+    border: 1px solid #ddd !important;
+    padding: 6px 8px !important;
+    color: #000 !important;
+  }
+}
+</style>
+
+<!-- 互動、滾動與列印控制腳本 -->
+<script>
+let activeTCBCat = 'all';
+let sortTCBDir = { 1: 1, 2: 1 };
+
+// 列印功能
+function printTCBTable() {
+  window.print();
+}
+
+// 複製推薦好友連結
+function copyTCBReferral(btn) {
+  const refLink = "https://www.topcashback.co.uk/ref/s875261";
+  navigator.clipboard.writeText(refLink).then(() => {
+    const oldText = btn.innerText;
+    btn.innerText = "✅ 已複製！";
+    btn.style.background = "#dcfce7";
+    btn.style.color = "#15803d";
+    btn.style.borderColor = "#86efac";
+    setTimeout(() => {
+      btn.innerText = oldText;
+      btn.style.background = "#ffffff";
+      btn.style.color = "#374151";
+      btn.style.borderColor = "#d1d5db";
+    }, 2000);
+  }).catch(() => {
+    alert("推薦連結：" + refLink);
+  });
+}
+
+// 橫向照片滑動（向右或向左滾動半屏）
+function scrollTCBGallery(direction) {
+  const track = document.getElementById('tcbGalleryTrack');
+  const scrollAmount = track.clientWidth * 0.55;
+  track.scrollBy({
+    left: direction * scrollAmount,
+    behavior: 'smooth'
+  });
+}
+
+// 分類切換
+function setTCBCategory(cat, el) {
+  activeTCBCat = cat;
+  document.querySelectorAll('.tcb-filter-btn').forEach(btn => {
+    btn.style.background = '#fff';
+    btn.style.color = '#4b5563';
+    btn.style.fontWeight = 'normal';
+    btn.style.borderColor = '#d1d5db';
+  });
+  el.style.background = '#fff275';
+  el.style.color = '#423800';
+  el.style.fontWeight = 'bold';
+  el.style.borderColor = '#ca8a04';
+  filterTCBTable();
+}
+
+// 關鍵字搜尋過濾
+function filterTCBTable() {
+  const keyword = document.getElementById('tcbTableSearch').value.trim().toLowerCase();
+  const rows = document.querySelectorAll('#tcbRankTable tbody tr');
+
+  rows.forEach(row => {
+    const text = row.innerText.toLowerCase();
+    const rowCat = row.getAttribute('data-cat') || '';
+    const matchCat = (activeTCBCat === 'all') || rowCat.includes(activeTCBCat);
+    const matchKeyword = text.includes(keyword);
+
+    if (matchCat && matchKeyword) {
+      row.style.display = '';
+    } else {
+      row.style.display = 'none';
+    }
+  });
+}
+
+// 點擊表頭排序
+function sortTCBTable(colIndex, type) {
+  const table = document.getElementById('tcbRankTable');
+  const tbody = table.querySelector('tbody');
+  const rows = Array.from(tbody.querySelectorAll('tr'));
+  const currentDir = sortTCBDir[colIndex] || 1;
+  const newDir = -currentDir;
+  sortTCBDir[colIndex] = newDir;
+
+  rows.sort((a, b) => {
+    let valA, valB;
+    if (type === 'num') {
+      valA = parseFloat(a.children[colIndex].getAttribute('data-rate')) || 0;
+      valB = parseFloat(b.children[colIndex].getAttribute('data-rate')) || 0;
+      return (valA - valB) * newDir;
+    } else {
+      valA = a.children[colIndex].innerText.trim();
+      valB = b.children[colIndex].innerText.trim();
+      return valA.localeCompare(valB, 'zh-Hant') * newDir;
+    }
+  });
+
+  rows.forEach(row => tbody.appendChild(row));
+}
+</script>
+<!-- 英國 TopCashback 導購返利優惠 互動式純表格模組 結束 -->
