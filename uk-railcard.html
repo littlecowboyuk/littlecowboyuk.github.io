@@ -1,0 +1,402 @@
+<!-- 英國火車鐵路卡 Railcard 優惠碼 互動式純表格模組 開始 -->
+<div class="interactive-railcard-container" style="width: 100%; max-width: 100%; box-sizing: border-box; margin: 25px 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Noto Sans TC', sans-serif;">
+
+  <!-- 表格頂部標題與工具橫幅 -->
+  <div style="background-color: #dbeafe; color: #1e3a8a; padding: 12px 18px; border-radius: 12px 12px 0 0; border: 1px solid #bfdbfe; border-bottom: none; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px;">
+    <div style="font-weight: 800; font-size: 18px; letter-spacing: 0.8px; display: flex; align-items: center; gap: 6px;">
+      🚆 英國火車卡 Railcard 最新優惠碼・辦卡省 1/3 全攻略
+    </div>
+    
+    <!-- 一鍵列印按鈕 -->
+    <button type="button" onclick="printRailcardTable()" class="print-hide-btn"
+      style="background: #ffffff; color: #1d4ed8; border: 1.5px solid #2563eb; padding: 6px 14px; border-radius: 20px; font-size: 13px; font-weight: 700; cursor: pointer; display: inline-flex; align-items: center; gap: 6px; box-shadow: 0 2px 5px rgba(0,0,0,0.06); transition: 0.2s;">
+      🖨️ 列印優惠清單 / 存為PDF
+    </button>
+  </div>
+
+  <!-- 【重要】搭配 TopCashback 導購與好友推薦橫幅 -->
+  <div class="print-hide-block" style="background: #f0fdf4; border: 1px solid #bbf7d0; border-bottom: none; padding: 12px 16px; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 10px;">
+    <div style="font-size: 14px; color: #166534; line-height: 1.5;">
+      💡 <strong>省錢小撇步：</strong>Railcard 可為火車票節省高達 <strong>1/3 (約33%)</strong> 票價！辦卡前搭配導購平台 <strong>TopCashback (TCP)</strong> 點入購買，還能疊加最高 <strong>10% ~ 23%</strong> 額外現金回饋。若還沒有帳號，點專屬好友邀請加入符合資格再送 <strong>£10 英鎊</strong>！
+    </div>
+    <div style="display: flex; gap: 8px; align-items: center;">
+      <a href="https://www.topcashback.co.uk/ref/s875261" target="_blank" rel="nofollow ugc noreferrer noopener"
+        style="background: #16a34a; color: #ffffff !important; padding: 6px 14px; border-radius: 8px; font-size: 13px; font-weight: 700; text-decoration: none; display: inline-flex; align-items: center; gap: 4px; box-shadow: 0 2px 4px rgba(22,163,74,0.2);">
+        👉 點我領 £10 推薦獎勵
+      </a>
+      <button type="button" onclick="copyRCReferral(this)"
+        style="background: #ffffff; color: #374151; border: 1px solid #d1d5db; padding: 6px 12px; border-radius: 8px; font-size: 13px; cursor: pointer; font-weight: 600;">
+        📋 複製推薦連結
+      </button>
+    </div>
+  </div>
+
+  <!-- 上方照片區（一次顯示2張，可點擊或手指滑動看第3張） -->
+  <div class="print-hide-block" style="background: #f8fafc; border: 1px solid #bfdbfe; border-bottom: none; padding: 14px 14px 10px 14px; position: relative;">
+    
+    <!-- 輪播左右輔助箭頭 -->
+    <button type="button" onclick="scrollRCGallery(-1)" aria-label="向左看"
+      style="position: absolute; left: 6px; top: 50%; transform: translateY(-50%); z-index: 5; background: rgba(0,0,0,0.5); color: #fff; border: none; width: 32px; height: 32px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 14px; backdrop-filter: blur(2px);">❮</button>
+
+    <button type="button" onclick="scrollRCGallery(1)" aria-label="向右看"
+      style="position: absolute; right: 6px; top: 50%; transform: translateY(-50%); z-index: 5; background: rgba(0,0,0,0.5); color: #fff; border: none; width: 32px; height: 32px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 14px; backdrop-filter: blur(2px);">❯</button>
+
+    <!-- 照片橫向滑動軌道（預設呈現2張，平滑向右看第3張） -->
+    <div id="rcGalleryTrack" style="display: flex; gap: 12px; overflow-x: auto; scroll-snap-type: x mandatory; scroll-behavior: smooth; -webkit-overflow-scrolling: touch; padding: 2px 28px 8px 28px; scrollbar-width: thin;">
+      
+      <!-- 照片 1: Flash Sale 15% Off -->
+      <div style="flex: 0 0 calc(50% - 6px); min-width: 240px; scroll-snap-align: start; background: #ffffff; border: 1px solid #e2e8f0; border-radius: 10px; padding: 8px; box-sizing: border-box; text-align: center; box-shadow: 0 2px 6px rgba(0,0,0,0.03);">
+        <img src="https://pimg.1px.tw/blog/s875261/post/9577392588/961226717572056003.png" 
+             alt="Flash Sale 15% Off One-Year Railcard" 
+             style="width: 100%; height: 190px; object-fit: contain; display: block; margin: 0 auto;">
+        <div style="font-size: 12px; color: #475569; margin-top: 6px; font-weight: 600;">Trip.com Flash Sale 辦卡特惠</div>
+      </div>
+
+      <!-- 照片 2: 英國火車優惠攻略 -->
+      <div style="flex: 0 0 calc(50% - 6px); min-width: 240px; scroll-snap-align: start; background: #ffffff; border: 1px solid #e2e8f0; border-radius: 10px; padding: 8px; box-sizing: border-box; text-align: center; box-shadow: 0 2px 6px rgba(0,0,0,0.03);">
+        <img src="https://pimg.1px.tw/s875261/1739127924-3483157258-g.png" 
+             alt="英國火車優惠 隱藏折扣與火車卡" 
+             style="width: 100%; height: 190px; object-fit: contain; display: block; margin: 0 auto;">
+        <div style="font-size: 12px; color: #475569; margin-top: 6px; font-weight: 600;">英國火車卡訂票與折扣攻略</div>
+      </div>
+
+      <!-- 照片 3: TopCashback 提領加碼與返利 -->
+      <div style="flex: 0 0 calc(50% - 6px); min-width: 240px; scroll-snap-align: start; background: #ffffff; border: 1px solid #e2e8f0; border-radius: 10px; padding: 8px; box-sizing: border-box; text-align: center; box-shadow: 0 2px 6px rgba(0,0,0,0.03);">
+        <img src="https://pimg.1px.tw/blog/s875261/post/9578128082/856469311403802789.jpg" 
+             alt="TopCashback 導購火車卡享回饋" 
+             style="width: 100%; height: 190px; object-fit: contain; display: block; margin: 0 auto;">
+        <div style="font-size: 12px; color: #475569; margin-top: 6px; font-weight: 600;">搭配 TCP 導購最高再折 23%</div>
+      </div>
+
+    </div>
+
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 6px; font-size: 11.5px; color: #475569; padding: 0 4px;">
+      <span>👈 👉 左右滑動或按箭頭觀看活動特惠截圖</span>
+      <span>圖片來源：Trip.com / 官方活動截圖</span>
+    </div>
+  </div>
+
+  <!-- 互動操作工具列（搜尋 + 分類切換） -->
+  <div class="print-hide-block" style="background: #f8fafc; border: 1px solid #bfdbfe; border-bottom: none; padding: 10px 14px 14px 14px; display: flex; flex-wrap: wrap; gap: 10px; justify-content: space-between; align-items: center;">
+    <!-- 搜尋框 -->
+    <div style="flex: 1 1 220px;">
+      <input type="text" id="rcTableSearch" placeholder="🔍 搜尋平台、折扣碼（如: TCBTRAIN、MSE25、Trip、黑五）..." onkeyup="filterRCTable()"
+        style="width: 100%; padding: 8px 12px; border: 1px solid #cbd5e1; border-radius: 6px; font-size: 13px; outline: none; box-sizing: border-box; background: #fff;">
+    </div>
+    <!-- 分類快選按鈕 -->
+    <div style="display: flex; gap: 6px; flex-wrap: wrap;">
+      <button type="button" class="rc-filter-btn active" onclick="setRCCategory('all', this)" style="border: 1px solid #2563eb; background: #dbeafe; color: #1e3a8a; padding: 5px 10px; border-radius: 6px; font-size: 12px; cursor: pointer; font-weight: bold;">全部管道</button>
+      <button type="button" class="rc-filter-btn" onclick="setRCCategory('黑五', this)" style="border: 1px solid #d1d5db; background: #fff; color: #4b5563; padding: 5px 10px; border-radius: 6px; font-size: 12px; cursor: pointer;">🔥 黑五/快閃大促</button>
+      <button type="button" class="rc-filter-btn" onclick="setRCCategory('Trip.com', this)" style="border: 1px solid #d1d5db; background: #fff; color: #4b5563; padding: 5px 10px; border-radius: 6px; font-size: 12px; cursor: pointer;">Trip.com</button>
+      <button type="button" class="rc-filter-btn" onclick="setRCCategory('TrainPal', this)" style="border: 1px solid #d1d5db; background: #fff; color: #4b5563; padding: 5px 10px; border-radius: 6px; font-size: 12px; cursor: pointer;">TrainPal</button>
+      <button type="button" class="rc-filter-btn" onclick="setRCCategory('Trainline', this)" style="border: 1px solid #d1d5db; background: #fff; color: #4b5563; padding: 5px 10px; border-radius: 6px; font-size: 12px; cursor: pointer;">Trainline</button>
+      <button type="button" class="rc-filter-btn" onclick="setRCCategory('官網', this)" style="border: 1px solid #d1d5db; background: #fff; color: #4b5563; padding: 5px 10px; border-radius: 6px; font-size: 12px; cursor: pointer;">Railcard 官網</button>
+    </div>
+  </div>
+
+  <!-- 下方 Railcard 優惠與折扣碼表格主體 -->
+  <div style="width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; border: 1px solid #bfdbfe; border-bottom: none; background: #fff;">
+    <table id="rcRankTable" style="width: 100%; border-collapse: collapse; min-width: 720px; text-align: left; font-size: 13.5px; color: #374151;">
+      <thead>
+        <tr style="background-color: #eff6ff; color: #1e3a8a; border-bottom: 2px solid #bfdbfe; font-size: 13px;">
+          <th style="padding: 10px 12px; width: 45px; text-align: center;">#</th>
+          <th onclick="sortRCTable(1, 'str')" style="padding: 10px 12px; cursor: pointer; user-select: none;">
+            辦卡平台與專案 <span style="font-size: 11px; color: #888;">⇅</span>
+          </th>
+          <th onclick="sortRCTable(2, 'num')" style="padding: 10px 12px; width: 140px; text-align: right; cursor: pointer; user-select: none;">
+            最高優惠/回饋 <span style="font-size: 11px; color: #888;">⇅</span>
+          </th>
+          <th style="padding: 10px 12px; width: 160px; text-align: center;">優惠碼 / 一鍵複製</th>
+          <th style="padding: 10px 12px;">優惠內容、活動檔期與使用攻略</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- 1. Trip.com Black Friday -->
+        <tr data-cat="Trip.com 黑五 快閃">
+          <td style="padding: 10px 12px; text-align: center; border-bottom: 1px solid #f1f1f1;">1</td>
+          <td style="padding: 10px 12px; border-bottom: 1px solid #f1f1f1; font-weight: 700; color: #1e40af;">
+            <a href="https://uk.trip.com/tt-mkt/trip/20260922-black-friday?allianceid=21934&SID=455408&trip_sub1=222b6782dceb11f1820b014a0a1981a9&utm_campaign=1453124" target="_blank" style="color: #1e40af; text-decoration: underline;">Trip.com 黑五限定</a>
+          </td>
+          <td style="padding: 10px 12px; text-align: right; border-bottom: 1px solid #f1f1f1; font-weight: 800; color: #dc2626;" data-rate="50">
+            33% ~ 50% 折扣
+          </td>
+          <td style="padding: 10px 12px; text-align: center; border-bottom: 1px solid #f1f1f1;">
+            <span style="background: #fee2e2; color: #991b1b; padding: 2px 8px; border-radius: 4px; font-size: 11.5px; font-weight: bold;">限量搶票免碼</span>
+          </td>
+          <td style="padding: 10px 12px; border-bottom: 1px solid #f1f1f1; color: #4b5563;">
+            <strong style="color: #d97706;">🔥 最新黑五強檔：</strong>Railcard <strong>33% OFF</strong> 超值優惠！活動時段：<strong>11/10-11/13、11/26-11/27、11/27-12/01</strong>。另有限量 <strong>50% 半價名額</strong>，新辦或 Renew 續卡皆可關注活動頁搶購。
+          </td>
+        </tr>
+
+        <!-- 2. Trip.com Flash Sale -->
+        <tr data-cat="Trip.com 快閃">
+          <td style="padding: 10px 12px; text-align: center; border-bottom: 1px solid #f1f1f1;">2</td>
+          <td style="padding: 10px 12px; border-bottom: 1px solid #f1f1f1; font-weight: 700; color: #1e40af;">
+            <a href="https://uk.trip.com/trains/uk/railcard-guide/?innerSource=activity_railcard_15regular_20231201&curr=gbp&locale=en-gb&allianceid=1052761&sid=13678324&ppcid=ckid-1143160154_adid-590825529250_akid-kwd-397136763_adgid-138954452590&utm_source=google&utm_medium=cpc&utm_campaign=16744522971&gad_source=1&gad_campaignid=16744522971&gbraid=0AAAAABn2eFLve8Tw2rVOhm92yMDQpwue-&gclid=CjwKCAjw-8vPBhBbEiwAoA39Wtqya0QHvrLn1MAUL4QHZGrO_MRy5A7mbejKTnzbcC5hMfRiU5fP2RoCV7sQAvD_BwE" target="_blank" style="color: #1e40af; text-decoration: underline;">Trip.com 常態快閃</a>
+          </td>
+          <td style="padding: 10px 12px; text-align: right; border-bottom: 1px solid #f1f1f1; font-weight: 800; color: #b45309;" data-rate="15">
+            特價 £26.95 (15% OFF)
+          </td>
+          <td style="padding: 10px 12px; text-align: center; border-bottom: 1px solid #f1f1f1;">
+            <span style="background: #eff6ff; color: #1d4ed8; padding: 2px 8px; border-radius: 4px; font-size: 11.5px; font-weight: bold;">頁面直接特價</span>
+          </td>
+          <td style="padding: 10px 12px; border-bottom: 1px solid #f1f1f1; color: #4b5563;">
+            一年卡限時特價 <strong>£26.95</strong>（原價 £30，享 15% 折扣）；3 年卡享 9 折 <strong>£72</strong>；不定期推出 Two Together 一年卡 <strong>£26.25</strong>。
+          </td>
+        </tr>
+
+        <!-- 3. Trip.com 最新促銷碼 -->
+        <tr data-cat="Trip.com">
+          <td style="padding: 10px 12px; text-align: center; border-bottom: 1px solid #f1f1f1;">3</td>
+          <td style="padding: 10px 12px; border-bottom: 1px solid #f1f1f1; font-weight: 700; color: #1e40af;">
+            <a href="https://uk.trip.com/trains/uk/railcard-guide/?allianceId=3808105&sid=21359202&curr=GBP" target="_blank" style="color: #1e40af; text-decoration: underline;">Trip.com 綜合專案</a>
+          </td>
+          <td style="padding: 10px 12px; text-align: right; border-bottom: 1px solid #f1f1f1; font-weight: 800; color: #b45309;" data-rate="25">
+            20%~25% + 車票5%
+          </td>
+          <td style="padding: 10px 12px; text-align: center; border-bottom: 1px solid #f1f1f1;">
+            <div style="display: inline-flex; align-items: center; gap: 4px; margin-bottom: 4px;">
+              <code style="background: #f1f5f9; color: #0f172a; padding: 2px 5px; border-radius: 4px; font-weight: bold;">#TCBTRAIN</code>
+              <button type="button" onclick="copyCode(this, '#TCBTRAIN')" style="padding: 2px 6px; font-size: 11px; cursor: pointer; border: 1px solid #cbd5e1; border-radius: 4px; background: #fff;">📋</button>
+            </div><br>
+            <div style="display: inline-flex; align-items: center; gap: 4px;">
+              <code style="background: #f1f5f9; color: #0f172a; padding: 2px 5px; border-radius: 4px; font-weight: bold;">MSETRIPRC25</code>
+              <button type="button" onclick="copyCode(this, 'MSETRIPRC25')" style="padding: 2px 6px; font-size: 11px; cursor: pointer; border: 1px solid #cbd5e1; border-radius: 4px; background: #fff;">📋</button>
+            </div>
+          </td>
+          <td style="padding: 10px 12px; border-bottom: 1px solid #f1f1f1; color: #4b5563;">
+            * <strong>#TCBTRAIN</strong>：Railcard <strong>20% 優惠</strong> + 火車票 <strong>5% 優惠</strong>。<br>
+            * <strong>MSETRIPRC25</strong>：新會員註冊享 <strong>25% 折扣</strong>。<br>
+            * <strong>MSETRIPRC10</strong>：舊會員享 <strong>10% 續辦折扣</strong>。<br>
+            * 搭配 TopCashback 可再享額外導購回饋！
+          </td>
+        </tr>
+
+        <!-- 4. TrainPal -->
+        <tr data-cat="TrainPal">
+          <td style="padding: 10px 12px; text-align: center; border-bottom: 1px solid #f1f1f1;">4</td>
+          <td style="padding: 10px 12px; border-bottom: 1px solid #f1f1f1; font-weight: 700; color: #1e40af;">
+            <a href="https://www.mytrainpal.com/railcard-guide?cjdata=MXxZfDB8WXwxNzYyNDUyMzM2Nzc1&cjevent=1bacb77ab97011f081b203100a18ba74&clickid=1bacb77ab97011f081b203100a18ba74&PID=cj_int&allianceId=3808105&SID=21359202&adj_cj_click_id=1bacb77ab97011f081b203100a18ba74" target="_blank" style="color: #1e40af; text-decoration: underline;">TrainPal 平台</a>
+          </td>
+          <td style="padding: 10px 12px; text-align: right; border-bottom: 1px solid #f1f1f1; font-weight: 800; color: #b45309;" data-rate="25">
+            20%~25% 折扣 (TCP 23%)
+          </td>
+          <td style="padding: 10px 12px; text-align: center; border-bottom: 1px solid #f1f1f1;">
+            <div style="display: inline-flex; align-items: center; gap: 4px; margin-bottom: 4px;">
+              <code style="background: #f1f5f9; color: #0f172a; padding: 2px 5px; border-radius: 4px; font-weight: bold;">TCB20</code>
+              <button type="button" onclick="copyCode(this, 'TCB20')" style="padding: 2px 6px; font-size: 11px; cursor: pointer; border: 1px solid #cbd5e1; border-radius: 4px; background: #fff;">📋</button>
+            </div><br>
+            <div style="display: inline-flex; align-items: center; gap: 4px;">
+              <code style="background: #f1f5f9; color: #0f172a; padding: 2px 5px; border-radius: 4px; font-weight: bold;">MSE25</code>
+              <button type="button" onclick="copyCode(this, 'MSE25')" style="padding: 2px 6px; font-size: 11px; cursor: pointer; border: 1px solid #cbd5e1; border-radius: 4px; background: #fff;">📋</button>
+            </div>
+          </td>
+          <td style="padding: 10px 12px; border-bottom: 1px solid #f1f1f1; color: #4b5563;">
+            * <strong>TCB20</strong>：新會員 <strong>20% 優惠</strong>。<br>
+            * <strong>MSE25</strong>：新會員享 <strong>25% 優惠</strong>（舊會員輸入享 10%）。<br>
+            * <strong>3 年卡專案</strong>：Family & Friends 三年卡特價 <strong>£80</strong>。<br>
+            * <strong>TCP 返利神招：</strong>新會員未用折扣碼透過 TCP 導購享 <strong>23% 返利</strong>；舊會員未用碼享 <strong>10% 返利</strong>！
+          </td>
+        </tr>
+
+        <!-- 5. Trainline -->
+        <tr data-cat="Trainline">
+          <td style="padding: 10px 12px; text-align: center; border-bottom: 1px solid #f1f1f1;">5</td>
+          <td style="padding: 10px 12px; border-bottom: 1px solid #f1f1f1; font-weight: 700; color: #1e40af;">
+            <a href="https://www.thetrainline.com/trains/great-britain/railcards?gad_source=1&gad_campaignid=20516885893&gbraid=0AAAAADobjhaYD7vpQTyO3wNdXwzGHV7gJ&gclid=CjwKCAiAvaLLBhBFEiwAYCNTf3dXgmP_sNRt_u4SlBVwvr2reEoSkxByFfRZo0VhrAy5IT2fmcAtDhoCsSwQAvD_BwE" target="_blank" style="color: #1e40af; text-decoration: underline;">Trainline 電子卡</a>
+          </td>
+          <td style="padding: 10px 12px; text-align: right; border-bottom: 1px solid #f1f1f1; font-weight: 800; color: #b45309;" data-rate="20">
+            TCP 最高 20% 返利
+          </td>
+          <td style="padding: 10px 12px; text-align: center; border-bottom: 1px solid #f1f1f1;">
+            <span style="background: #f1f5f9; color: #475569; padding: 2px 8px; border-radius: 4px; font-size: 11.5px;">導購回饋</span>
+          </td>
+          <td style="padding: 10px 12px; border-bottom: 1px solid #f1f1f1; color: #4b5563;">
+            英國最大火車訂票平台，提供電子數位版 Railcard，保存在 App 隨身攜帶。<br>
+            搭配 TopCashback 導購：<strong>新用戶辦卡享 20% 回饋</strong>，既有用戶享 <strong>7% 回饋</strong>；訂購車票亦享 2% 回饋。
+          </td>
+        </tr>
+
+        <!-- 6. Railcard 官網 -->
+        <tr data-cat="官網">
+          <td style="padding: 10px 12px; text-align: center; border-bottom: 1px solid #f1f1f1;">6</td>
+          <td style="padding: 10px 12px; border-bottom: 1px solid #f1f1f1; font-weight: 700; color: #1e40af;">
+            <a href="https://www.railcard.co.uk/?gclsrc=aw.ds&gad_source=1&gad_campaignid=252636643&gbraid=0AAAAAD8wXKmTONWFlUnOtRGbXiINPMNIb&gclid=CjwKCAjw-8vPBhBbEiwAoA39WlSmMF5qmfcvt9ojnG7GnPW8ZTxF4futwBsdw86reL6IDMmSChqyChoCY_MQAvD_BwE" target="_blank" style="color: #1e40af; text-decoration: underline;">Railcard 官方網站</a>
+          </td>
+          <td style="padding: 10px 12px; text-align: right; border-bottom: 1px solid #f1f1f1; font-weight: 800; color: #b45309;" data-rate="10">
+            現折 £8 / 1% TCP
+          </td>
+          <td style="padding: 10px 12px; text-align: center; border-bottom: 1px solid #f1f1f1;">
+            <div style="display: inline-flex; align-items: center; gap: 4px;">
+              <code style="background: #f1f5f9; color: #0f172a; padding: 2px 5px; border-radius: 4px; font-weight: bold;">MSETRIPRC08</code>
+              <button type="button" onclick="copyCode(this, 'MSETRIPRC08')" style="padding: 2px 6px; font-size: 11px; cursor: pointer; border: 1px solid #cbd5e1; border-radius: 4px; background: #fff;">📋</button>
+            </div>
+          </td>
+          <td style="padding: 10px 12px; border-bottom: 1px solid #f1f1f1; color: #4b5563;">
+            英國鐵路官方直接辦卡，可選實體卡或官方數位 App。<br>
+            * <strong>MSETRIPRC08</strong>：數位卡續卡現折 <strong>£8 英鎊</strong>。<br>
+            * 官網直購搭配 TopCashback 可享有常態 1% 現金回饋。
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- 【特別提醒】常見卡別推薦與辦卡小叮嚀 -->
+  <div style="background: #f8fafc; border: 1px solid #bfdbfe; border-top: none; border-radius: 0 0 12px 12px; padding: 14px 16px; box-sizing: border-box;">
+    <div style="font-weight: 700; font-size: 14.5px; color: #1e3a8a; margin-bottom: 6px; display: flex; align-items: center; gap: 6px;">
+      💡 常見熱門 Railcard 種類與選卡建議：
+    </div>
+    <ul style="margin: 0; padding-left: 20px; font-size: 13.5px; color: #4b5563; line-height: 1.7;">
+      <li><strong>16-25 Railcard / 26-30 Railcard：</strong>年輕族群與學生必備，單人全英搭火車即享 1/3 折扣，只要搭一兩趟長途（如倫敦往返愛丁堡/劍橋）立即回本！</li>
+      <li><strong>Two Together Railcard：</strong>兩人同行限定！只要雙方年滿 16 歲且一起搭乘即可使用，夫妻、情侶或同遊好友必備。</li>
+      <li><strong>Family & Friends Railcard：</strong>最多可享 4 位成人 1/3 折扣、4 位兒童 60% 折扣，家庭自駕外的火車出行首選。</li>
+      <li><strong>辦卡小提醒：</strong>折扣碼可能隨官方檔期調整，若折扣碼提示已過期，建議優先選擇 <strong>Trip.com 黑五/快閃特價</strong> 或透過 <strong>TopCashback 導購拿最高 23% 返利</strong>，省下來的金額同樣非常划算！</li>
+    </ul>
+  </div>
+
+</div>
+
+<!-- 專屬列印優化 CSS -->
+<style>
+@media print {
+  .print-hide-block, .print-hide-btn {
+    display: none !important;
+  }
+  .interactive-railcard-container {
+    margin: 0 !important;
+    width: 100% !important;
+  }
+  #rcRankTable {
+    width: 100% !important;
+    min-width: 100% !important;
+    font-size: 12px !important;
+  }
+  #rcRankTable th, #rcRankTable td {
+    border: 1px solid #ddd !important;
+    padding: 6px 8px !important;
+    color: #000 !important;
+  }
+}
+</style>
+
+<!-- 互動、滾動、複製與列印控制腳本 -->
+<script>
+let activeRCCat = 'all';
+let sortRCDir = { 1: 1, 2: 1 };
+
+// 列印功能
+function printRailcardTable() {
+  window.print();
+}
+
+// 複製推薦連結
+function copyRCReferral(btn) {
+  const refLink = "https://www.topcashback.co.uk/ref/s875261";
+  navigator.clipboard.writeText(refLink).then(() => {
+    const oldText = btn.innerText;
+    btn.innerText = "✅ 已複製！";
+    btn.style.background = "#dcfce7";
+    btn.style.color = "#15803d";
+    btn.style.borderColor = "#86efac";
+    setTimeout(() => {
+      btn.innerText = oldText;
+      btn.style.background = "#ffffff";
+      btn.style.color = "#374151";
+      btn.style.borderColor = "#d1d5db";
+    }, 2000);
+  }).catch(() => {
+    alert("推薦連結：" + refLink);
+  });
+}
+
+// 一鍵複製折扣碼
+function copyCode(btn, code) {
+  navigator.clipboard.writeText(code).then(() => {
+    const originalText = btn.innerText;
+    btn.innerText = "已複製！";
+    btn.style.background = "#dcfce7";
+    btn.style.color = "#166534";
+    btn.style.borderColor = "#86efac";
+    setTimeout(() => {
+      btn.innerText = originalText;
+      btn.style.background = "#fff";
+      btn.style.color = "#000";
+      btn.style.borderColor = "#cbd5e1";
+    }, 1800);
+  }).catch(() => {
+    prompt("請手動複製折扣碼：", code);
+  });
+}
+
+// 橫向照片滑動（向右或向左滾動半屏）
+function scrollRCGallery(direction) {
+  const track = document.getElementById('rcGalleryTrack');
+  const scrollAmount = track.clientWidth * 0.55;
+  track.scrollBy({
+    left: direction * scrollAmount,
+    behavior: 'smooth'
+  });
+}
+
+// 分類切換
+function setRCCategory(cat, el) {
+  activeRCCat = cat;
+  document.querySelectorAll('.rc-filter-btn').forEach(btn => {
+    btn.style.background = '#fff';
+    btn.style.color = '#4b5563';
+    btn.style.fontWeight = 'normal';
+    btn.style.borderColor = '#d1d5db';
+  });
+  el.style.background = '#dbeafe';
+  el.style.color = '#1e3a8a';
+  el.style.fontWeight = 'bold';
+  el.style.borderColor = '#2563eb';
+  filterRCTable();
+}
+
+// 關鍵字搜尋過濾
+function filterRCTable() {
+  const keyword = document.getElementById('rcTableSearch').value.trim().toLowerCase();
+  const rows = document.querySelectorAll('#rcRankTable tbody tr');
+
+  rows.forEach(row => {
+    const text = row.innerText.toLowerCase();
+    const rowCat = row.getAttribute('data-cat') || '';
+    const matchCat = (activeRCCat === 'all') || rowCat.includes(activeRCCat);
+    const matchKeyword = text.includes(keyword);
+
+    if (matchCat && matchKeyword) {
+      row.style.display = '';
+    } else {
+      row.style.display = 'none';
+    }
+  });
+}
+
+// 點擊表頭排序
+function sortRCTable(colIndex, type) {
+  const table = document.getElementById('rcRankTable');
+  const tbody = table.querySelector('tbody');
+  const rows = Array.from(tbody.querySelectorAll('tr'));
+  const currentDir = sortRCDir[colIndex] || 1;
+  const newDir = -currentDir;
+  sortRCDir[colIndex] = newDir;
+
+  rows.sort((a, b) => {
+    let valA, valB;
+    if (type === 'num') {
+      valA = parseFloat(a.children[colIndex].getAttribute('data-rate')) || 0;
+      valB = parseFloat(b.children[colIndex].getAttribute('data-rate')) || 0;
+      return (valA - valB) * newDir;
+    } else {
+      valA = a.children[colIndex].innerText.trim();
+      valB = b.children[colIndex].innerText.trim();
+      return valA.localeCompare(valB, 'zh-Hant') * newDir;
+    }
+  });
+
+  rows.forEach(row => tbody.appendChild(row));
+}
+</script>
+<!-- 英國火車鐵路卡 Railcard 優惠碼 互動式純表格模組 結束 -->
