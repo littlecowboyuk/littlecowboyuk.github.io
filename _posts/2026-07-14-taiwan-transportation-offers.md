@@ -21,9 +21,9 @@ tags: [featured]
   </iframe>
 </div>
 
-### 商務車廂升等
-* 💡 *更多商務艙專屬服務與加購高鐵最新資訊請看：[📌 高鐵升等商務艙攻略](https://s875261.pixnet.net/blog/post/578087634)*
-
+### 高鐵升等 商務車廂
+*更多商務艙專屬服務與優惠新訊 請看：[高鐵升等商務艙攻略](https://s875261.pixnet.net/blog/post/578087634)*
+*高鐵商務艙有什麼服務和免費茶點?? 請看下方實拍影片👇👇*
 <div>
 <a href="https://www.youtube.com/watch?v=QT8tyJcJ0EY" target="_blank" rel="noopener" class="yt-video-card-single">
   <div style="position:relative; width:100%; padding-top:56.25%;">
@@ -41,9 +41,10 @@ tags: [featured]
 
 善用大眾交通優惠，幫自己節省旅費開支，省下的交通費還能買杯咖啡、小點心，愉快的享受一日美好的旅行。
 
-** 完整文章 **
-高鐵完整優惠內容可參考 **[小牛仔痞客邦—高鐵懶人包](https://s875261.pixnet.net/blog/posts/9578087634)**
 ---
+
+> **完整文章：**  
+> 高鐵完整攻略可參考 **[小牛仔痞客邦]([https://s875261.pixnet.net/blog](https://s875261.pixnet.net/blog/posts/9578087634))**。
 
 <style>
   /* 專業級 GitHub Pages 精緻小卡網格排版 */
@@ -180,4 +181,4 @@ tags: [featured]
   </a>
 </div>
 
-*( [小牛仔頻道](https://www.youtube.com/@%E5%B0%8F%E7%89%9B%E4%BB%94UK-q5j) 有最新生活玩樂分享，歡迎訂閱按讚！支持我們繼續創作，謝謝！💜)*
+*( [小牛仔頻道](https://www.youtube.com/@%E5%B0%8F%E7%89%9B%E4%BB%94UK-q5j) 有最新生活玩樂分享，歡迎訂閱按讚！謝謝！💜)*
