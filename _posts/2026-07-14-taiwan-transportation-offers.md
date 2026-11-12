@@ -3,7 +3,8 @@ layout: post
 title: "2026高鐵訂票刷卡優惠整理，信用卡付款最高10%回饋！"
 date: 2026-07-14 12:00:00 +0800
 categories: [生活優惠, 交通優惠]
-tags: [featured]
+tags: [featured, 高鐵,高鐵優惠,信用卡優惠]
+image: /assets/images/hsr-offers.jpg
 ---
 
 ### 高鐵趴趴走，幫你省時+省錢？
