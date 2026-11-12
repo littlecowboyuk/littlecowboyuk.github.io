@@ -17,7 +17,7 @@ tags: [featured]
 桃園國際機場（TPE）裡面有不少貴賓室選擇，不同旅客資格能進入的休息室也不一樣，對常搭華航的會員來說，最常去的就是華航自營貴賓室，裡面的設施和服務評價很好，如果有機會搭華航，要善加利用進貴賓室的機會喔！
 
 ![桃園機場 環亞貴賓室 入口](/assets/images/華航貴賓室餐點.png)
-(圖：桃園機場 華航貴賓室 / 好吃的現煮餐點)
+(圖：桃園機場 華航貴賓室好吃的現煮餐點)
 
 ---
 
@@ -32,11 +32,12 @@ tags: [featured]
 </div>
 
 ![桃機華航貴賓室 飲品酒類特調區](/assets/images/china-airlines-lounge-drinks.jpg)
-(圖：桃機華航貴賓室） （「飲酒過量，有害健康」)
+(圖：桃園機場 華航貴賓室飲品酒類特調區） （「飲酒過量，有害健康」「未滿十八歲禁止飲酒」)
 
 ---
 
-*(如果文章有一點幫助，邀請您 按讚+訂閱 [小牛仔頻道](https://www.youtube.com/@%E5%B0%8F%E7%89%9B%E4%BB%94UK-q5j) ３Ｑ )*
+>  **完整文章：**  
+> 貴賓室完整文章與攻略 可參考 **[小牛仔痞客邦-桃園機場三大貴賓室比較](https://s875261.pixnet.net/blog/posts/858779887513584479)**。
 
 ---
 > **延伸閱讀：**
@@ -48,10 +49,10 @@ tags: [featured]
 
 ### ［總結］
 若是剛好搭華航，又有金卡以上資格，那麼就直接進華航貴賓室，不然也可以查詢哩程數，有沒有機會兌換貴賓室，都是不錯的喔！祝大家有美好的一天 ✈️
-
+*(如果文章有一點幫助，邀請您 按讚+訂閱 [小牛仔頻道](https://www.youtube.com/@%E5%B0%8F%E7%89%9B%E4%BB%94UK-q5j) ３Ｑ )*
 ---
 
-### 🎥 機場與各地旅遊｜影片精選
+### 機場與各地旅遊｜精選
 
 <style>
   /* GitHub Pages 專用影片卡網格排版 */
@@ -178,9 +179,9 @@ tags: [featured]
     </div>
   </a>
 
-  <a href="https://www.youtube.com/watch?v=-Xj2CmZ2Q5A0" target="_blank" rel="noopener" class="yt-video-card">
+  <a href="https://www.youtube.com/watch?v=Xj2CmZ2Q5A0" target="_blank" rel="noopener" class="yt-video-card">
     <div class="yt-video-thumb">
-      <img src="https://img.youtube.com/vi/-Xj2CmZ2Q5A0/hqdefault.jpg" alt="苗栗旅遊景點懶人包">
+      <img src="https://img.youtube.com/vi/Xj2CmZ2Q5A0/hqdefault.jpg" alt="苗栗旅遊景點懶人包">
       <span class="yt-play-btn">▶️</span>
     </div>
     <div class="yt-video-info">
@@ -200,9 +201,3 @@ tags: [featured]
     </div>
   </a>
 </div>
-
-### 📝 旅遊＆優惠｜文章精選
-* [📌 金門懶人包 (Kinmen 3天2夜行程全攻略)](https://s875261.pixnet.net/blog/posts/868942441443443836)
-* [📌 【華信航空】機票優惠全攻略 (最新折扣碼＋省錢小技巧)](https://s875261.pixnet.net/blog/posts/875767090978439234)
-* [📌 苗栗聚餐總覽 (苗栗市、三義、後龍、竹南、頭份餐廳)](https://s875261.pixnet.net/blog/posts/889114011017104703)
-* [📌 【信用卡餐廳優惠】 (全台飯店自助餐、吃到飽餐廳買一送一)](https://s875261.pixnet.net/blog/posts/879333489378283202)
