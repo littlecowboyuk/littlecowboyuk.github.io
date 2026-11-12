@@ -2,8 +2,9 @@
 layout: post
 title: "【台鐵刷卡回饋推薦】高回饋信用卡排行，火車票省錢攻略必看!"
 date: 2026-11-11
-categories: [台灣旅遊, 交通優惠]
+categories: [台灣交通優惠]
 tags: [台鐵, 信用卡回饋, 交通優惠, 火車訂票]
+image: [/assets/images/jcb-easycard.png](https://pimg.1px.tw/blog/s875261/post/9578110174/948099214879968928.png)
 ---
 
 ## 聰明搭火車，每趟車票都能賺回饋！
