@@ -26,7 +26,7 @@ tags: [sticky]
     * 💡 **疊加回饋：** JCB 10% 可以疊加下表信用卡活動回饋。
 
 ▼ JCB 官方網站公告 2026 悠遊聯名卡自動加值 10% 回饋資訊：
-![JCB 悠遊聯名卡自動加值10% 回饋資訊](assets/images/jcb-easycard.png)
+![JCB 悠遊聯名卡自動加值10% 回饋資訊](/assets/images/jcb-easycard.png)
 
 ---
 
