@@ -2,8 +2,9 @@
 layout: post
 title: "【桃園機場熱門貴賓室】華航貴賓室最新資訊與優惠全攻略！"
 date: 2026-07-14 10:00:00 +0800
-categories: [機場攻略, 貴賓室優惠, 華航, Lounge]
-tags: [featured]
+categories: [貴賓室]
+tags: [featured, 機場攻略, 貴賓室優惠, 華航, Lounge]
+image: /assets/images/華航貴賓室餐點.png
 ---
 
 ## 計劃在桃園機場貴賓室休息或品嚐美食嗎？
@@ -16,7 +17,7 @@ tags: [featured]
 
 桃園國際機場（TPE）裡面有不少貴賓室選擇，不同旅客資格能進入的休息室也不一樣，對常搭華航的會員來說，最常去的就是華航自營貴賓室，裡面的設施和服務評價很好，如果有機會搭華航，要善加利用進貴賓室的機會喔！
 
-![桃園機場 環亞貴賓室 入口](/assets/images/華航貴賓室餐點.png)
+![桃園機場 華航貴賓室餐點](/assets/images/華航貴賓室餐點.png)
 (圖：桃園機場 華航貴賓室好吃的現煮餐點)
 
 ---
@@ -27,7 +28,7 @@ tags: [featured]
 <div style="width: 100%; margin: 20px 0; border: 1px solid #d0d7de; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
   <iframe src="https://littlecowboyuk.github.io/china-airlines-lounge.html" 
           style="width: 100%; height: 650px; border: none; display: block;" 
-          title="台鐵刷卡回饋排行榜">
+          title="華航貴賓室資訊">
   </iframe>
 </div>
 
@@ -48,33 +49,33 @@ tags: [featured]
 > * [【華航機票】優惠促銷活動＋聯名卡&酬賓機票](https://s875261.pixnet.net/blog/posts/881208669637660405)
 
 ### ［總結］
-若是剛好搭華航，又有金卡以上資格，那麼就直接進華航貴賓室，不然也可以查詢哩程數，有沒有機會兌換貴賓室，都是不錯的喔！祝大家有美好的一天 ✈️
+若是剛好搭華航，又有金卡以上資格，那麼就直接進華航貴賓室，不然也可以查詢哩程數，有沒有機會兌換貴賓室，都是不錯的喔！祝大家有美好的一天 ✈️  
 *(如果文章有一點幫助，邀請您 按讚+訂閱 [小牛仔頻道](https://www.youtube.com/@%E5%B0%8F%E7%89%9B%E4%BB%94UK-q5j) ３Ｑ )*
 ---
 
-### 機場與各地旅遊｜精選
+### 🎥 機場與各地旅遊｜精選
 
 <style>
-  /* GitHub Pages 專用影片卡網格排版 */
+  /* GitHub Pages 專用影片卡網格排版（精緻小卡版） */
   .yt-video-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 16px;
+    grid-template-columns: repeat(auto-fill, minmax(175px, 210px));
+    gap: 14px;
     margin-bottom: 30px;
   }
   .yt-video-card {
     display: flex;
     flex-direction: column;
     border: 1px solid #e5e7eb;
-    border-radius: 12px;
+    border-radius: 10px;
     overflow: hidden;
     background: #fff;
     text-decoration: none !important;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
   }
   .yt-video-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.12);
   }
   .yt-video-thumb {
     position: relative;
@@ -92,23 +93,24 @@ tags: [featured]
     position: absolute;
     top: 50%; left: 50%;
     transform: translate(-50%, -50%);
-    font-size: 2.5rem;
+    font-size: 1.8rem;
     filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5));
   }
   .yt-video-info {
-    padding: 12px;
+    padding: 10px;
   }
   .yt-video-title {
-    font-size: 15px;
+    font-size: 14px;
     font-weight: 700;
     color: #222;
     margin: 0 0 4px 0;
-    line-height: 1.4;
+    line-height: 1.35;
   }
   .yt-video-desc {
-    font-size: 13px;
+    font-size: 12px;
     color: #666;
     margin: 0;
+    line-height: 1.4;
   }
 </style>
 
