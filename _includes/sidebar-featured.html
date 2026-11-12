@@ -19,3 +19,37 @@
         {% endfor %}   
     </ol>
 </div> 
+<!-- 文章分類欄 -->
+<div class="mb-5">
+    <h5 class="font-weight-bold spanborder"><span>文章分類</span></h5>
+    <div class="d-flex flex-wrap">
+        {% for category in site.categories %}
+        <a href="{{ site.baseurl }}/categories.html#{{ category[0] | downcase }}" 
+           class="btn btn-sm btn-outline-secondary mr-2 mb-2">
+            {{ category[0] }} <span class="badge badge-light ml-1">{{ category[1].size }}</span>
+        </a>
+        {% endfor %}
+    </div>
+</div>
+
+<!-- 最新文章欄 -->
+<div class="mb-5">
+    <h5 class="font-weight-bold spanborder"><span>最新文章</span></h5>
+    <ol class="list-featured">
+        {% for post in site.posts limit:5 %}
+        <li class="mb-4">
+            <span>
+                <h6 class="font-weight-bold">
+                    <a href="{{ site.baseurl }}{{ post.url }}" class="text-dark">{{ post.title }}</a>
+                </h6>
+                <span class="d-block text-muted small">
+                    {{ post.date | date: '%Y-%m-%d' }}
+                    {% if post.categories.size > 0 %}
+                    ・{{ post.categories | join: ', ' }}
+                    {% endif %}
+                </span>
+            </span>
+        </li>
+        {% endfor %}
+    </ol>
+</div>
