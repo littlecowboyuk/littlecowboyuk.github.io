@@ -2,8 +2,9 @@
 layout: post
 title: "【桃園機場熱門貴賓室】環亞貴賓室最新資訊與優惠全攻略！"
 date: 2026-07-14 10:00:00 +0800
-categories: [機場攻略, 機場貴賓室, 貴賓室優惠, 環亞, Lounge, VIP]
-tags: [featured]
+categories: [機場貴賓室]
+tags: [featured, 機場攻略, 機場貴賓室, 貴賓室優惠, 環亞, Lounge]
+image: /assets/images/plaza-premium-lounge-entrance.png
 ---
 
 ## 計劃在桃園機場貴賓室休息或品嚐美食嗎？
@@ -50,34 +51,34 @@ tags: [featured]
 ---
 
 ### ［總結］
-各大銀行的信用卡搭配的禮遇，幾乎都有包含環亞貴賓室，不只在台灣桃園機場，全台各機場也都有機會利用優惠，在出國時享受一個難忘的貴賓室體驗喔！祝大家有美好的一天 ✈️
+各大銀行的信用卡搭配的禮遇，幾乎都有包含環亞貴賓室，不只在台灣桃園機場，全台各機場也都有機會利用優惠，在出國時享受一個難忘的貴賓室體驗喔！祝大家有美好的一天 ✈️  
 *(如果文章有一點幫助，邀請您 按讚+訂閱 [小牛仔頻道](https://www.youtube.com/@%E5%B0%8F%E7%89%9B%E4%BB%94UK-q5j) ３Ｑ )*
 
 ---
 
-### 機場與各地旅遊｜精選
+### 🎥 機場與各地旅遊｜精選
 
 <style>
-  /* GitHub Pages 專用影片卡網格排版 */
+  /* GitHub Pages 專用影片卡網格排版（精緻小卡版） */
   .yt-video-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 16px;
+    grid-template-columns: repeat(auto-fill, minmax(175px, 210px));
+    gap: 14px;
     margin-bottom: 30px;
   }
   .yt-video-card {
     display: flex;
     flex-direction: column;
     border: 1px solid #e5e7eb;
-    border-radius: 12px;
+    border-radius: 10px;
     overflow: hidden;
     background: #fff;
     text-decoration: none !important;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
   }
   .yt-video-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.12);
   }
   .yt-video-thumb {
     position: relative;
@@ -95,23 +96,24 @@ tags: [featured]
     position: absolute;
     top: 50%; left: 50%;
     transform: translate(-50%, -50%);
-    font-size: 2.5rem;
+    font-size: 1.8rem;
     filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5));
   }
   .yt-video-info {
-    padding: 12px;
+    padding: 10px;
   }
   .yt-video-title {
-    font-size: 15px;
+    font-size: 14px;
     font-weight: 700;
     color: #222;
     margin: 0 0 4px 0;
-    line-height: 1.4;
+    line-height: 1.35;
   }
   .yt-video-desc {
-    font-size: 13px;
+    font-size: 12px;
     color: #666;
     margin: 0;
+    line-height: 1.4;
   }
 </style>
 
