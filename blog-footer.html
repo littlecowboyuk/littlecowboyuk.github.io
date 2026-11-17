@@ -1,5 +1,5 @@
 <!-- ==================== 頂部導引與互動控制區塊 ==================== -->
-<div id="travel-guide-top" style="text-align: center; max-width: 920px; margin: 0 auto 28px; font-family: -apple-system, BlinkMacSystemFont, 'Noto Sans TC', '微軟正黑體', sans-serif;">
+<div id="travel-guide-top" style="text-align: center; max-width: 960px; margin: 0 auto 28px; font-family: -apple-system, BlinkMacSystemFont, 'Noto Sans TC', '微軟正黑體', sans-serif;">
     <h2 style="font-size: 26px; font-weight: 700; color: #4A2A73; margin-bottom: 10px; letter-spacing: 1px;">
         🌍 各國旅遊懶人包總覽
     </h2>
@@ -7,7 +7,7 @@
         規劃自由行必備！精選劍橋專區、英國、日本、台灣的行程攻略、住宿開箱、必吃美食與最新優惠，支持關鍵字即時過濾與國家篩選 👇
     </p>
 
-    <!-- 【新增】互動搜尋與國家篩選控制面板 -->
+    <!-- 【互動搜尋與國家篩選控制面板】 -->
     <div style="background: #f9f6ff; border: 1.5px solid #d4c4e9; border-radius: 14px; padding: 14px 16px; margin-bottom: 20px; box-shadow: 0 3px 10px rgba(74, 42, 115, 0.05);">
         <!-- 搜尋輸入列 -->
         <div style="display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; margin-bottom: 12px;">
@@ -74,18 +74,19 @@
     .travel-grid-container {
         display: grid !important;
         grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
-        gap: 15px !important;
+        gap: 14px !important;
         margin: 18px 0 36px !important;
         width: 100% !important;
         box-sizing: border-box !important;
         align-items: stretch !important;
     }
 
-    /* 劍橋四欄網格 */
-    .cambridge-grid-container {
+    /* 四欄網格（劍橋專區、精選住宿開箱） */
+    .cambridge-grid-container,
+    .hotel-grid-container {
         display: grid !important;
         grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
-        gap: 13px !important;
+        gap: 12px !important;
         margin: 18px 0 38px !important;
         width: 100% !important;
         box-sizing: border-box !important;
@@ -95,10 +96,10 @@
     .country-column {
         min-width: 0 !important;
         border-radius: 14px !important;
-        padding: 12px !important;
+        padding: 11px !important;
         display: flex !important;
         flex-direction: column !important;
-        gap: 10px !important;
+        gap: 9px !important;
         box-sizing: border-box !important;
         height: 100% !important;
     }
@@ -106,20 +107,21 @@
     /* 欄位標題藥丸 */
     .country-badge {
         font-weight: 700 !important;
-        padding: 7px 10px !important;
+        padding: 6px 10px !important;
         border-radius: 20px !important;
         text-align: center !important;
-        font-size: 14.5px !important;
+        font-size: 14px !important;
         letter-spacing: 0.5px !important;
         box-shadow: 0 1px 2px rgba(0,0,0,0.04) !important;
     }
     
-    /* 連結卡片樣式（精緻小圖版） */
+    /* 連結卡片樣式（小圖在左、文字在右） */
     .item-card {
         text-decoration: none !important;
         color: #24292f !important;
         display: flex !important;
-        flex-direction: column !important;
+        flex-direction: row !important;
+        align-items: center !important;
         background: #ffffff !important;
         border: 1px solid #e1e4e8 !important;
         border-radius: 10px !important;
@@ -127,6 +129,7 @@
         box-shadow: 0 2px 5px rgba(0, 0, 0, 0.03) !important;
         transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease !important;
         box-sizing: border-box !important;
+        min-height: 64px !important;
     }
     
     .item-card:hover {
@@ -135,26 +138,30 @@
         box-shadow: 0 6px 14px rgba(74, 42, 115, 0.1) !important;
     }
     
-    /* 精緻卡片圖片高度 */
+    /* 左側小縮圖樣式 */
     .card-img {
-        width: 100% !important;
-        height: 82px !important;
+        width: 64px !important;
+        min-width: 64px !important;
+        height: 64px !important;
         object-fit: cover !important;
         display: block !important;
         background-color: #f6f8fa !important;
-        transition: transform 0.4s ease !important;
+        flex-shrink: 0 !important;
+        transition: transform 0.35s ease !important;
     }
     
     .item-card:hover .card-img {
-        transform: scale(1.03) !important;
+        transform: scale(1.05) !important;
     }
     
+    /* 右側文字區 */
     .card-text {
-        padding: 8px 10px !important;
+        padding: 7px 10px !important;
         text-align: left !important;
-        font-size: 13px !important;
-        line-height: 1.4 !important;
-        flex-grow: 1 !important;
+        font-size: 12.5px !important;
+        line-height: 1.38 !important;
+        flex: 1 1 auto !important;
+        min-width: 0 !important;
         word-break: break-word !important;
     }
     
@@ -162,12 +169,15 @@
         display: block !important;
         color: #24292f !important;
         margin-bottom: 2px !important;
-        font-size: 13.5px !important;
+        font-size: 13px !important;
+        line-height: 1.35 !important;
     }
     
     .card-text span {
+        display: block !important;
         color: #57606a !important;
-        font-size: 12px !important;
+        font-size: 11.5px !important;
+        line-height: 1.35 !important;
     }
     
     /* 大分類標題 */
@@ -243,16 +253,19 @@
         transform: translateY(-3px);
     }
 
-    /* 平板響應式 (劍橋 4 欄轉 2 欄) */
+    /* 平板響應式 (4 欄轉 2 欄) */
     @media screen and (max-width: 960px) {
-        .cambridge-grid-container {
+        .cambridge-grid-container,
+        .hotel-grid-container {
             grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
         }
     }
     
     /* 手機版響應式 (小於 768px 自動轉單欄) */
     @media screen and (max-width: 768px) {
-        .travel-grid-container, .cambridge-grid-container {
+        .travel-grid-container,
+        .cambridge-grid-container,
+        .hotel-grid-container {
             grid-template-columns: 1fr !important;
             gap: 16px !important;
         }
@@ -440,12 +453,30 @@
     </div>
 </div>
 
-<!-- ==================== 2. 精選住宿開箱 ==================== -->
+<!-- ==================== 2. 精選住宿開箱 (新增台灣住宿，共4欄) ==================== -->
 <div class="guide-section-block">
     <div id="sec-hotel" class="section-title">🏨 精選住宿開箱</div>
-    <div class="travel-grid-container">
+    <div class="hotel-grid-container">
 
-        <!-- 關西住宿 -->
+        <!-- 歐洲住宿 -->
+        <div class="country-column" data-region="uk" style="background: #f7f9fd; border: 1px solid #e1ebff;">
+            <div class="country-badge" style="color: #1a4fd8; background: #e8f0fe;">🇪🇺 歐洲住宿</div>
+
+            <a href="https://s875261.pixnet.net/blog/posts/9577297740" target="_blank" class="item-card">
+                <img src="https://pimg.1px.tw/s875261/1762339307-372442079-g.png" class="card-img" alt="倫敦機場 Premier Inn 飯店">
+                <div class="card-text"><strong>🏨 倫敦機場 Premier Inn</strong><span>英國平價連鎖・親子優惠＆便利交通</span></div>
+            </a>
+            <a href="https://s875261.pixnet.net/blog/posts/851386974257234072" target="_blank" class="item-card">
+                <img src="https://pimg.1px.tw/s875261/1743086235-717082750-g.png" class="card-img" alt="英國親子飯店優惠 Premier Inn">
+                <div class="card-text"><strong>👨‍👩‍👧‍👦 英國親子飯店優惠</strong><span>Premier Inn 小孩免費住＋免費早餐</span></div>
+            </a>
+            <a href="https://s875261.pixnet.net/blog/posts/890151133362734420" target="_blank" class="item-card">
+                <img src="https://pimg.1px.tw/s875261/1743689115-2811951274-g.png" class="card-img" alt="瑞士山中秘境飯店">
+                <div class="card-text"><strong>🏔️ 瑞士山中秘境飯店</strong><span>Davos Kessler's Kulm 阿爾卑斯美景</span></div>
+            </a>
+        </div>
+
+        <!-- 大阪＆神戶住宿 -->
         <div class="country-column" data-region="jp" style="background: #fdfaf6; border: 1px solid #fae2cc;">
             <div class="country-badge" style="color: #c55a11; background: #feede0;">🇯🇵 大阪＆神戶住宿</div>
 
@@ -481,13 +512,21 @@
             </a>
         </div>
 
-        <!-- 歐洲住宿 -->
-        <div class="country-column" data-region="uk" style="background: #f7f9fd; border: 1px solid #e1ebff;">
-            <div class="country-badge" style="color: #1a4fd8; background: #e8f0fe;">🇪🇺 歐洲秘境住宿</div>
+        <!-- 台灣住宿 (新增) -->
+        <div class="country-column" data-region="tw" style="background: #f6faf7; border: 1px solid #dcf2e4;">
+            <div class="country-badge" style="color: #1e7f4f; background: #e3f5ea;">🇹🇼 台灣住宿</div>
 
-            <a href="https://s875261.pixnet.net/blog/posts/890151133362734420" target="_blank" class="item-card">
-                <img src="https://pimg.1px.tw/s875261/1743689115-2811951274-g.png" class="card-img" alt="瑞士山中秘境飯店">
-                <div class="card-text"><strong>🏔️ 瑞士山中秘境飯店</strong><span>Davos Kessler's Kulm 阿爾卑斯美景</span></div>
+            <a href="https://s875261.pixnet.net/blog/posts/9578069446" target="_blank" class="item-card">
+                <img src="https://pimg.1px.tw/s875261/1740063785-4235935255-g.png" class="card-img" alt="台中永豐棧酒店">
+                <div class="card-text"><strong>🏨 台中永豐棧酒店</strong><span>Tempus Hotel｜近捷運＆YouBike</span></div>
+            </a>
+            <a href="https://s875261.pixnet.net/blog/posts/9577297708" target="_blank" class="item-card">
+                <img src="https://pimg.1px.tw/s875261/1740063785-4235935255-g.png" class="card-img" alt="台中鳳凰酒店">
+                <div class="card-text"><strong>🏨 台中鳳凰酒店</strong><span>星際樂園・鳳凰食號・訂房優惠資訊</span></div>
+            </a>
+            <a href="https://s875261.pixnet.net/blog/posts/9577422640" target="_blank" class="item-card">
+                <img src="https://pimg.1px.tw/s875261/1739041987-3830355031-g.png" class="card-img" alt="嘉義兆品酒店與花蓮承億文旅">
+                <div class="card-text"><strong>🏨 環島住宿｜嘉義＆花蓮</strong><span>嘉義兆品酒店 & 花蓮承億文旅分享</span></div>
             </a>
         </div>
 
@@ -521,7 +560,7 @@
             </a>
         </div>
 
-        <!-- 日本 -->
+        <!-- 日本 (新增2篇早餐) -->
         <div class="country-column" data-region="jp" style="background: #fdfaf6; border: 1px solid #fae2cc;">
             <div class="country-badge" style="color: #c55a11; background: #feede0;">🇯🇵 日本美食</div>
 
@@ -529,15 +568,27 @@
                 <img src="https://pimg.1px.tw/s875261/1751134357-2374548194-g.png" class="card-img" alt="京都美食地圖">
                 <div class="card-text"><strong>📍 京都美食地圖</strong><span>拉麵・燒肉・咖啡廳 車站美食全攻略</span></div>
             </a>
+            <a href="https://s875261.pixnet.net/blog/posts/947782360554752610" target="_blank" class="item-card">
+                <img src="https://pimg.1px.tw/s875261/1751134357-2374548194-g.png" class="card-img" alt="京都野の葡萄早餐">
+                <div class="card-text"><strong>🍱 京都早餐｜食彩健美野の葡萄</strong><span>VIA INN 八條口・約 80 種家常料理</span></div>
+            </a>
+            <a href="https://s875261.pixnet.net/blog/posts/961932811646749799" target="_blank" class="item-card">
+                <img src="https://pimg.1px.tw/s875261/1751134357-2374548194-g.png" class="card-img" alt="大阪 VIA INN 景觀早餐">
+                <div class="card-text"><strong>☕ 大阪飯店早餐｜阿倍野天王寺</strong><span>VIA INN 空中景觀 Buffet・日式料理</span></div>
+            </a>
         </div>
 
-        <!-- 台灣 -->
+        <!-- 台灣 (新增新竹饗食天堂、台中聚餐懶人包) -->
         <div class="country-column" data-region="tw" style="background: #f6faf7; border: 1px solid #dcf2e4;">
             <div class="country-badge" style="color: #1e7f4f; background: #e3f5ea;">🇹🇼 台灣美食</div>
 
             <a href="https://s875261.pixnet.net/blog/posts/953008569697913102" target="_blank" class="item-card">
                 <img src="https://pimg.1px.tw/s875261/1757320400-1923598537-g.png" class="card-img" alt="竹北遠百旭集">
                 <div class="card-text"><strong>📍 竹北遠百旭集 Buffet</strong><span>日式吃到飽升級・職人現做料理</span></div>
+            </a>
+            <a href="https://s875261.pixnet.net/blog/posts/9577422628" target="_blank" class="item-card">
+                <img src="https://pimg.1px.tw/s875261/1757320400-1923598537-g.png" class="card-img" alt="饗食天堂新竹大遠百店">
+                <div class="card-text"><strong>📍 饗食天堂 新竹大遠百店</strong><span>EaTogether Buffet 無限美味自助餐</span></div>
             </a>
             <a href="https://s875261.pixnet.net/blog/posts/889114011017104703" target="_blank" class="item-card">
                 <img src="https://pimg.1px.tw/s875261/1760001471-1293250425-g.png" class="card-img" alt="苗栗聚餐 13 間總覽">
@@ -554,6 +605,10 @@
             <a href="https://s875261.pixnet.net/blog/posts/891661491185338529" target="_blank" class="item-card">
                 <img src="https://pimg.1px.tw/s875261/1740063785-4235935255-g.png" class="card-img" alt="台中市區14間美食">
                 <div class="card-text"><strong>📍 台中市區 14 間美食總覽</strong><span>市場美食・在地美味・親子聚餐</span></div>
+            </a>
+            <a href="https://s875261.pixnet.net/blog/posts/9578123818" target="_blank" class="item-card">
+                <img src="https://pimg.1px.tw/s875261/1740063785-4235935255-g.png" class="card-img" alt="台中聚餐懶人包">
+                <div class="card-text"><strong>📍 台中聚餐懶人包(附地圖)</strong><span>春水堂・混HUN・古拉爵・一風堂</span></div>
             </a>
             <a href="https://s875261.pixnet.net/blog/posts/9578122460" target="_blank" class="item-card">
                 <img src="https://pimg.1px.tw/s875261/1762281845-3744218026-g.png" class="card-img" alt="金門美食懶人包">
@@ -844,27 +899,33 @@
     </div>
 </div>
 
-<!-- ==================== 7.5. 航空哩程 ==================== -->
+<!-- ==================== 7.5. 航空哩程 (分為3欄：飛行體驗 / 哩程 / 機票優惠) ==================== -->
 <div class="guide-section-block">
-    <div id="sec-mileage" class="section-title">✈️ 航空哩程</div>
+    <div id="sec-mileage" class="section-title">✈️ 航空哩程與飛行</div>
     <div class="travel-grid-container">
 
-        <!-- 航空哩程與機票 -->
-        <div class="country-column" data-region="all-region" style="background: #fdfaf6; border: 1px solid #fae2cc;">
-            <div class="country-badge" style="color: #c55a11; background: #feede0;">✈️ 航空哩程＆機票</div>
+        <!-- 1. 飛行體驗 -->
+        <div class="country-column" data-region="all-region" style="background: #f7f9fd; border: 1px solid #e1ebff;">
+            <div class="country-badge" style="color: #1a4fd8; background: #e8f0fe;">🛫 飛行體驗</div>
 
             <a href="https://s875261.pixnet.net/blog/posts/9578141826" target="_blank" class="item-card">
                 <img src="https://pimg.1px.tw/s875261/1762455163-3039865720-g.jpg" class="card-img" alt="土耳其航空搭乘體驗">
                 <div class="card-text"><strong>📍 土耳其航空搭乘體驗</strong><span>伊斯坦堡轉機・機上餐與過夜包開箱</span></div>
             </a>
+            <a href="https://s875261.pixnet.net/blog/posts/906114137677842082" target="_blank" class="item-card">
+                <img src="https://pimg.1px.tw/s875261/1743689115-2811951274-g.png" class="card-img" alt="Ryanair 搭飛機體驗">
+                <div class="card-text"><strong>📍 瑞安航空 Ryanair 搭乘體驗</strong><span>倫敦飛西班牙北部・歐洲廉航實測</span></div>
+            </a>
             <a href="https://s875261.pixnet.net/blog/posts/871758925790138347" target="_blank" class="item-card">
                 <img src="https://pimg.1px.tw/s875261/1762455163-3039865720-g.jpg" class="card-img" alt="華航金卡攻略">
                 <div class="card-text"><strong>華航金卡 6 個實用福利</strong><span>價值分析・優先登機與額外驚喜服務</span></div>
             </a>
-            <a href="https://s875261.pixnet.net/blog/posts/881208669637660405" target="_blank" class="item-card">
-                <img src="https://pimg.1px.tw/s875261/1762455163-3039865720-g.jpg" class="card-img" alt="華航機票懶人包">
-                <div class="card-text"><strong>華航機票＆哩程懶人包</strong><span>促銷優惠・聯名卡活動・酬賓機票</span></div>
-            </a>
+        </div>
+
+        <!-- 2. 哩程 -->
+        <div class="country-column" data-region="all-region" style="background: #fdfaf6; border: 1px solid #fae2cc;">
+            <div class="country-badge" style="color: #c55a11; background: #feede0;">💳 航空哩程</div>
+
             <a href="https://s875261.pixnet.net/blog/posts/877123115409165699" target="_blank" class="item-card">
                 <img src="https://pimg.1px.tw/s875261/1762455163-3039865720-g.jpg" class="card-img" alt="長榮航空哩程兌換升等">
                 <div class="card-text"><strong>長榮航空哩程兌換＆升等</strong><span>無限萬哩遊・星空聯盟集哩經驗分享</span></div>
@@ -880,6 +941,24 @@
             <a href="https://s875261.pixnet.net/blog/posts/9578125362" target="_blank" class="item-card">
                 <img src="https://pimg.1px.tw/s875261/1762455163-3039865720-g.jpg" class="card-img" alt="各大航空哩程">
                 <div class="card-text"><strong>各大航空哩程玩法入門</strong><span>快速賺哩程活動與高 CP 值換票</span></div>
+            </a>
+        </div>
+
+        <!-- 3. 機票優惠 -->
+        <div class="country-column" data-region="all-region" style="background: #f6faf7; border: 1px solid #dcf2e4;">
+            <div class="country-badge" style="color: #1e7f4f; background: #e3f5ea;">🎫 機票優惠</div>
+
+            <a href="https://s875261.pixnet.net/blog/posts/881208669637660405" target="_blank" class="item-card">
+                <img src="https://pimg.1px.tw/s875261/1762455163-3039865720-g.jpg" class="card-img" alt="華航機票懶人包">
+                <div class="card-text"><strong>華航機票＆哩程懶人包</strong><span>促銷優惠・聯名卡活動・酬賓機票</span></div>
+            </a>
+            <a href="https://s875261.pixnet.net/blog/posts/9577316508" target="_blank" class="item-card">
+                <img src="https://pimg.1px.tw/s875261/1739382823-932201888-g.png" class="card-img" alt="日本東京機票優惠">
+                <div class="card-text"><strong>日本/東京 便宜機票攻略</strong><span>哩程換票・旅展促銷・導購回饋金</span></div>
+            </a>
+            <a href="https://s875261.pixnet.net/blog/posts/875767090978439234" target="_blank" class="item-card">
+                <img src="https://pimg.1px.tw/s875261/1762455163-3039865720-g.jpg" class="card-img" alt="華信航空離島機票優惠">
+                <div class="card-text"><strong>華信航空離島機票優惠</strong><span>折扣碼・登機證享金門澎湖馬祖好康</span></div>
             </a>
         </div>
 
@@ -1181,7 +1260,7 @@
         }
     }
 
-    // 5. 搜尋小牛仔站內文章（使用 Google 精準鎖定站點，支援痞客邦與 GitHub 新站）
+    // 5. 搜尋小牛仔站內文章
     function searchLittleCowboySite() {
         const keyword = document.getElementById('guideMasterSearch').value.trim();
         const term = keyword !== '' ? keyword : '旅遊懶人包';
