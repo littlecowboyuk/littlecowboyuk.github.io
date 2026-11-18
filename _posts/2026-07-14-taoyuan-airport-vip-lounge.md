@@ -2,8 +2,8 @@
 layout: post
 title: "【桃園機場熱門貴賓室】華航貴賓室最新資訊與優惠全攻略！"
 date: 2026-07-14 10:00:00 +0800
-categories: [貴賓室]
-tags: [featured, 機場攻略, 貴賓室優惠, 華航, Lounge]
+categories: [貴賓室, 機場貴賓室]
+tags: [featured, 機場攻略, 貴賓室, 貴賓室優惠, 桃園機場, 出國, 華航, Lounge]
 image: /assets/images/華航貴賓室餐點.png
 ---
 
