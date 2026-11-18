@@ -1,15 +1,14 @@
 # Site
 name: '小牛仔的飛行時光'
 description: '紀錄小牛仔家的旅遊、飛行與生活點滴'
+url: 'https://littlecowboyuk.github.io'
+baseurl: ''
+future: true
 logo: 'assets/images/logo.png'
 favicon: 'assets/images/favicon.ico'
-baseurl: '' 
 disqus: ''
 email: 'littlecowboyuk@gmail.com'
 mailchimp-list: ''
-
-include: ["_pages"]
-permalink: /:title/
 
 # Plugins
 plugins: 
