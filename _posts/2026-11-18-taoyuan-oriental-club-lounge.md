@@ -17,7 +17,7 @@ image: https://pimg.1px.tw/blog/s875261/post/957950193532092471/9579560700288221
 
 桃園國際機場（TPE）裡面有不少貴賓室選擇，不同旅客資格能進入的休息室也不一樣，東方宇逸貴賓室是其中之一，不限旅客資格，也不需是菁英會員，只要有購票(旅遊平台不定期有6折-8折的促銷優惠)，就可以進入貴賓室休息和用餐，在搭機前享受一個舒適的空間。
 
-![桃園機場 東方宇逸貴賓室地圖位置](https://pimg.1px.tw/blog/s875261/post/957950193532092471/957956070028822187.png)
+![桃園機場 東方宇逸貴賓室地圖位置](https://pimg.1px.tw/blog/s875261/post/957950193532092471/957956070028822187.png)  
 (圖：桃園機場 東方宇逸貴賓室地圖位置；圖片來源：東方宇逸網站)
 
 ---
@@ -32,7 +32,7 @@ image: https://pimg.1px.tw/blog/s875261/post/957950193532092471/9579560700288221
   </iframe>
 </div>
 
-![桃園機場 東方宇逸貴賓室現做餐點 人氣牛肉麵](https://pimg.1px.tw/blog/s875261/post/957950193532092471/957957385417084121.png)
+![桃園機場 東方宇逸貴賓室現做餐點 人氣牛肉麵](https://pimg.1px.tw/blog/s875261/post/957950193532092471/957957385417084121.png)  
 (圖：桃園機場 東方宇逸貴賓室現做餐點 人氣牛肉麵） 
 
 ---
@@ -42,6 +42,7 @@ image: https://pimg.1px.tw/blog/s875261/post/957950193532092471/9579560700288221
 
 ---
 > **延伸閱讀：**
+> * [【桃園機場 長榮貴賓室】The Infinity Lounge](https://s875261.pixnet.net/blog/posts/953950453089913142)
 > * [【桃園機場 環亞貴賓室】Plaza Premium Lounge](https://s875261.pixnet.net/blog/post/578056240)
 > * [【各大航空哩程】星空聯盟/寰宇一家/天合聯盟 哩程賺分](https://s875261.pixnet.net/blog/posts/9578125362)
 > * [【華航+KLM】機上餐食+華航貴賓室嚐鮮！](https://s875261.pixnet.net/blog/posts/9577178428)
@@ -200,6 +201,16 @@ image: https://pimg.1px.tw/blog/s875261/post/957950193532092471/9579560700288221
     <div class="yt-video-info">
       <h4 class="yt-video-title">苗栗小吃懶人包</h4>
       <p class="yt-video-desc">苗栗市11家銅板小吃</p>
+    </div>
+  </a>
+    <a href="https://www.youtube.com/watch?v=8fiH22wCnkI" target="_blank" rel="noopener" class="yt-video-card">
+    <div class="yt-video-thumb">
+      <img src="https://img.youtube.com/vi/8fiH22wCnkI/hqdefault.jpg" alt="長榮航空商務艙">
+      <span class="yt-play-btn">▶️</span>
+    </div>
+    <div class="yt-video-info">
+      <h4 class="yt-video-title">長榮航空商務艙</h4>
+      <p class="yt-video-desc">搭長榮航空商務艙飛神戶！桃園機場 The Infinity 貴賓室與飛行體驗</p>
     </div>
   </a>
 </div>
