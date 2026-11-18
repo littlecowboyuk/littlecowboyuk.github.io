@@ -2,8 +2,8 @@
 layout: post
 title: "【桃園機場熱門貴賓室】環亞貴賓室最新資訊與優惠全攻略！"
 date: 2026-07-14 10:00:00 +0800
-categories: [機場貴賓室]
-tags: [featured, 機場攻略, 機場貴賓室, 貴賓室優惠, 環亞, Lounge]
+categories: [機場貴賓室, 貴賓室]
+tags: [featured, 機場攻略, 機場貴賓室, 貴賓室優惠, 桃園機場, 環亞, Lounge, Airport]
 image: /assets/images/plaza-premium-lounge-entrance.png
 ---
 
