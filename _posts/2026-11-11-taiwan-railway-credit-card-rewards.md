@@ -4,7 +4,7 @@ title: "【台鐵刷卡回饋推薦】高回饋信用卡排行，火車票省錢
 date: 2026-11-11
 categories: [台灣交通優惠]
 tags: [台鐵, 信用卡回饋, 交通優惠, 火車訂票]
-image: [/assets/images/jcb-easycard.png](https://pimg.1px.tw/blog/s875261/post/9578110174/948099214879968928.png)
+image: https://pimg.1px.tw/blog/s875261/post/9578110174/948099214879968928.png
 ---
 
 ## 聰明搭火車，每趟車票都能賺回饋！
@@ -29,39 +29,6 @@ image: [/assets/images/jcb-easycard.png](https://pimg.1px.tw/blog/s875261/post/9
           title="台鐵刷卡回饋排行榜">
   </iframe>
 </div>
-<script>
-let currentTraCategory = 'all';
-
-function setTraCategory(category, element) {
-  currentTraCategory = category;
-  document.querySelectorAll('.tra-filter-btn').forEach(btn => {
-    btn.style.background = '#fff';
-    btn.style.color = '#4b5563';
-    btn.style.borderColor = '#d1d5db';
-    btn.style.fontWeight = 'normal';
-  });
-  element.style.background = '#ffedd5';
-  element.style.color = '#9a3412';
-  element.style.borderColor = '#c2410c';
-  element.style.fontWeight = 'bold';
-  filterTraTable();
-}
-
-function filterTraTable() {
-  const keyword = document.getElementById('traSearchInput').value.trim().toLowerCase();
-  const rows = document.querySelectorAll('#traRewardTable tbody tr');
-
-  rows.forEach(row => {
-    const text = row.innerText.toLowerCase();
-    const categories = row.getAttribute('data-cat') || '';
-    const matchCategory = (currentTraCategory === 'all') || categories.includes(currentTraCategory);
-    const matchKeyword = text.includes(keyword);
-
-    row.style.display = (matchCategory && matchKeyword) ? '' : 'none';
-  });
-}
-</script>
-<!-- 互動表格模組結束 -->
 
 ---
 
@@ -71,8 +38,9 @@ function filterTraTable() {
 
 ---
 
->  **完整文章：**  
+> **完整文章：**  
 > 火車票優惠／台鐵會員集點／其他火車新訊 可參考 **[小牛仔痞客邦—台鐵懶人包](https://s875261.pixnet.net/blog/posts/895278644744637635)**。
+
 <style>
   /* 專業級 GitHub Pages 精緻小卡網格排版 */
   .yt-video-grid {
@@ -95,7 +63,6 @@ function filterTraTable() {
     transform: translateY(-3px);
     box-shadow: 0 6px 16px rgba(0,0,0,0.1);
   }
-  /* 縮小圖片顯示區域 */
   .yt-thumb-box {
     position: relative;
     width: 100%;
@@ -208,4 +175,4 @@ function filterTraTable() {
   </a>
 </div>
 
-*( [小牛仔頻道](https://www.youtube.com/@%E5%B0%8F%E7%89%9B%E4%BB%94UK-q5j) 有最新生活玩樂分享，歡迎訂閱按讚！謝謝！💜)*
+<p><em>（<a href="https://www.youtube.com/@%E5%B0%8F%E7%89%9B%E4%BB%94UK-q5j" target="_blank" rel="noopener">小牛仔頻道</a> 有最新生活玩樂分享，歡迎訂閱按讚！謝謝！💜）</em></p>
