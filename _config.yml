@@ -20,7 +20,7 @@ plugins:
 authors:
     小牛仔:
       name:            小牛仔
-      site:            
+      site:            /authors-list.html
       avatar:          /assets/images/avatar1.jpg
       bio:             "分享旅遊與飛行體驗，在這裡紀錄小牛仔家的生活，歡迎來到我們的新家。"
       email:           littlecowboyuk@gmail.com
