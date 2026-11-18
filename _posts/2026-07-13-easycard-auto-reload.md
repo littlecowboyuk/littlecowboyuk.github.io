@@ -2,8 +2,8 @@
 layout: post
 title: "【加值/儲值篇】悠遊卡自動加值優惠總整理！信用卡10%回饋，每月必拿攻略！"
 date: 2026-07-13 12:00:00 +0800
-categories: [生活優惠]
-tags: [sticky]
+categories: [生活優惠, 交通優惠, 旅遊優惠]
+tags: [sticky, 加值, 儲值, 悠遊卡, 信用卡, 信用卡回饋]
 image: /assets/images/jcb-easycard.png
 ---
 
