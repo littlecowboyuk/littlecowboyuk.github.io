@@ -1,10 +1,10 @@
 ---
 layout: post
-title: "【桃園機場熱門貴賓室】華航貴賓室最新資訊與優惠全攻略！"
-date: 2026-07-14 10:00:00 +0800
+title: "【桃園機場熱門貴賓室】東方宇逸貴賓室最新資訊與優惠全攻略！"
+date: 2026-07-18 10:00:00 +0800
 categories: [貴賓室, 機場貴賓室]
 tags: [featured, 機場攻略, 貴賓室, 貴賓室優惠, 桃園機場, 東方宇逸, Oriental Club Lounge, Lounge]
-image: /https://pimg.1px.tw/blog/s875261/post/957950193532092471/957956070028822187.png
+image: https://pimg.1px.tw/blog/s875261/post/957950193532092471/957956070028822187.png
 ---
 
 ## 計劃在桃園機場貴賓室休息或品嚐美食嗎？
@@ -17,7 +17,7 @@ image: /https://pimg.1px.tw/blog/s875261/post/957950193532092471/957956070028822
 
 桃園國際機場（TPE）裡面有不少貴賓室選擇，不同旅客資格能進入的休息室也不一樣，東方宇逸貴賓室是其中之一，不限旅客資格，也不需是菁英會員，只要有購票(旅遊平台不定期有6折-8折的促銷優惠)，就可以進入貴賓室休息和用餐，在搭機前享受一個舒適的空間。
 
-![桃園機場 東方宇逸貴賓室地圖位置](/https://pimg.1px.tw/blog/s875261/post/957950193532092471/957956070028822187.png)
+![桃園機場 東方宇逸貴賓室地圖位置](https://pimg.1px.tw/blog/s875261/post/957950193532092471/957956070028822187.png)
 (圖：桃園機場 東方宇逸貴賓室地圖位置；圖片來源：東方宇逸網站)
 
 ---
@@ -32,7 +32,7 @@ image: /https://pimg.1px.tw/blog/s875261/post/957950193532092471/957956070028822
   </iframe>
 </div>
 
-![桃園機場 東方宇逸貴賓室現做餐點 人氣牛肉麵］(/https://pimg.1px.tw/blog/s875261/post/957950193532092471/957957385417084121.png)
+![桃園機場 東方宇逸貴賓室現做餐點 人氣牛肉麵](https://pimg.1px.tw/blog/s875261/post/957950193532092471/957957385417084121.png)
 (圖：桃園機場 東方宇逸貴賓室現做餐點 人氣牛肉麵） 
 
 ---
@@ -170,14 +170,14 @@ image: /https://pimg.1px.tw/blog/s875261/post/957950193532092471/957956070028822
     </div>
   </a>
 
-  <a href="https://www.youtube.com/watch?v=NjhrmBABSq4" target="_blank" rel="noopener" class="yt-video-card">
+  <a href="https://www.youtube.com/watch?v=8fiH22wCnkI" target="_blank" rel="noopener" class="yt-video-card">
     <div class="yt-video-thumb">
-      <img src="https://img.youtube.com/vi/NjhrmBABSq4/hqdefault.jpg" alt="台中永豐棧飯店">
+      <img src="https://img.youtube.com/vi/8fiH22wCnkI/hqdefault.jpg" alt="長榮航空貴賓室">
       <span class="yt-play-btn">▶️</span>
     </div>
     <div class="yt-video-info">
-      <h4 class="yt-video-title">台中永豐棧飯店</h4>
-      <p class="yt-video-desc">近捷運＆YouBike・價格便宜</p>
+      <h4 class="yt-video-title">長榮航空貴賓室</h4>
+      <p class="yt-video-desc">桃園機場 The Infinity 貴賓室開箱</p>
     </div>
   </a>
 
