@@ -1,206 +1,286 @@
 ---
-title: "小牛仔的飛行時光"
 layout: default
+title: "小牛仔的飛行時光"
 pagination:
-    enabled: true
-description: "這裡紀錄了旅遊、飛行與生活優惠的點點滴滴。"
+  enabled: true
+description: "這裡紀錄了旅遊、飛行、信用卡與生活優惠的點點滴滴。"
 ---
 
 <div class="container">
-    
+
 {% if page.url == "/" or page.url == "/index.html" %}
-    
-<!-- Begin post excerpts, let's highlight the first 4 posts on top -->
+
+<!-- ==================== 1. 頂部精選文章區塊 (Sticky / 最新 4 篇) ==================== -->
 <div class="row remove-site-content-margin">
-    
-    <!-- latest post -->
+
+    <!-- 左側第 1 篇最新文章 -->
     {% assign latest_post = site.posts[0] %}
+    {% if latest_post %}
     <div class="col-md-6">
-    <div class="card border-0 mb-4 box-shadow">   
-    <a href="{{site.baseurl}}{{latest_post.url}}">
-    <div class="topfirstimage" style="background-image: url({% if latest_post.image contains '://' %}{{ latest_post.image }}{% else %}{{site.baseurl}}{{ latest_post.image }}{% endif %}); height: 200px; background-size: cover; background-repeat: no-repeat;"></div>     
-    </a>
-    <div class="card-body px-0 pb-0 d-flex flex-column align-items-start">
-    <h2 class="h4 font-weight-bold">
-    <a class="text-dark" href="{{site.baseurl}}{{latest_post.url}}">{{ latest_post.title }}</a>
-    </h2>
-    <p class="excerpt">
-        {{ latest_post.excerpt | strip_html | strip_newlines | truncate: 136 }}
-    </p>
-    <div>
-        <small class="d-block text-muted">
-            In <span class="catlist">
-                {% for category in latest_post.categories %}
-                <a class="text-capitalize text-muted smoothscroll" href="{{site.baseurl}}/categories.html#{{ category | downcase }}">{{ category }}</a><span class="sep">, </span>
-                {% endfor %}
-                </span>                   
-        </small>
-        <small class="text-muted">
-            {{ latest_post.date | date: '%b %d, %Y' }}
-        </small>
-    </div>
-    </div>
-    </div>
-    </div>
-    
-    <div class="col-md-6">
-        
-        <!-- second latest post -->
-        {%- assign second_post = site.posts[1] -%}        
-        <div class="mb-3 d-flex align-items-center">                
-                {% if second_post.image %}
-                <div class="col-md-4">
-                <a href="{{site.baseurl}}{{second_post.url}}">
-                 <img class="w-100" src="{% if second_post.image contains '://' %}{{ second_post.image }}{% else %}{{site.baseurl}}{{ second_post.image }}{% endif %}" alt="{{ second_post.title }}">
-                </a>
-                </div>
-                {% endif %}                
-                <div>
-                    <h2 class="mb-2 h6 font-weight-bold">
-                    <a class="text-dark" href="{{site.baseurl}}{{second_post.url}}">{{ second_post.title }}</a>
-                    </h2>
-                    <small class="d-block text-muted">
-                        In <span class="catlist">
-                        {% for category in second_post.categories %}
-                        <a class="text-capitalize text-muted smoothscroll" href="{{site.baseurl}}/categories.html#{{ category | downcase }}">{{ category }}</a><span class="sep">, </span>
-                        {% endfor %}
-                        </span>                   
-                    </small>
-                    <small class="text-muted">
-                        {{ second_post.date | date: '%b %d, %Y' }}
-                    </small>
-                </div>
-            </div>
-        
-        <!-- third latest post -->
-        {%- assign third_post = site.posts[2] -%}        
-        <div class="mb-3 d-flex align-items-center">                
-                {% if third_post.image %}
-                <div class="col-md-4">
-                <a href="{{site.baseurl}}{{third_post.url}}">
-                 <img class="w-100" src="{% if third_post.image contains '://' %}{{ third_post.image }}{% else %}{{site.baseurl}}{{ third_post.image }}{% endif %}" alt="{{ third_post.title }}">
-                </a>
-                </div>
-                {% endif %}                
-                <div>
-                    <h2 class="mb-2 h6 font-weight-bold">
-                    <a class="text-dark" href="{{site.baseurl}}{{third_post.url}}">{{ third_post.title }}</a>
-                    </h2>
-                    <small class="d-block text-muted">
-                        In <span class="catlist">
-                        {% for category in third_post.categories %}
-                        <a class="text-capitalize text-muted smoothscroll" href="{{site.baseurl}}/categories.html#{{ category | downcase }}">{{ category }}</a><span class="sep">, </span>
-                        {% endfor %}
-                        </span>                   
-                    </small>
-                    <small class="text-muted">
-                        {{ third_post.date | date: '%b %d, %Y' }}
-                    </small>
-                </div>
-            </div>
-        
-        <!-- fourth latest post -->
-        {%- assign fourth_post = site.posts[3] -%}        
-        <div class="mb-3 d-flex align-items-center">                
-                {% if fourth_post.image %}
-                <div class="col-md-4">
-                <a href="{{site.baseurl}}{{fourth_post.url}}">
-                <img class="w-100" src="{% if fourth_post.image contains '://' %}{{ fourth_post.image }}{% else %}{{site.baseurl}}{{ fourth_post.image }}{% endif %}" alt="{{ fourth_post.title }}">
-                </a>
-                </div>
-                {% endif %}                
-                <div>
-                    <h2 class="mb-2 h6 font-weight-bold">
-                    <a class="text-dark" href="{{site.baseurl}}{{fourth_post.url}}">{{ fourth_post.title }}</a>
-                    </h2>
-                    <small class="d-block text-muted">
-                        In <span class="catlist">
-                        {% for category in fourth_post.categories %}
-                        <a class="text-capitalize text-muted smoothscroll" href="{{site.baseurl}}/categories.html#{{ category | downcase }}">{{ category }}</a><span class="sep">, </span>
-                        {% endfor %}
-                        </span>                   
-                    </small>
-                    <small class="text-muted">
-                        {{ fourth_post.date | date: '%b %d, %Y' }}
-                    </small>
-                </div>
-            </div>
-        
-    </div>
-    
-</div>
-    
-<!-- Sticky - add sticky tag to the post you want to highlight here - tags: [sticky] -->
-{% for post in site.posts %} 
-{% if post.tags contains "sticky" %}
-<div class="jumbotron jumbotron-fluid jumbotron-home pt-0 pb-0 mt-3 mb-2rem position-relative" style="background-color: #f3e8ff;">
-    <div class="pl-4 pr-0 h-100 tofront">
-        <div class="row justify-content-between">
-            <div class="col-md-6 pt-6 pb-6 pr-lg-4 align-self-center">
-                <h1 class="mb-3">{{post.title}}</h1>
-                <p class="mb-3 lead">
-                    {{ post.excerpt | strip_html | strip_newlines | truncate: 136 }}
+        <div class="card border-0 mb-4 box-shadow">
+            <a href="{{site.baseurl}}{{latest_post.url}}">
+                {% if latest_post.image %}
+                    {% if latest_post.image contains '://' %}
+                        {% assign img_url = latest_post.image %}
+                    {% else %}
+                        {% assign img_url = latest_post.image | relative_url %}
+                    {% endif %}
+                <div class="topfirstimage" style="background-image: url('{{ img_url }}'); height: 220px; background-size: cover; background-position: center; background-repeat: no-repeat; border-radius: 6px 6px 0 0;"></div>
+                {% else %}
+                <div class="topfirstimage" style="background: linear-gradient(135deg, #e0e7ff 0%, #f3e8ff 100%); height: 220px; display: flex; align-items: center; justify-content: center; color: #4A2A73; font-weight: bold;">✈️ 小牛仔的飛行時光</div>
+                {% endif %}
+            </a>
+            <div class="card-body px-0 pb-0 d-flex flex-column align-items-start">
+                <h2 class="h4 font-weight-bold">
+                    <a class="text-dark" href="{{site.baseurl}}{{latest_post.url}}">{{ latest_post.title }}</a>
+                </h2>
+                <p class="excerpt text-muted">
+                    {{ latest_post.excerpt | strip_html | strip_newlines | truncate: 110 }}
                 </p>
-                <a href="{{site.baseurl}}{{post.url}}" class="btn btn-dark">Read More</a>
-            </div>
-            <div class="col-md-6 d-none d-md-block pr-0" style="background-size:cover;background-image:url({% if post.image contains '://' %}{{ post.image }}{% else %}{{site.baseurl}}{{ post.image }}{% endif %});">	
+                <div>
+                    <small class="d-block text-muted">
+                        {% if latest_post.categories.size > 0 %}
+                        分類：<span class="catlist">
+                        {% for category in latest_post.categories %}
+                        <a class="text-capitalize text-muted smoothscroll" href="{{site.baseurl}}/categories.html#{{ category | downcase }}">{{ category }}</a><span class="sep">, </span>
+                        {% endfor %}
+                        </span>
+                        {% endif %}
+                    </small>
+                    <small class="text-muted">
+                        {{ latest_post.date | date: '%Y-%m-%d' }}
+                    </small>
+                </div>
             </div>
         </div>
     </div>
-</div> 
+    {% endif %}
+
+    <!-- 右側第 2～4 篇最新文章 -->
+    <div class="col-md-6">
+        {% for post in site.posts offset:1 limit:3 %}
+        <div class="mb-3 d-flex align-items-center bg-white p-2 rounded shadow-sm border">
+            {% if post.image %}
+                {% if post.image contains '://' %}
+                    {% assign sub_img_url = post.image %}
+                {% else %}
+                    {% assign sub_img_url = post.image | relative_url %}
+                {% endif %}
+            <div class="col-md-4 pl-0">
+                <a href="{{site.baseurl}}{{post.url}}">
+                    <img class="w-100 rounded" style="height: 85px; object-fit: cover;" src="{{ sub_img_url }}" alt="{{ post.title }}">
+                </a>
+            </div>
+            {% endif %}
+            <div class="pl-2 pr-1">
+                <h2 class="mb-1 h6 font-weight-bold">
+                    <a class="text-dark" href="{{site.baseurl}}{{post.url}}">{{ post.title }}</a>
+                </h2>
+                <small class="d-block text-muted">
+                    {% if post.categories.size > 0 %}
+                    <span class="catlist">
+                    {% for category in post.categories %}
+                    <a class="text-capitalize text-muted smoothscroll" href="{{site.baseurl}}/categories.html#{{ category | downcase }}">{{ category }}</a><span class="sep">, </span>
+                    {% endfor %}
+                    </span>・
+                    {% endif %}
+                    {{ post.date | date: '%Y-%m-%d' }}
+                </small>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+</div>
+
+<!-- ==================== 2. 精選置頂橫幅 (Sticky Post) ==================== -->
+{% for post in site.posts %}
+{% if post.tags contains "sticky" %}
+<div class="jumbotron jumbotron-fluid jumbotron-home pt-0 pb-0 mt-3 mb-4 bg-lightblue position-relative rounded overflow-hidden shadow-sm">
+    <div class="pl-4 pr-0 h-100 tofront">
+        <div class="row justify-content-between">
+            <div class="col-md-6 pt-4 pb-4 pr-lg-4 align-self-center">
+                <span class="badge badge-primary mb-2">📌 置頂精選</span>
+                <h1 class="mb-3 h3 font-weight-bold">{{post.title}}</h1>
+                <p class="mb-3 lead" style="font-size: 0.95rem;">
+                    {{ post.excerpt | strip_html | strip_newlines | truncate: 120 }}
+                </p>
+                <a href="{{site.baseurl}}{{post.url}}" class="btn btn-dark btn-sm">閱讀完整攻略 →</a>
+            </div>
+            {% if post.image %}
+                {% if post.image contains '://' %}
+                    {% assign sticky_img = post.image %}
+                {% else %}
+                    {% assign sticky_img = post.image | relative_url %}
+                {% endif %}
+            <div class="col-md-6 d-none d-md-block pr-0" style="background-size:cover; background-position: center; background-image:url('{{ sticky_img }}');">
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% break %}
 {% endif %}
 {% endfor %}
 
-{% endif %} <!--endif page url is / -->
-    
-<!-- Now the rest of the posts with the usual loop -->
-<div class="row mt-3">
-   
-    <div class="col-md-8 main-loop">
-        
-        <h4 class="font-weight-bold spanborder"><span>All Stories</span></h4>
-        {% assign post_list = paginator.posts | default: site.posts %}
-        {% for post in post_list %}
-        
-            {% include main-loop-card.html %}
-        
-        {% endfor %}
-        
-        <div class="mt-5">
-         <!-- Pagination links -->
-            {% if paginator.total_pages > 1 %}
-            <ul class="pagination"> 
-              {% if paginator.previous_page %}
-                <li class="page-item"><a class="page-link" href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">« Prev</a></li>
-              {% else %}
-                <li class="page-item disabled"><span class="prev page-link">«</span></li>
-              {% endif %}
+{% endif %} <!-- endif page url is / -->
 
-              {% for page in (1..paginator.total_pages) %}
-                {% if page == paginator.page %}
-                <li class="page-item disabled"><span class="webjeda page-link">{{ page }}</span></li>
-                {% elsif page == 1 %}
-                <li class="page-item"><a class="page-link" href="{{site.baseurl}}/">{{ page }}</a></li>
-                {% else %}
-                <li class="page-item"><a class="page-link" href="{{ site.paginate_path | prepend: site.baseurl | replace: '//', '/' | replace: ':num', page }}">{{ page }}</a></li>
-                {% endif %}
-              {% endfor %}
-
-              {% if paginator.next_page %}
-                <li class="page-item"><a class="page-link" href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">Next »</a></li>
-              {% else %}
-                <li class="page-item disabled"><span class="next page-link">»</span></li>
-              {% endif %}
-            </ul>
-            {% endif %}      
+<!-- ==================== 3. 影音精選小卡區塊 ==================== -->
+<div class="mb-5 mt-3">
+    <h4 class="font-weight-bold spanborder"><span>🎥 機場與各地旅遊｜影片精選</span></h4>
+    <style>
+      .home-yt-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(185px, 1fr));
+        gap: 14px;
+      }
+      .home-yt-card {
+        display: flex;
+        flex-direction: column;
+        border: 1px solid #e5e7eb;
+        border-radius: 10px;
+        overflow: hidden;
+        background: #fff;
+        text-decoration: none !important;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+      }
+      .home-yt-card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+      }
+      .home-yt-thumb {
+        position: relative;
+        width: 100%;
+        padding-top: 56.25%;
+        background: #f3f4f6;
+      }
+      .home-yt-thumb img {
+        position: absolute;
+        top: 0; left: 0;
+        width: 100%; height: 100%;
+        object-fit: cover;
+      }
+      .home-yt-play {
+        position: absolute;
+        top: 50%; left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 1.5rem;
+        filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5));
+      }
+      .home-yt-info {
+        padding: 10px;
+      }
+      .home-yt-title {
+        font-size: 13.5px;
+        font-weight: 700;
+        color: #222;
+        margin: 0 0 3px 0;
+        line-height: 1.35;
+      }
+      .home-yt-desc {
+        font-size: 12px;
+        color: #666;
+        margin: 0;
+        line-height: 1.4;
+      }
+    </style>
+    <div class="home-yt-grid">
+      <a href="https://www.youtube.com/watch?v=L_6ncG7sRHo" target="_blank" rel="noopener" class="home-yt-card">
+        <div class="home-yt-thumb">
+          <img src="https://img.youtube.com/vi/L_6ncG7sRHo/hqdefault.jpg" alt="KLM＋華航 飛行體驗">
+          <span class="home-yt-play">▶️</span>
         </div>
-        
+        <div class="home-yt-info">
+          <h5 class="home-yt-title">KLM＋華航 飛行體驗</h5>
+          <p class="home-yt-desc">桃園機場華航貴賓室開箱</p>
+        </div>
+      </a>
+      <a href="https://www.youtube.com/watch?v=UqZGCTDWDoY" target="_blank" rel="noopener" class="home-yt-card">
+        <div class="home-yt-thumb">
+          <img src="https://img.youtube.com/vi/UqZGCTDWDoY/hqdefault.jpg" alt="倫敦希思羅機場攻略">
+          <span class="home-yt-play">▶️</span>
+        </div>
+        <div class="home-yt-info">
+          <h5 class="home-yt-title">倫敦希思羅機場攻略</h5>
+          <p class="home-yt-desc">第二航廈出入境實用資訊</p>
+        </div>
+      </a>
+      <a href="https://www.youtube.com/watch?v=Xj2CmZ2Q5A0" target="_blank" rel="noopener" class="home-yt-card">
+        <div class="home-yt-thumb">
+          <img src="https://img.youtube.com/vi/Xj2CmZ2Q5A0/hqdefault.jpg" alt="苗栗旅遊懶人包">
+          <span class="home-yt-play">▶️</span>
+        </div>
+        <div class="home-yt-info">
+          <h5 class="home-yt-title">苗栗旅遊懶人包</h5>
+          <p class="home-yt-desc">獅潭・泰安・大湖・三義慢旅</p>
+        </div>
+      </a>
+      <a href="https://www.youtube.com/watch?v=-SF7pawyDUo" target="_blank" rel="noopener" class="home-yt-card">
+        <div class="home-yt-thumb">
+          <img src="https://img.youtube.com/vi/-SF7pawyDUo/hqdefault.jpg" alt="金門美食3日遊">
+          <span class="home-yt-play">▶️</span>
+        </div>
+        <div class="home-yt-info">
+          <h5 class="home-yt-title">金門美食3日遊</h5>
+          <p class="home-yt-desc">從早餐到宵夜在地小吃全推薦</p>
+        </div>
+      </a>
     </div>
-    
+</div>
+
+<!-- ==================== 4. 所有文章列表 (All Stories) + 側邊欄 ==================== -->
+<div class="row mt-3">
+
+    <!-- 左側 8 欄：強制顯示全部文章 (site.posts) -->
+    <div class="col-md-8 main-loop">
+        <h4 class="font-weight-bold spanborder">
+            <span>All Stories（共 {{ site.posts | size }} 篇文章）</span>
+        </h4>
+
+        {% for post in site.posts %}
+        <div class="mb-4 d-flex justify-content-between main-loop-card bg-white p-3 rounded border shadow-sm">
+            <div class="pr-3 d-flex flex-column justify-content-between">
+                <div>
+                    <h2 class="mb-1 h5 font-weight-bold">
+                        <a class="text-dark" href="{{site.baseurl}}{{post.url}}">{{ post.title }}</a>
+                    </h2>
+                    <p class="excerpt text-muted mb-2" style="font-size: 0.9rem;">
+                        {{ post.excerpt | strip_html | strip_newlines | truncate: 120 }}
+                    </p>
+                </div>
+                <small class="d-block text-muted">
+                    {% if post.categories.size > 0 %}
+                    分類：<span class="catlist">
+                    {% for category in post.categories %}
+                    <a class="text-capitalize text-muted smoothscroll" href="{{site.baseurl}}/categories.html#{{ category | downcase }}">{{ category }}</a><span class="sep">, </span>
+                    {% endfor %}
+                    </span>・
+                    {% endif %}
+                    {{ post.date | date: '%Y-%m-%d' }}
+                </small>
+            </div>
+
+            {% if post.image %}
+                {% if post.image contains '://' %}
+                    {% assign loop_img = post.image %}
+                {% else %}
+                    {% assign loop_img = post.image | relative_url %}
+                {% endif %}
+            <div class="col-md-4 pr-0 text-right align-self-center">
+                <a href="{{site.baseurl}}{{post.url}}">
+                    <img class="w-100 rounded" style="height: 115px; object-fit: cover;" src="{{ loop_img }}" alt="{{ post.title }}">
+                </a>
+            </div>
+            {% endif %}
+        </div>
+        {% endfor %}
+    </div>
+
+    <!-- 右側 4 欄：側邊欄 -->
     <div class="col-md-4">
-        {% include sidebar-featured.html %}    
+        {% include sidebar-featured.html %}
     </div>
-    
+
 </div>
 
 </div>
