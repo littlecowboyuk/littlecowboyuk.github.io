@@ -1,0 +1,367 @@
+<!-- 台灣最新優惠（含優惠碼） 互動式純表格模組 開始 -->
+<div class="interactive-tw-deals-container" style="width: 100%; max-width: 100%; box-sizing: border-box; margin: 25px 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Noto Sans TC', sans-serif;">
+
+  <!-- 表格頂部標題與工具橫幅 -->
+  <div style="background-color: #e3f5ea; color: #1e7f4f; padding: 12px 18px; border-radius: 12px 12px 0 0; border: 1px solid #bbf7d0; border-bottom: none; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px;">
+    <div style="font-weight: 800; font-size: 18px; letter-spacing: 0.8px; display: flex; align-items: center; gap: 6px;">
+      🇹🇼 台灣最新優惠情報站（旅遊・哩程・信用卡優惠碼）
+    </div>
+    
+    <!-- 一鍵列印按鈕 -->
+    <button type="button" onclick="printTWDealsTable()" class="print-hide-btn"
+      style="background: #ffffff; color: #15803d; border: 1.5px solid #16a34a; padding: 6px 14px; border-radius: 20px; font-size: 13px; font-weight: 700; cursor: pointer; display: inline-flex; align-items: center; gap: 6px; box-shadow: 0 2px 5px rgba(0,0,0,0.06); transition: 0.2s;">
+      🖨️ 列印優惠清單 / 存為PDF
+    </button>
+  </div>
+
+  <!-- 互動操作工具列（搜尋 + 分類切換） -->
+  <div class="print-hide-block" style="background: #f6faf7; border: 1px solid #bbf7d0; border-bottom: none; padding: 12px 14px; display: flex; flex-wrap: wrap; gap: 10px; justify-content: space-between; align-items: center;">
+    <!-- 搜尋框 -->
+    <div style="flex: 1 1 240px;">
+      <input type="text" id="twDealsSearch" placeholder="🔍 搜尋關鍵字、折扣碼或品牌（如: CUBE、ANA、國泰、長榮、亮點券）..." onkeyup="filterTWDealsTable()"
+        style="width: 100%; padding: 8px 12px; border: 1px solid #d1d5db; border-radius: 6px; font-size: 13px; outline: none; box-sizing: border-box; background: #fff;">
+    </div>
+    <!-- 分類快選按鈕 -->
+    <div style="display: flex; gap: 6px; flex-wrap: wrap;">
+      <button type="button" class="twd-filter-btn active" onclick="setTWDealsCategory('all', this)" style="border: 1px solid #16a34a; background: #dcfce7; color: #166534; padding: 5px 12px; border-radius: 6px; font-size: 12.5px; cursor: pointer; font-weight: bold;">全部優惠</button>
+      <button type="button" class="twd-filter-btn" onclick="setTWDealsCategory('旅遊', this)" style="border: 1px solid #d1d5db; background: #fff; color: #4b5563; padding: 5px 12px; border-radius: 6px; font-size: 12.5px; cursor: pointer;">🚄 旅遊交通住宿</button>
+      <button type="button" class="twd-filter-btn" onclick="setTWDealsCategory('哩程', this)" style="border: 1px solid #d1d5db; background: #fff; color: #4b5563; padding: 5px 12px; border-radius: 6px; font-size: 12.5px; cursor: pointer;">✈️ 航空哩程加碼</button>
+      <button type="button" class="twd-filter-btn" onclick="setTWDealsCategory('信用卡', this)" style="border: 1px solid #d1d5db; background: #fff; color: #4b5563; padding: 5px 12px; border-radius: 6px; font-size: 12.5px; cursor: pointer;">💳 信用卡＆折扣碼</button>
+    </div>
+  </div>
+
+  <!-- 下方台灣最新優惠表格主體 -->
+  <div style="width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; border: 1px solid #bbf7d0; border-bottom: none; background: #fff;">
+    <table id="twDealsTable" style="width: 100%; border-collapse: collapse; min-width: 740px; text-align: left; font-size: 13.5px; color: #374151;">
+      <thead>
+        <tr style="background-color: #ecfdf5; color: #166534; border-bottom: 2px solid #bbf7d0; font-size: 13px;">
+          <th style="padding: 10px 12px; width: 45px; text-align: center;">#</th>
+          <th onclick="sortTWDealsTable(1)" style="padding: 10px 12px; width: 105px; text-align: center; cursor: pointer; user-select: none;">
+            優惠類別 <span style="font-size: 11px; color: #888;">⇅</span>
+          </th>
+          <th onclick="sortTWDealsTable(2)" style="padding: 10px 12px; width: 200px; cursor: pointer; user-select: none;">
+            活動／專案名稱 <span style="font-size: 11px; color: #888;">⇅</span>
+          </th>
+          <th style="padding: 10px 12px; width: 150px; text-align: center;">優惠碼 / 期限</th>
+          <th style="padding: 10px 12px;">優惠內容、活動條件與相關攻略</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- ==================== 【旅遊類】 ==================== -->
+        <!-- 1. Taiwan Pass 台鐵版 -->
+        <tr data-cat="旅遊">
+          <td style="padding: 12px; text-align: center; border-bottom: 1px solid #f1f1f1; font-weight: bold;">1</td>
+          <td style="padding: 12px; text-align: center; border-bottom: 1px solid #f1f1f1;">
+            <span style="background: #dcfce7; color: #166534; padding: 3px 8px; border-radius: 6px; font-size: 11.5px; font-weight: bold;">🚄 旅遊交通</span>
+          </td>
+          <td style="padding: 12px; border-bottom: 1px solid #f1f1f1; font-weight: 700; color: #1e3a8a;">
+            <a href="https://www.kkday.com/zh-tw/product/284326?cid=23161" target="_blank" rel="noopener" style="color: #1d4ed8; text-decoration: underline;">Taiwan Pass 台鐵版 (#環島)</a>
+          </td>
+          <td style="padding: 12px; text-align: center; border-bottom: 1px solid #f1f1f1;">
+            <span style="background: #fef3c7; color: #92400e; padding: 2px 7px; border-radius: 4px; font-size: 11.5px; font-weight: bold;">12/31 前綁定</span>
+          </td>
+          <td style="padding: 12px; border-bottom: 1px solid #f1f1f1; color: #374151; line-height: 1.6;">
+            購買後需於 <strong>12/31 前完成綁定</strong>，綁定後 <strong>365 天內有效</strong>，適合規劃環島多日自由行。<br>
+            📌 <strong>相關文章：</strong><a href="https://s875261.pixnet.net/blog/posts/880367530487530052" target="_blank" style="color: #15803d; font-weight: 600; text-decoration: underline;">【交通懶人包】TPASS 通勤月票、TPASS 2.0+ 常客回饋加碼 5-15%！</a>
+          </td>
+        </tr>
+
+        <!-- 2. 雙北公車 399 定期票 -->
+        <tr data-cat="旅遊">
+          <td style="padding: 12px; text-align: center; border-bottom: 1px solid #f1f1f1; font-weight: bold;">2</td>
+          <td style="padding: 12px; text-align: center; border-bottom: 1px solid #f1f1f1;">
+            <span style="background: #dcfce7; color: #166534; padding: 3px 8px; border-radius: 6px; font-size: 11.5px; font-weight: bold;">🚌 旅遊交通</span>
+          </td>
+          <td style="padding: 12px; border-bottom: 1px solid #f1f1f1; font-weight: 700; color: #1e3a8a;">
+            雙北公車「399 定期票」
+          </td>
+          <td style="padding: 12px; text-align: center; border-bottom: 1px solid #f1f1f1;">
+            <span style="background: #f1f5f9; color: #475569; padding: 2px 7px; border-radius: 4px; font-size: 11.5px;">30 天無限搭</span>
+          </td>
+          <td style="padding: 12px; border-bottom: 1px solid #f1f1f1; color: #374151; line-height: 1.6;">
+            雙北公車將推出「<strong>399 定期票</strong>」，開通後 <strong>30 天內不限次數搭乘雙北公車</strong>，純公車通勤族省荷包新選擇。
+          </td>
+        </tr>
+
+        <!-- 3. 台鐵假期開賣 -->
+        <tr data-cat="旅遊">
+          <td style="padding: 12px; text-align: center; border-bottom: 1px solid #f1f1f1; font-weight: bold;">3</td>
+          <td style="padding: 12px; text-align: center; border-bottom: 1px solid #f1f1f1;">
+            <span style="background: #dcfce7; color: #166534; padding: 3px 8px; border-radius: 6px; font-size: 11.5px; font-weight: bold;">🚂 旅遊交通</span>
+          </td>
+          <td style="padding: 12px; border-bottom: 1px solid #f1f1f1; font-weight: 700; color: #1e3a8a;">
+            台鐵假期・觀光列車特惠
+          </td>
+          <td style="padding: 12px; text-align: center; border-bottom: 1px solid #f1f1f1;">
+            <span style="background: #fee2e2; color: #991b1b; padding: 2px 7px; border-radius: 4px; font-size: 11.5px; font-weight: bold;">最高折 $1,500</span>
+          </td>
+          <td style="padding: 12px; border-bottom: 1px solid #f1f1f1; color: #374151; line-height: 1.6;">
+            台鐵假期正式開賣！預訂指定觀光列車行程方案，最高可享現折 <strong>1,500 元</strong> 優惠。
+          </td>
+        </tr>
+
+        <!-- 4. 國旅住宿補助 -->
+        <tr data-cat="旅遊">
+          <td style="padding: 12px; text-align: center; border-bottom: 1px solid #f1f1f1; font-weight: bold;">4</td>
+          <td style="padding: 12px; text-align: center; border-bottom: 1px solid #f1f1f1;">
+            <span style="background: #dcfce7; color: #166534; padding: 3px 8px; border-radius: 6px; font-size: 11.5px; font-weight: bold;">🏨 住宿補助</span>
+          </td>
+          <td style="padding: 12px; border-bottom: 1px solid #f1f1f1; font-weight: 700; color: #1e3a8a;">
+            2026 國旅住宿補助方案
+          </td>
+          <td style="padding: 12px; text-align: center; border-bottom: 1px solid #f1f1f1;">
+            <span style="background: #fee2e2; color: #991b1b; padding: 2px 7px; border-radius: 4px; font-size: 11.5px; font-weight: bold;">最高折 $2,000</span>
+          </td>
+          <td style="padding: 12px; border-bottom: 1px solid #f1f1f1; color: #374151; line-height: 1.6;">
+            國內旅遊住宿最高折抵 <strong>2,000 元</strong>！<br>
+            📌 <strong>相關文章：</strong><a href="https://s875261.pixnet.net/blog/posts/953340469532639341" target="_blank" style="color: #15803d; font-weight: 600; text-decoration: underline;">【2026國旅住宿補助懶人包】最夯住宿熱門地點排名與申請教學</a>
+          </td>
+        </tr>
+
+        <!-- 5. 台中 $200 台中亮點券 -->
+        <tr data-cat="旅遊">
+          <td style="padding: 12px; text-align: center; border-bottom: 1px solid #f1f1f1; font-weight: bold;">5</td>
+          <td style="padding: 12px; text-align: center; border-bottom: 1px solid #f1f1f1;">
+            <span style="background: #dcfce7; color: #166534; padding: 3px 8px; border-radius: 6px; font-size: 11.5px; font-weight: bold;">🎟️ 旅遊消費券</span>
+          </td>
+          <td style="padding: 12px; border-bottom: 1px solid #f1f1f1; font-weight: 700; color: #1e3a8a;">
+            台中 $200「台中亮點券」
+          </td>
+          <td style="padding: 12px; text-align: center; border-bottom: 1px solid #f1f1f1;">
+            <span style="background: #fef3c7; color: #92400e; padding: 2px 7px; border-radius: 4px; font-size: 11.5px; font-weight: bold;">2027/2/10 止</span>
+          </td>
+          <td style="padding: 12px; border-bottom: 1px solid #f1f1f1; color: #374151; line-height: 1.6;">
+            配合觀光署 100 亮點方案，自 <strong>2026/11/1 起至 2027/2/10</strong>，全國民眾只要前往台中指定發券地點完成條件，即可現場領取面額 <strong>$200 紙本亮點券</strong>折抵合作店家消費。
+          </td>
+        </tr>
+
+        <!-- ==================== 【哩程類】 ==================== -->
+        <!-- 6. ANA Black Friday 半價換機票 -->
+        <tr data-cat="哩程">
+          <td style="padding: 12px; text-align: center; border-bottom: 1px solid #f1f1f1; font-weight: bold;">6</td>
+          <td style="padding: 12px; text-align: center; border-bottom: 1px solid #f1f1f1;">
+            <span style="background: #dbeafe; color: #1e40af; padding: 3px 8px; border-radius: 6px; font-size: 11.5px; font-weight: bold;">✈️ 航空哩程</span>
+          </td>
+          <td style="padding: 12px; border-bottom: 1px solid #f1f1f1; font-weight: 700; color: #1e3a8a;">
+            <a href="https://www.ana.co.jp/zh/hk/amc/hk-discount-mileage-campaign/" target="_blank" rel="noopener" style="color: #1d4ed8; text-decoration: underline;">ANA 全日空 Black Friday 半價換票</a>
+          </td>
+          <td style="padding: 12px; text-align: center; border-bottom: 1px solid #f1f1f1;">
+            <span style="background: #fee2e2; color: #991b1b; padding: 2px 7px; border-radius: 4px; font-size: 11.5px; font-weight: bold;">11/24 截止</span>
+          </td>
+          <td style="padding: 12px; border-bottom: 1px solid #f1f1f1; color: #374151; line-height: 1.6;">
+            ANA 推出黑五<strong>半價里數換機票</strong>優惠（至 11/24 止），適用出發期間：<strong>2027/01/11 - 2027/06/30</strong>。<br>
+            📌 <strong>相關文章：</strong><a href="https://s875261.pixnet.net/blog/posts/901743909766385478" target="_blank" style="color: #1d4ed8; font-weight: 600; text-decoration: underline;">【全日空里程俱樂部】ANA Mileage Club 快速累積哩程＋兌換活動</a>
+          </td>
+        </tr>
+
+        <!-- 7. 國泰「亞洲萬里通」年終雙重隱藏加碼 -->
+        <tr data-cat="哩程">
+          <td style="padding: 12px; text-align: center; border-bottom: 1px solid #f1f1f1; font-weight: bold;">7</td>
+          <td style="padding: 12px; text-align: center; border-bottom: 1px solid #f1f1f1;">
+            <span style="background: #dbeafe; color: #1e40af; padding: 3px 8px; border-radius: 6px; font-size: 11.5px; font-weight: bold;">✈️ 航空哩程</span>
+          </td>
+          <td style="padding: 12px; border-bottom: 1px solid #f1f1f1; font-weight: 700; color: #1e3a8a;">
+            國泰「亞洲萬里通」年終雙重加碼
+          </td>
+          <td style="padding: 12px; text-align: center; border-bottom: 1px solid #f1f1f1;">
+            <span style="background: #fef3c7; color: #92400e; padding: 2px 7px; border-radius: 4px; font-size: 11.5px; font-weight: bold;">需先官網登記</span>
+          </td>
+          <td style="padding: 12px; border-bottom: 1px solid #f1f1f1; color: #374151; line-height: 1.6;">
+            兩檔「先登記才算數」隱藏活動，部分任務可疊加：<br>
+            1️⃣ <strong>「賞里啟程」7 大任務最高賺 6,000 里</strong>（2026/11/16～2027/1/16）：台灣活動頁登記後，App 簽到＋開推播送 50 里；任意賺/換 1 里送 100 里；支付夥伴（如信用卡）轉入滿 8,000 里加送 800 里；兌換滿 15,000 里再送 1,800 里。<br>
+            2️⃣ <strong>年終指定夥伴賺里額外 10%（上限 3,000 里）</strong>（2026/11/9～2027/1/4）：須另外登記，透過指定夥伴（含 Heymax、指定酒店計畫等，非所有台灣銀行信用卡直接轉點皆列入）賺里享額外 10% 回饋。
+          </td>
+        </tr>
+
+        <!-- 8. 長榮航空「無限萬哩遊」11月限時加碼 -->
+        <tr data-cat="哩程">
+          <td style="padding: 12px; text-align: center; border-bottom: 1px solid #f1f1f1; font-weight: bold;">8</td>
+          <td style="padding: 12px; text-align: center; border-bottom: 1px solid #f1f1f1;">
+            <span style="background: #dbeafe; color: #1e40af; padding: 3px 8px; border-radius: 6px; font-size: 11.5px; font-weight: bold;">✈️ 航空哩程</span>
+          </td>
+          <td style="padding: 12px; border-bottom: 1px solid #f1f1f1; font-weight: 700; color: #1e3a8a;">
+            長榮「無限萬哩遊」11月雙重優惠
+          </td>
+          <td style="padding: 12px; text-align: center; border-bottom: 1px solid #f1f1f1;">
+            <span style="background: #fee2e2; color: #991b1b; padding: 2px 7px; border-radius: 4px; font-size: 11.5px; font-weight: bold;">11/25・11/30 止</span>
+          </td>
+          <td style="padding: 12px; border-bottom: 1px solid #f1f1f1; color: #374151; line-height: 1.6;">
+            1️⃣ <strong>購買／加值哩程最高加贈 50%</strong>（2026/11/10～11/25）：於長榮官網買哩享最高 50% 獎勵，適合差臨門一腳換票或升等者補齊缺口。<br>
+            2️⃣ <strong>日本新宿京王百貨雙倍哩程</strong>（至 2026/11/30 止）：消費出示長榮會員卡，享無限萬哩遊雙倍哩程累積。
+          </td>
+        </tr>
+
+        <!-- ==================== 【信用卡類】 ==================== -->
+        <!-- 9. 國泰 CUBE x 可樂旅遊 JR 折扣碼 -->
+        <tr data-cat="信用卡 旅遊">
+          <td style="padding: 12px; text-align: center; border-bottom: 1px solid #f1f1f1; font-weight: bold;">9</td>
+          <td style="padding: 12px; text-align: center; border-bottom: 1px solid #f1f1f1;">
+            <span style="background: #f3e8ff; color: #6b21a8; padding: 3px 8px; border-radius: 6px; font-size: 11.5px; font-weight: bold;">💳 信用卡優惠</span>
+          </td>
+          <td style="padding: 12px; border-bottom: 1px solid #f1f1f1; font-weight: 700; color: #1e3a8a;">
+            <a href="https://www.colatour.com.tw/webDM/bankCard/cathay/cube/sale.html" target="_blank" rel="noopener" style="color: #6b21a8; text-decoration: underline;">國泰 CUBE × 可樂旅遊 JR 券 8 折</a>
+          </td>
+          <td style="padding: 12px; text-align: center; border-bottom: 1px solid #f1f1f1;">
+            <div style="display: inline-flex; align-items: center; gap: 4px; margin-bottom: 4px;">
+              <code style="background: #f1f5f9; color: #0f172a; padding: 2px 6px; border-radius: 4px; font-weight: bold; font-size: 12px;">CUBE26JR</code>
+              <button type="button" onclick="copyTWCode(this, 'CUBE26JR')" style="padding: 2px 6px; font-size: 11px; cursor: pointer; border: 1px solid #cbd5e1; border-radius: 4px; background: #fff;" title="複製折扣碼">📋</button>
+            </div>
+            <div style="font-size: 11px; color: #888;">至 2026/11/30 止</div>
+          </td>
+          <td style="padding: 12px; border-bottom: 1px solid #f1f1f1; color: #374151; line-height: 1.6;">
+            國泰世華 CUBE 卡友於「秋日遊」活動期間（2026/10/1～11/30），在可樂旅遊購買<strong>指定 JR 西日本鐵路周遊券</strong>結帳輸入折扣碼 <strong>CUBE26JR</strong>，即享<strong>現折 20%（8折）</strong>優惠！
+          </td>
+        </tr>
+
+        <!-- 10. 國泰 CUBE 卡「秋日遊」最高 10% -->
+        <tr data-cat="信用卡 旅遊">
+          <td style="padding: 12px; text-align: center; border-bottom: 1px solid #f1f1f1; font-weight: bold;">10</td>
+          <td style="padding: 12px; text-align: center; border-bottom: 1px solid #f1f1f1;">
+            <span style="background: #f3e8ff; color: #6b21a8; padding: 3px 8px; border-radius: 6px; font-size: 11.5px; font-weight: bold;">💳 信用卡優惠</span>
+          </td>
+          <td style="padding: 12px; border-bottom: 1px solid #f1f1f1; font-weight: 700; color: #1e3a8a;">
+            國泰 CUBE 卡「秋日遊」最高 10%
+          </td>
+          <td style="padding: 12px; text-align: center; border-bottom: 1px solid #f1f1f1;">
+            <span style="background: #fef3c7; color: #92400e; padding: 2px 7px; border-radius: 4px; font-size: 11.5px; font-weight: bold;">11/30 前領券</span>
+          </td>
+          <td style="padding: 12px; border-bottom: 1px solid #f1f1f1; color: #374151; line-height: 1.6;">
+            11/30 前切換至「<strong>秋日遊</strong>」權益並在 APP 領券，除日本實體 3.5% 外，享隱藏高回饋：<br>
+            • <strong>訂房/票券：</strong>Hotels.com / Expedia 專屬網頁訂房最高 <strong>10% 回饋</strong>、Klook 指定日本商品享 <strong>5%</strong>。<br>
+            • <strong>國內日系餐飲：</strong>初魚、橘色、壽司郎、摩斯等指定餐廳最高享 <strong>8% 回饋</strong>。
+          </td>
+        </tr>
+
+        <!-- 11. 國泰小樹點換 Agoda VIP 鑽石會員 -->
+        <tr data-cat="信用卡 旅遊">
+          <td style="padding: 12px; text-align: center; border-bottom: 1px solid #f1f1f1; font-weight: bold;">11</td>
+          <td style="padding: 12px; text-align: center; border-bottom: 1px solid #f1f1f1;">
+            <span style="background: #f3e8ff; color: #6b21a8; padding: 3px 8px; border-radius: 6px; font-size: 11.5px; font-weight: bold;">💳 信用卡優惠</span>
+          </td>
+          <td style="padding: 12px; border-bottom: 1px solid #f1f1f1; font-weight: 700; color: #1e3a8a;">
+            國泰 CUBE 29點換 Agoda 鑽石會籍
+          </td>
+          <td style="padding: 12px; text-align: center; border-bottom: 1px solid #f1f1f1;">
+            <span style="background: #e0f2fe; color: #0369a1; padding: 2px 7px; border-radius: 4px; font-size: 11.5px; font-weight: bold;">小樹點 29 點</span>
+          </td>
+          <td style="padding: 12px; border-bottom: 1px solid #f1f1f1; color: #374151; line-height: 1.6;">
+            國泰世華 CUBE 卡友可使用 <strong>29 點小樹點（信用卡）</strong>，直接於「<strong>國泰優惠 APP</strong>」兌換 <strong>Agoda VIP 鑽石會員資格</strong>，訂房享最高 25% 會員專屬優惠價與免費早餐/延遲退房禮遇。
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- 【底部貼心提示】 -->
+  <div style="background: #f6faf7; border: 1px solid #bbf7d0; border-top: none; border-radius: 0 0 12px 12px; padding: 12px 16px; box-sizing: border-box; font-size: 13px; color: #166534;">
+    💡 <strong>使用提醒：</strong>航空哩程加碼（如國泰亞洲萬里通）及信用卡權益活動（如國泰 CUBE 秋日遊）多需<strong>「先至活動頁面或 APP 完成登記/領券」</strong>才符合回饋計算資格，建議在消費或轉點前先完成登錄步驟！
+  </div>
+
+</div>
+
+<!-- 專屬列印優化 CSS -->
+<style>
+@media print {
+  .print-hide-block, .print-hide-btn {
+    display: none !important;
+  }
+  .interactive-tw-deals-container {
+    margin: 0 !important;
+    width: 100% !important;
+  }
+  #twDealsTable {
+    width: 100% !important;
+    min-width: 100% !important;
+    font-size: 12px !important;
+  }
+  #twDealsTable th, #twDealsTable td {
+    border: 1px solid #ddd !important;
+    padding: 6px 8px !important;
+    color: #000 !important;
+  }
+}
+</style>
+
+<!-- 互動、篩選、複製與列印控制腳本 -->
+<script>
+let activeTWDealsCat = 'all';
+let sortTWDealsDir = { 1: 1, 2: 1 };
+
+// 列印功能
+function printTWDealsTable() {
+  window.print();
+}
+
+// 一鍵複製折扣碼
+function copyTWCode(btn, code) {
+  navigator.clipboard.writeText(code).then(() => {
+    const oldText = btn.innerText;
+    btn.innerText = "已複製！";
+    btn.style.background = "#dcfce7";
+    btn.style.color = "#166534";
+    btn.style.borderColor = "#86efac";
+    setTimeout(() => {
+      btn.innerText = oldText;
+      btn.style.background = "#fff";
+      btn.style.color = "#000";
+      btn.style.borderColor = "#cbd5e1";
+    }, 1800);
+  }).catch(() => {
+    prompt("請手動複製折扣碼：", code);
+  });
+}
+
+// 分類切換
+function setTWDealsCategory(cat, el) {
+  activeTWDealsCat = cat;
+  document.querySelectorAll('.twd-filter-btn').forEach(btn => {
+    btn.style.background = '#fff';
+    btn.style.color = '#4b5563';
+    btn.style.fontWeight = 'normal';
+    btn.style.borderColor = '#d1d5db';
+  });
+  el.style.background = '#dcfce7';
+  el.style.color = '#166534';
+  el.style.fontWeight = 'bold';
+  el.style.borderColor = '#16a34a';
+  filterTWDealsTable();
+}
+
+// 關鍵字搜尋過濾
+function filterTWDealsTable() {
+  const keyword = document.getElementById('twDealsSearch').value.trim().toLowerCase();
+  const rows = document.querySelectorAll('#twDealsTable tbody tr');
+
+  rows.forEach(row => {
+    const text = row.innerText.toLowerCase();
+    const rowCat = row.getAttribute('data-cat') || '';
+    const matchCat = (activeTWDealsCat === 'all') || rowCat.includes(activeTWDealsCat);
+    const matchKeyword = text.includes(keyword);
+
+    if (matchCat && matchKeyword) {
+      row.style.display = '';
+    } else {
+      row.style.display = 'none';
+    }
+  });
+}
+
+// 點擊表頭排序
+function sortTWDealsTable(colIndex) {
+  const table = document.getElementById('twDealsTable');
+  const tbody = table.querySelector('tbody');
+  const rows = Array.from(tbody.querySelectorAll('tr'));
+  const currentDir = sortTWDealsDir[colIndex] || 1;
+  const newDir = -currentDir;
+  sortTWDealsDir[colIndex] = newDir;
+
+  rows.sort((a, b) => {
+    const valA = a.children[colIndex].innerText.trim();
+    const valB = b.children[colIndex].innerText.trim();
+    return valA.localeCompare(valB, 'zh-Hant') * newDir;
+  });
+
+  rows.forEach(row => tbody.appendChild(row));
+}
+</script>
+<!-- 台灣最新優惠（含優惠碼） 互動式純表格模組 結束 -->
