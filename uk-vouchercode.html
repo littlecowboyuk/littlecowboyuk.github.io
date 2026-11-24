@@ -1,0 +1,357 @@
+<!-- 英國最新優惠（含優惠碼） 互動式純表格模組 開始 -->
+<div class="interactive-uk-deals-container" style="width: 100%; max-width: 100%; box-sizing: border-box; margin: 25px 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Noto Sans TC', sans-serif;">
+
+  <!-- 表格頂部標題與工具橫幅 -->
+  <div style="background-color: #e8f0fe; color: #1a4fd8; padding: 12px 18px; border-radius: 12px 12px 0 0; border: 1px solid #bfdbfe; border-bottom: none; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px;">
+    <div style="font-weight: 800; font-size: 18px; letter-spacing: 0.8px; display: flex; align-items: center; gap: 6px;">
+      🇬🇧 英國最新優惠情報站（黑五折扣・旅遊機票・購物優惠碼）
+    </div>
+    
+    <!-- 一鍵列印按鈕 -->
+    <button type="button" onclick="printUKDealsTable()" class="print-hide-btn"
+      style="background: #ffffff; color: #1d4ed8; border: 1.5px solid #2563eb; padding: 6px 14px; border-radius: 20px; font-size: 13px; font-weight: 700; cursor: pointer; display: inline-flex; align-items: center; gap: 6px; box-shadow: 0 2px 5px rgba(0,0,0,0.06); transition: 0.2s;">
+      🖨️ 列印優惠清單 / 存為PDF
+    </button>
+  </div>
+
+  <!-- 【上方專屬好康】TopCashback 推薦碼橫幅 -->
+  <div class="print-hide-block" style="background: #fffdf0; border: 1px solid #bfdbfe; border-bottom: none; padding: 12px 16px; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 10px;">
+    <div style="font-size: 14px; color: #374151; line-height: 1.55;">
+      🎁 <strong>專屬好康！</strong>如果你還沒有 TopCashback 會員，歡迎使用我的 <a href="https://www.topcashback.co.uk/ref/s875261" target="_blank" rel="nofollow ugc noreferrer noopener" style="color: #15803d; font-weight: 700; text-decoration: underline;">好友推薦連結</a> 註冊，直接免費現領 <strong>£10 英鎊</strong> 迎新獎勵金！近期透過導購預訂 <strong>Klook 回饋金高達 13%</strong>！
+    </div>
+    <div style="display: flex; gap: 8px; align-items: center;">
+      <a href="https://www.topcashback.co.uk/ref/s875261" target="_blank" rel="nofollow ugc noreferrer noopener"
+        style="background: #16a34a; color: #ffffff !important; padding: 6px 14px; border-radius: 8px; font-size: 13px; font-weight: 700; text-decoration: none; display: inline-flex; align-items: center; gap: 4px; box-shadow: 0 2px 4px rgba(22,163,74,0.2);">
+        👉 點我註冊領 £10
+      </a>
+      <button type="button" onclick="copyUKReferral(this)"
+        style="background: #ffffff; color: #374151; border: 1px solid #d1d5db; padding: 6px 12px; border-radius: 8px; font-size: 13px; cursor: pointer; font-weight: 600;">
+        📋 複製推薦連結
+      </button>
+    </div>
+  </div>
+
+  <!-- 互動操作工具列（搜尋 + 分類切換） -->
+  <div class="print-hide-block" style="background: #f8fafc; border: 1px solid #bfdbfe; border-bottom: none; padding: 12px 14px; display: flex; flex-wrap: wrap; gap: 10px; justify-content: space-between; align-items: center;">
+    <!-- 搜尋框 -->
+    <div style="flex: 1 1 240px;">
+      <input type="text" id="ukDealsSearch" placeholder="🔍 搜尋品牌、折扣碼或關鍵字（如: Jo Malone、MERRY、Amazon、Uniqlo、華航）..." onkeyup="filterUKDealsTable()"
+        style="width: 100%; padding: 8px 12px; border: 1px solid #cbd5e1; border-radius: 6px; font-size: 13px; outline: none; box-sizing: border-box; background: #fff;">
+    </div>
+    <!-- 分類快選按鈕 -->
+    <div style="display: flex; gap: 6px; flex-wrap: wrap;">
+      <button type="button" class="ukd-filter-btn active" onclick="setUKDealsCategory('all', this)" style="border: 1px solid #2563eb; background: #dbeafe; color: #1e3a8a; padding: 5px 12px; border-radius: 6px; font-size: 12.5px; cursor: pointer; font-weight: bold;">全部優惠</button>
+      <button type="button" class="ukd-filter-btn" onclick="setUKDealsCategory('黑五', this)" style="border: 1px solid #d1d5db; background: #fff; color: #4b5563; padding: 5px 12px; border-radius: 6px; font-size: 12.5px; cursor: pointer;">🔥 黑五特惠</button>
+      <button type="button" class="ukd-filter-btn" onclick="setUKDealsCategory('購物', this)" style="border: 1px solid #d1d5db; background: #fff; color: #4b5563; padding: 5px 12px; border-radius: 6px; font-size: 12.5px; cursor: pointer;">🛍️ 網購/美妝保健</button>
+      <button type="button" class="ukd-filter-btn" onclick="setUKDealsCategory('旅遊', this)" style="border: 1px solid #d1d5db; background: #fff; color: #4b5563; padding: 5px 12px; border-radius: 6px; font-size: 12.5px; cursor: pointer;">✈️ 旅遊/機票票券</button>
+    </div>
+  </div>
+
+  <!-- 下方英國最新優惠表格主體 -->
+  <div style="width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; border: 1px solid #bfdbfe; border-bottom: none; background: #fff;">
+    <table id="ukDealsTable" style="width: 100%; border-collapse: collapse; min-width: 740px; text-align: left; font-size: 13.5px; color: #374151;">
+      <thead>
+        <tr style="background-color: #eff6ff; color: #1e3a8a; border-bottom: 2px solid #bfdbfe; font-size: 13px;">
+          <th style="padding: 10px 12px; width: 45px; text-align: center;">#</th>
+          <th onclick="sortUKDealsTable(1)" style="padding: 10px 12px; width: 105px; text-align: center; cursor: pointer; user-select: none;">
+            優惠類別 <span style="font-size: 11px; color: #888;">⇅</span>
+          </th>
+          <th onclick="sortUKDealsTable(2)" style="padding: 10px 12px; width: 200px; cursor: pointer; user-select: none;">
+            品牌／活動名稱 <span style="font-size: 11px; color: #888;">⇅</span>
+          </th>
+          <th style="padding: 10px 12px; width: 155px; text-align: center;">優惠碼 / 期限</th>
+          <th style="padding: 10px 12px;">優惠內容、贈品門檻與回饋攻略</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- ==================== 【黑五優惠】 ==================== -->
+        <!-- 1. Jo Malone -->
+        <tr data-cat="黑五 購物">
+          <td style="padding: 12px; text-align: center; border-bottom: 1px solid #f1f1f1; font-weight: bold;">1</td>
+          <td style="padding: 12px; text-align: center; border-bottom: 1px solid #f1f1f1;">
+            <span style="background: #fee2e2; color: #991b1b; padding: 3px 8px; border-radius: 6px; font-size: 11.5px; font-weight: bold;">🔥 黑五優惠</span>
+          </td>
+          <td style="padding: 12px; border-bottom: 1px solid #f1f1f1; font-weight: 700; color: #1e3a8a;">
+            <a href="https://www.jomalone.co.uk/cyber-offer?_gl=1*1hsd59e*_up*MQ..*_gs*MQ..&gclid=Cj0KCQiAiJXYBhD_ARIsAAx2AHlUxYFxxdrXjPhOtYlN8wKsXfInDHB_L0n8YRHgrOFnK7BpCuTbjWoaAnUqEALw_wcB&gclsrc=aw.ds" target="_blank" rel="noopener" style="color: #1d4ed8; text-decoration: underline;">Jo Malone UK 黑五滿額贈</a>
+          </td>
+          <td style="padding: 12px; text-align: center; border-bottom: 1px solid #f1f1f1;">
+            <div style="display: inline-flex; align-items: center; gap: 4px; margin-bottom: 4px;">
+              <code style="background: #f1f5f9; color: #0f172a; padding: 2px 6px; border-radius: 4px; font-weight: bold; font-size: 12px;">MERRY</code>
+              <button type="button" onclick="copyUKCode(this, 'MERRY')" style="padding: 2px 6px; font-size: 11px; cursor: pointer; border: 1px solid #cbd5e1; border-radius: 4px; background: #fff;" title="複製折扣碼">📋</button>
+            </div>
+            <div style="font-size: 11px; color: #888;">至 12/2 止</div>
+          </td>
+          <td style="padding: 12px; border-bottom: 1px solid #f1f1f1; color: #374151; line-height: 1.6;">
+            官網輸入優惠碼 <strong>MERRY</strong>，享三階滿額好禮（三選一）：<br>
+            • 滿 <strong>£100</strong> 贈 青檸羅勒與柑橘護手霜 (Lime Basil & Mandarin Hand Cream)<br>
+            • 滿 <strong>£130</strong> 贈 鼠尾草與海鹽沐浴潔手露 (Wood Sage & Sea Salt Body & Hand Wash)<br>
+            • 滿 <strong>£170</strong> 贈 黑石榴擴香 (Pomegranate Noir Diffuser)
+          </td>
+        </tr>
+
+        <!-- 2. Holland & Barrett -->
+        <tr data-cat="黑五 購物">
+          <td style="padding: 12px; text-align: center; border-bottom: 1px solid #f1f1f1; font-weight: bold;">2</td>
+          <td style="padding: 12px; text-align: center; border-bottom: 1px solid #f1f1f1;">
+            <span style="background: #fee2e2; color: #991b1b; padding: 3px 8px; border-radius: 6px; font-size: 11.5px; font-weight: bold;">🔥 黑五優惠</span>
+          </td>
+          <td style="padding: 12px; border-bottom: 1px solid #f1f1f1; font-weight: 700; color: #1e3a8a;">
+            <a href="https://www.hollandandbarrett.com/shop/offers/black-friday-deals/" target="_blank" rel="noopener" style="color: #1d4ed8; text-decoration: underline;">Holland & Barrett (H&B)</a>
+          </td>
+          <td style="padding: 12px; text-align: center; border-bottom: 1px solid #f1f1f1;">
+            <div style="display: inline-flex; align-items: center; gap: 4px; margin-bottom: 4px;">
+              <code style="background: #f1f5f9; color: #0f172a; padding: 2px 6px; border-radius: 4px; font-weight: bold; font-size: 12px;">SAVE</code>
+              <button type="button" onclick="copyUKCode(this, 'SAVE')" style="padding: 2px 6px; font-size: 11px; cursor: pointer; border: 1px solid #cbd5e1; border-radius: 4px; background: #fff;" title="複製折扣碼">📋</button>
+            </div>
+            <div style="font-size: 11px; color: #dc2626; font-weight: 600;">40% OFF + 再折 15%</div>
+          </td>
+          <td style="padding: 12px; border-bottom: 1px solid #f1f1f1; color: #374151; line-height: 1.6;">
+            英國國民保健品牌黑五專區最優 <strong>40% 折扣（6折）</strong>，結帳輸入優惠碼 <strong>SAVE</strong> 可<strong>再享額外 15% 折扣（85折）</strong>！採購維他命、膠原蛋白與魚油必衝。
+          </td>
+        </tr>
+
+        <!-- 3. The North Face -->
+        <tr data-cat="黑五 購物">
+          <td style="padding: 12px; text-align: center; border-bottom: 1px solid #f1f1f1; font-weight: bold;">3</td>
+          <td style="padding: 12px; text-align: center; border-bottom: 1px solid #f1f1f1;">
+            <span style="background: #fee2e2; color: #991b1b; padding: 3px 8px; border-radius: 6px; font-size: 11.5px; font-weight: bold;">🔥 黑五優惠</span>
+          </td>
+          <td style="padding: 12px; border-bottom: 1px solid #f1f1f1; font-weight: 700; color: #1e3a8a;">
+            <a href="https://www.thenorthface.com/en-gb/c/early-access-798858?utm_source=google&utm_medium=ppc&utm_campaign=TNF-UK-Core-B-&gclsrc=aw.ds&gad_source=1&gad_campaignid=18342373625&gclid=CjwKCAiA5Y_YBhBbEiwAK5Dl7SvJ5ZsYQfdV8oFo4P9cLBnXzr_94CRNQ3I24gYVL5acQK8WI4JPjxoCF-wQAvD_BwE" target="_blank" rel="noopener" style="color: #1d4ed8; text-decoration: underline;">The North Face UK</a>
+          </td>
+          <td style="padding: 12px; text-align: center; border-bottom: 1px solid #f1f1f1;">
+            <span style="background: #fef3c7; color: #92400e; padding: 2px 7px; border-radius: 4px; font-size: 11.5px; font-weight: bold;">黑五搶先購開跑</span>
+          </td>
+          <td style="padding: 12px; border-bottom: 1px solid #f1f1f1; color: #374151; line-height: 1.6;">
+            英國官網黑五早鳥優惠（Black Friday Early Access）正式開跑，防風防水衝鋒衣、羽絨外套與保暖配件特惠中。
+          </td>
+        </tr>
+
+        <!-- 4. Uniqlo UK -->
+        <tr data-cat="黑五 購物">
+          <td style="padding: 12px; text-align: center; border-bottom: 1px solid #f1f1f1; font-weight: bold;">4</td>
+          <td style="padding: 12px; text-align: center; border-bottom: 1px solid #f1f1f1;">
+            <span style="background: #fee2e2; color: #991b1b; padding: 3px 8px; border-radius: 6px; font-size: 11.5px; font-weight: bold;">🔥 黑五優惠</span>
+          </td>
+          <td style="padding: 12px; border-bottom: 1px solid #f1f1f1; font-weight: 700; color: #1e3a8a;">
+            <a href="https://www.uniqlo.com/uk/en/special-feature/arigato-festival" target="_blank" rel="noopener" style="color: #1d4ed8; text-decoration: underline;">Uniqlo UK 感謝祭＆黑五</a>
+          </td>
+          <td style="padding: 12px; text-align: center; border-bottom: 1px solid #f1f1f1;">
+            <span style="background: #dcfce7; color: #166534; padding: 2px 7px; border-radius: 4px; font-size: 11.5px; font-weight: bold;">11/26 - 12/6</span>
+          </td>
+          <td style="padding: 12px; border-bottom: 1px solid #f1f1f1; color: #374151; line-height: 1.6;">
+            黑五與感謝祭優惠於 <strong>11/26 - 12/6</strong> 盛大開跑！結帳前搭配 <strong>TopCashback 導購可再享最高 4% 現金回饋</strong>。
+          </td>
+        </tr>
+
+        <!-- 5. Boots -->
+        <tr data-cat="黑五 購物">
+          <td style="padding: 12px; text-align: center; border-bottom: 1px solid #f1f1f1; font-weight: bold;">5</td>
+          <td style="padding: 12px; text-align: center; border-bottom: 1px solid #f1f1f1;">
+            <span style="background: #fee2e2; color: #991b1b; padding: 3px 8px; border-radius: 6px; font-size: 11.5px; font-weight: bold;">🔥 黑五優惠</span>
+          </td>
+          <td style="padding: 12px; border-bottom: 1px solid #f1f1f1; font-weight: 700; color: #1e3a8a;">
+            <a href="https://www.boots.com/black-friday" target="_blank" rel="noopener" style="color: #1d4ed8; text-decoration: underline;">Boots 英國博姿藥妝</a>
+          </td>
+          <td style="padding: 12px; text-align: center; border-bottom: 1px solid #f1f1f1;">
+            <span style="background: #fee2e2; color: #991b1b; padding: 2px 7px; border-radius: 4px; font-size: 11.5px; font-weight: bold;">最高 40% OFF</span>
+          </td>
+          <td style="padding: 12px; border-bottom: 1px solid #f1f1f1; color: #374151; line-height: 1.6;">
+            英國連鎖藥妝龍頭黑五折扣<strong>最高享 40% 優惠（6折起）</strong>，涵蓋專櫃保養、香水禮盒、電動牙刷與醫美品牌。
+          </td>
+        </tr>
+
+        <!-- ==================== 【購物類】 ==================== -->
+        <!-- 6. Amazon UK -->
+        <tr data-cat="購物">
+          <td style="padding: 12px; text-align: center; border-bottom: 1px solid #f1f1f1; font-weight: bold;">6</td>
+          <td style="padding: 12px; text-align: center; border-bottom: 1px solid #f1f1f1;">
+            <span style="background: #fef3c7; color: #92400e; padding: 3px 8px; border-radius: 6px; font-size: 11.5px; font-weight: bold;">🛍️ 購物優惠</span>
+          </td>
+          <td style="padding: 12px; border-bottom: 1px solid #f1f1f1; font-weight: 700; color: #1e3a8a;">
+            Amazon UK 亞馬遜取貨優惠
+          </td>
+          <td style="padding: 12px; text-align: center; border-bottom: 1px solid #f1f1f1;">
+            <div style="display: inline-flex; align-items: center; gap: 4px; margin-bottom: 4px;">
+              <code style="background: #f1f5f9; color: #0f172a; padding: 2px 6px; border-radius: 4px; font-weight: bold; font-size: 12px;">PICKUP3</code>
+              <button type="button" onclick="copyUKCode(this, 'PICKUP3')" style="padding: 2px 6px; font-size: 11px; cursor: pointer; border: 1px solid #cbd5e1; border-radius: 4px; background: #fff;" title="複製折扣碼">📋</button>
+            </div>
+            <div style="font-size: 11px; color: #888;">至 2026/12/31 止</div>
+          </td>
+          <td style="padding: 12px; border-bottom: 1px solid #f1f1f1; color: #374151; line-height: 1.6;">
+            購買 <strong>Amazon 自營出貨商品（Sold & Dispatched by Amazon）</strong>，結帳輸入優惠碼 <strong>PICKUP3</strong> 並選擇指定取貨點（Pickup Location），享<strong>滿 £10 折 £3 英鎊</strong>優惠！
+          </td>
+        </tr>
+
+        <!-- ==================== 【旅遊類】 ==================== -->
+        <!-- 7. 中華航空 11月 Sale -->
+        <tr data-cat="旅遊">
+          <td style="padding: 12px; text-align: center; border-bottom: 1px solid #f1f1f1; font-weight: bold;">7</td>
+          <td style="padding: 12px; text-align: center; border-bottom: 1px solid #f1f1f1;">
+            <span style="background: #dbeafe; color: #1e40af; padding: 3px 8px; border-radius: 6px; font-size: 11.5px; font-weight: bold;">✈️ 旅遊機票</span>
+          </td>
+          <td style="padding: 12px; border-bottom: 1px solid #f1f1f1; font-weight: 700; color: #1e3a8a;">
+            <a href="https://flights.china-airlines.com/en-gb/flights?_gl=1*xymm0g*_gcl_aw*R0NMLjE3OTU0NjQ2OTIuQ2p3S0NBaUE1WV9ZQmhCYkVpd0FLNURsN2RXaFFFV2RuMFJxbFNjczJKb3EtRVI4WEJjUThsRkpTQjI2ZTRYcmlDRW1tRmhZQkliblV4b0M4UlFRQXZEX0J3RQ..*_gcl_au*MTg1MDEzODU3Mi4xNzk1NDY0NTI4Ljc2NzQ5NDQyMy4xNzk1NDY0NTg5LjE3OTU1MDYyNzIuNTkxNzk4NzU5LjE3OTU0NjQ1ODkuMTc5NTUwNjI3Mg..*_ga*NzIwNjUzMjg2LjE3OTQ3ODEwMzI.*_ga_GF3YT47MLJ*czE3OTU1MDU4NzUkbzIkZzEkdDE3OTU1MDYyNzEkajI4JGwwJGg2MjY1MDU3ODk." target="_blank" rel="noopener" style="color: #1d4ed8; text-decoration: underline;">中華航空 UK 11月機票特惠</a>
+          </td>
+          <td style="padding: 12px; text-align: center; border-bottom: 1px solid #f1f1f1;">
+            <span style="background: #dbeafe; color: #1e40af; padding: 2px 7px; border-radius: 4px; font-size: 11.5px; font-weight: bold;">限時 20% OFF</span>
+          </td>
+          <td style="padding: 12px; border-bottom: 1px solid #f1f1f1; color: #374151; line-height: 1.6;">
+            中華航空英國出發航線 11 月促銷活動，指定航班與艙等享 <strong>20% 折扣（8折）</strong>優惠，返台或轉機亞洲必看。
+          </td>
+        </tr>
+
+        <!-- 8. Klook 旅遊體驗回饋 -->
+        <tr data-cat="旅遊">
+          <td style="padding: 12px; text-align: center; border-bottom: 1px solid #f1f1f1; font-weight: bold;">8</td>
+          <td style="padding: 12px; text-align: center; border-bottom: 1px solid #f1f1f1;">
+            <span style="background: #dcfce7; color: #166534; padding: 3px 8px; border-radius: 6px; font-size: 11.5px; font-weight: bold;">🎫 旅遊票券</span>
+          </td>
+          <td style="padding: 12px; border-bottom: 1px solid #f1f1f1; font-weight: 700; color: #1e3a8a;">
+            <a href="https://www.topcashback.co.uk/ref/s875261" target="_blank" rel="nofollow ugc noreferrer noopener" style="color: #15803d; text-decoration: underline;">Klook 客路 × TopCashback</a>
+          </td>
+          <td style="padding: 12px; text-align: center; border-bottom: 1px solid #f1f1f1;">
+            <span style="background: #dcfce7; color: #166534; padding: 2px 7px; border-radius: 4px; font-size: 11.5px; font-weight: bold;">最高 13% 回饋</span>
+          </td>
+          <td style="padding: 12px; border-bottom: 1px solid #f1f1f1; color: #374151; line-height: 1.6;">
+            透過 TopCashback 英國站導購至 Klook 預訂景點門票、交通周遊券或一日遊行程，享有高達 <strong>13% 現金返利</strong>！
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- 【底部相關文章與返利提醒】 -->
+  <div style="background: #f8fafc; border: 1px solid #bfdbfe; border-top: none; border-radius: 0 0 12px 12px; padding: 12px 16px; box-sizing: border-box; font-size: 13.5px; color: #1e3a8a; line-height: 1.7;">
+    <div>📌 <strong>返利小撇步：</strong>黑五在 Jo Malone、Boots、Uniqlo、H&B 結帳前，建議先從 <a href="https://www.topcashback.co.uk/ref/s875261" target="_blank" rel="nofollow ugc noreferrer noopener" style="color: #15803d; font-weight: 700; text-decoration: underline;">TopCashback</a> 點擊跳轉下單，有機會疊加賺取雙重回饋！</div>
+    <div>📌 <strong>延伸閱讀：</strong><a href="https://s875261.pixnet.net/blog/posts/958032912416983057" target="_blank" rel="noopener" style="color: #1d4ed8; font-weight: 700; text-decoration: underline;">【英國省錢必備】英國購物 TopCashback 回饋金—返利全攻略</a></div>
+  </div>
+
+</div>
+
+<!-- 專屬列印優化 CSS -->
+<style>
+@media print {
+  .print-hide-block, .print-hide-btn {
+    display: none !important;
+  }
+  .interactive-uk-deals-container {
+    margin: 0 !important;
+    width: 100% !important;
+  }
+  #ukDealsTable {
+    width: 100% !important;
+    min-width: 100% !important;
+    font-size: 12px !important;
+  }
+  #ukDealsTable th, #ukDealsTable td {
+    border: 1px solid #ddd !important;
+    padding: 6px 8px !important;
+    color: #000 !important;
+  }
+}
+</style>
+
+<!-- 互動、篩選、複製與列印控制腳本 -->
+<script>
+let activeUKDealsCat = 'all';
+let sortUKDealsDir = { 1: 1, 2: 1 };
+
+// 列印功能
+function printUKDealsTable() {
+  window.print();
+}
+
+// 複製 TopCashback 推薦連結
+function copyUKReferral(btn) {
+  const refLink = "https://www.topcashback.co.uk/ref/s875261";
+  navigator.clipboard.writeText(refLink).then(() => {
+    const oldText = btn.innerText;
+    btn.innerText = "✅ 已複製！";
+    btn.style.background = "#dcfce7";
+    btn.style.color = "#15803d";
+    btn.style.borderColor = "#86efac";
+    setTimeout(() => {
+      btn.innerText = oldText;
+      btn.style.background = "#ffffff";
+      btn.style.color = "#374151";
+      btn.style.borderColor = "#d1d5db";
+    }, 2000);
+  }).catch(() => {
+    alert("推薦連結：" + refLink);
+  });
+}
+
+// 一鍵複製折扣碼
+function copyUKCode(btn, code) {
+  navigator.clipboard.writeText(code).then(() => {
+    const oldText = btn.innerText;
+    btn.innerText = "已複製！";
+    btn.style.background = "#dcfce7";
+    btn.style.color = "#166534";
+    btn.style.borderColor = "#86efac";
+    setTimeout(() => {
+      btn.innerText = oldText;
+      btn.style.background = "#fff";
+      btn.style.color = "#000";
+      btn.style.borderColor = "#cbd5e1";
+    }, 1800);
+  }).catch(() => {
+    prompt("請手動複製折扣碼：", code);
+  });
+}
+
+// 分類切換
+function setUKDealsCategory(cat, el) {
+  activeUKDealsCat = cat;
+  document.querySelectorAll('.ukd-filter-btn').forEach(btn => {
+    btn.style.background = '#fff';
+    btn.style.color = '#4b5563';
+    btn.style.fontWeight = 'normal';
+    btn.style.borderColor = '#d1d5db';
+  });
+  el.style.background = '#dbeafe';
+  el.style.color = '#1e3a8a';
+  el.style.fontWeight = 'bold';
+  el.style.borderColor = '#2563eb';
+  filterUKDealsTable();
+}
+
+// 關鍵字搜尋過濾
+function filterUKDealsTable() {
+  const keyword = document.getElementById('ukDealsSearch').value.trim().toLowerCase();
+  const rows = document.querySelectorAll('#ukDealsTable tbody tr');
+
+  rows.forEach(row => {
+    const text = row.innerText.toLowerCase();
+    const rowCat = row.getAttribute('data-cat') || '';
+    const matchCat = (activeUKDealsCat === 'all') || rowCat.includes(activeUKDealsCat);
+    const matchKeyword = text.includes(keyword);
+
+    if (matchCat && matchKeyword) {
+      row.style.display = '';
+    } else {
+      row.style.display = 'none';
+    }
+  });
+}
+
+// 點擊表頭排序
+function sortUKDealsTable(colIndex) {
+  const table = document.getElementById('ukDealsTable');
+  const tbody = table.querySelector('tbody');
+  const rows = Array.from(tbody.querySelectorAll('tr'));
+  const currentDir = sortUKDealsDir[colIndex] || 1;
+  const newDir = -currentDir;
+  sortUKDealsDir[colIndex] = newDir;
+
+  rows.sort((a, b) => {
+    const valA = a.children[colIndex].innerText.trim();
+    const valB = b.children[colIndex].innerText.trim();
+    return valA.localeCompare(valB, 'zh-Hant') * newDir;
+  });
+
+  rows.forEach(row => tbody.appendChild(row));
+}
+</script>
+<!-- 英國最新優惠（含優惠碼） 互動式純表格模組 結束 -->
